@@ -28,4 +28,9 @@ interface FormatterInterface
      * Get the platform name this formatter is for.
      */
     public function platform(): string;
+
+    /**
+     * Get the maximum content length for this platform.
+     */
+    public function maxLength(): int;
 }
