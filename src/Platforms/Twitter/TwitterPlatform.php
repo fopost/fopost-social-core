@@ -184,6 +184,24 @@ class TwitterPlatform implements PlatformInterface
             );
         }
 
+        if (!file_exists($media->path)) {
+            throw new MediaValidationException(
+                message: "Media file does not exist: {$media->path}",
+                platformName: 'twitter',
+                mimeType: $media->mimeType,
+                fileSize: $media->fileSize,
+            );
+        }
+
+        if (!is_readable($media->path)) {
+            throw new MediaValidationException(
+                message: "Media file is not readable: {$media->path}",
+                platformName: 'twitter',
+                mimeType: $media->mimeType,
+                fileSize: $media->fileSize,
+            );
+        }
+
         $mediaData = base64_encode(file_get_contents($media->path));
 
         $response = $this->authenticatedRequest('POST', self::UPLOAD_URL, [

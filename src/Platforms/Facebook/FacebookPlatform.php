@@ -6,6 +6,7 @@ namespace Synglify\Core\Platforms\Facebook;
 
 use Synglify\Core\Content\Post;
 use Synglify\Core\Config\PlatformCredentials;
+use Synglify\Core\Exceptions\MediaValidationException;
 use Synglify\Core\Exceptions\PlatformException;
 use Synglify\Core\Exceptions\RateLimitException;
 use Synglify\Core\Http\Contracts\HttpClientInterface;
@@ -166,6 +167,8 @@ class FacebookPlatform implements PlatformInterface
         $url = $this->graphApiUrl($pageId . '/photos');
         $media = $post->media->first();
 
+        $this->assertFileReadable($media->path);
+
         $multipart = [
             ['name' => 'message', 'contents' => $message],
             ['name' => 'access_token', 'contents' => $token],
@@ -202,6 +205,8 @@ class FacebookPlatform implements PlatformInterface
         $url = $this->graphApiUrl($pageId . '/videos');
         $media = $post->media->first();
 
+        $this->assertFileReadable($media->path);
+
         $multipart = [
             ['name' => 'description', 'contents' => $message],
             ['name' => 'title', 'contents' => $post->title],
@@ -229,6 +234,28 @@ class FacebookPlatform implements PlatformInterface
         $this->handleErrorResponse($response, $data);
 
         return $this->buildResponse($data);
+    }
+
+    /**
+     * Assert that a file exists and is readable before attempting to read it.
+     *
+     * @throws MediaValidationException If the file does not exist or is not readable.
+     */
+    private function assertFileReadable(string $path): void
+    {
+        if (!file_exists($path)) {
+            throw new MediaValidationException(
+                message: "Media file does not exist: {$path}",
+                platformName: 'facebook',
+            );
+        }
+
+        if (!is_readable($path)) {
+            throw new MediaValidationException(
+                message: "Media file is not readable: {$path}",
+                platformName: 'facebook',
+            );
+        }
     }
 
     /**
