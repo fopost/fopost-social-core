@@ -7,6 +7,7 @@ namespace Synglify\Core\Platforms\Twitter;
 use Synglify\Core\Content\Post;
 use Synglify\Core\Formatting\Contracts\FormatterInterface;
 use Synglify\Core\Formatting\CharacterTruncator;
+use Synglify\Core\Formatting\HashtagExtractor;
 
 /**
  * Formats content for Twitter/X's 280-character limit.
@@ -17,19 +18,74 @@ use Synglify\Core\Formatting\CharacterTruncator;
 class TwitterFormatter implements FormatterInterface
 {
     private const MAX_TWEET_LENGTH = 280;
+
+    /**
+     * All URLs posted to Twitter are wrapped in t.co and count as this many characters.
+     *
+     * @see https://developer.x.com/en/docs/counting-characters
+     */
     private const TCO_URL_LENGTH = 23;
+
+    public function __construct(
+        private readonly HashtagExtractor $hashtagExtractor,
+        private readonly CharacterTruncator $truncator,
+    ) {
+    }
 
     public function format(Post $post, array $options = []): string
     {
-        // TODO: implement — build tweet text, account for t.co URL length,
-        //       add hashtags, truncate if needed
-        $text = $post->body;
+        $maxLength = self::MAX_TWEET_LENGTH;
 
+        // Calculate space reserved for URL (t.co wrapping)
+        $urlReserved = 0;
         if ($post->hasUrl()) {
-            $text .= "\n\n" . $post->url;
+            // URL + preceding double newline
+            $urlReserved = self::TCO_URL_LENGTH + 2;
         }
 
-        return $text;
+        // Build hashtag string and calculate its length
+        $hashtags = '';
+        $hashtagsReserved = 0;
+        if ($post->tags !== []) {
+            $hashtags = $this->hashtagExtractor->extract($post->tags);
+            if ($hashtags !== '') {
+                // Hashtags + preceding double newline
+                $hashtagsReserved = mb_strlen($hashtags) + 2;
+            }
+        }
+
+        // Available space for body text
+        $availableForBody = $maxLength - $urlReserved - $hashtagsReserved;
+
+        // If hashtags don't fit, progressively reduce them
+        if ($availableForBody < 30 && $hashtagsReserved > 0) {
+            $hashtags = '';
+            $hashtagsReserved = 0;
+            $availableForBody = $maxLength - $urlReserved;
+        }
+
+        // Build the body: prefer excerpt for tweets, fall back to body
+        $body = ($post->excerpt !== null && $post->excerpt !== '')
+            ? $post->excerpt
+            : $post->body;
+
+        // Truncate the body if needed
+        if (mb_strlen($body) > $availableForBody) {
+            $body = $this->truncator->truncate($body, $availableForBody);
+        }
+
+        // Assemble the tweet
+        $parts = [$body];
+
+        if ($hashtags !== '') {
+            $parts[] = $hashtags;
+        }
+
+        if ($post->hasUrl()) {
+            $parts[] = $post->url;
+        }
+
+        return implode("\n\n", $parts);
     }
 
     public function platform(): string
