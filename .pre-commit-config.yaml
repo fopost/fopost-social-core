@@ -1,0 +1,36 @@
+# See https://pre-commit.com for more information
+# Install: pip install pre-commit && pre-commit install
+repos:
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude_types: [markdown]
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+      - id: no-commit-to-branch
+        args: ['--branch', 'main']
+      - id: detect-private-key
+
+  # PHP syntax check
+  - repo: local
+    hooks:
+      - id: php-lint
+        name: PHP Lint
+        entry: php -l
+        language: system
+        files: \.php$
+        types: [php]
+
+      - id: phpunit
+        name: PHPUnit
+        entry: ./vendor/bin/phpunit --testsuite=Unit --no-coverage
+        language: system
+        files: \.php$
+        pass_filenames: false
+        stages: [pre-push]
