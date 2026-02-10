@@ -78,42 +78,35 @@ class HttpClient implements HttpClientInterface
             return strlen($header);
         });
 
-        // Set request headers
+        // Build request headers array
+        $requestHeaders = [];
         if (isset($options['headers'])) {
-            $headers = [];
             foreach ($options['headers'] as $key => $value) {
-                $headers[] = "{$key}: {$value}";
+                $requestHeaders[] = "{$key}: {$value}";
             }
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         }
 
         // Set request body
-        if (isset($options['json'])) {
+        if (isset($options['multipart'])) {
+            $postFields = $this->buildMultipartBody($options['multipart']);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+            // cURL sets Content-Type with boundary automatically for array postfields
+        } elseif (isset($options['json'])) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($options['json']));
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array_merge(
-                $options['headers'] ?? [],
-                ['Content-Type: application/json']
-            ));
+            $requestHeaders[] = 'Content-Type: application/json';
         } elseif (isset($options['body'])) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, $options['body']);
         } elseif (isset($options['form_params'])) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($options['form_params']));
         }
 
+        if ($requestHeaders !== []) {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $requestHeaders);
+        }
+
         // Set proxy if configured
         if ($this->proxy) {
-            if (isset($this->proxy['hostname'])) {
-                curl_setopt($ch, CURLOPT_PROXY, $this->proxy['hostname']);
-            }
-            if (isset($this->proxy['port'])) {
-                curl_setopt($ch, CURLOPT_PROXYPORT, $this->proxy['port']);
-            }
-            if (isset($this->proxy['type'])) {
-                curl_setopt($ch, CURLOPT_PROXYTYPE, $this->proxy['type']);
-            }
-            if (isset($this->proxy['username'], $this->proxy['password'])) {
-                curl_setopt($ch, CURLOPT_PROXYUSERPWD, $this->proxy['username'] . ':' . $this->proxy['password']);
-            }
+            $this->applyProxy($ch);
         }
 
         $body = curl_exec($ch);
@@ -130,5 +123,64 @@ class HttpClient implements HttpClientInterface
             'headers' => $responseHeaders,
             'body' => (string) $body,
         ];
+    }
+
+    /**
+     * Build a multipart/form-data body for cURL.
+     *
+     * Each element in $parts should be an array with keys:
+     *   - 'name'     => field name (required)
+     *   - 'contents' => field value or file contents (required)
+     *   - 'filename' => original filename (optional, triggers file upload)
+     *   - 'headers'  => ['Content-Type' => 'image/jpeg'] (optional)
+     *
+     * @param array $parts Multipart field definitions.
+     * @return array cURL-compatible postfields array.
+     */
+    private function buildMultipartBody(array $parts): array
+    {
+        $postFields = [];
+
+        foreach ($parts as $part) {
+            $name = $part['name'];
+            $contents = $part['contents'];
+
+            if (isset($part['filename'])) {
+                // File upload — write contents to a temp file for CURLFile
+                $tmpFile = tempnam(sys_get_temp_dir(), 'synglify_');
+                file_put_contents($tmpFile, $contents);
+
+                $mimeType = $part['headers']['Content-Type']
+                    ?? $part['content_type']
+                    ?? 'application/octet-stream';
+
+                $postFields[$name] = new \CURLFile($tmpFile, $mimeType, $part['filename']);
+            } else {
+                $postFields[$name] = $contents;
+            }
+        }
+
+        return $postFields;
+    }
+
+    /**
+     * Apply proxy settings to a cURL handle.
+     *
+     * @param \CurlHandle $ch The cURL handle.
+     */
+    private function applyProxy(\CurlHandle $ch): void
+    {
+        if (isset($this->proxy['hostname'])) {
+            curl_setopt($ch, CURLOPT_PROXY, $this->proxy['hostname']);
+        }
+        if (isset($this->proxy['port'])) {
+            curl_setopt($ch, CURLOPT_PROXYPORT, $this->proxy['port']);
+        }
+        if (isset($this->proxy['type'])) {
+            curl_setopt($ch, CURLOPT_PROXYTYPE, $this->proxy['type']);
+        }
+        if (isset($this->proxy['username'], $this->proxy['password'])) {
+            curl_setopt($ch, CURLOPT_PROXYUSERPWD, $this->proxy['username'] . ':' . $this->proxy['password']);
+        }
     }
 }

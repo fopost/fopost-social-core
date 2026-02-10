@@ -26,8 +26,16 @@ interface HttpClientInterface
     /**
      * Send a POST request.
      *
+     * Supported $options keys:
+     *   - 'headers'     => ['Header-Name' => 'value']
+     *   - 'json'        => array (auto-encodes + sets Content-Type)
+     *   - 'body'        => raw string body
+     *   - 'form_params' => ['key' => 'value'] (URL-encoded form)
+     *   - 'multipart'   => [['name' => 'field', 'contents' => '...', 'filename' => '...', 'headers' => [...]]]
+     *   - 'query'       => ['key' => 'value'] (appended to URL)
+     *
      * @param string $url     The URL to request.
-     * @param array  $options Request options (headers, body, json, etc.).
+     * @param array  $options Request options (headers, body, json, multipart, etc.).
      * @return array{status: int, headers: array, body: string}
      */
     public function post(string $url, array $options = []): array;
