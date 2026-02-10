@@ -1,0 +1,84 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Synglify\Core\Config;
+
+use Synglify\Core\Exceptions\SynglifyException;
+
+/**
+ * Validates that platform configurations have all required credentials.
+ */
+class ConfigValidator
+{
+    /**
+     * Required credential keys per platform.
+     *
+     * @var array<string, string[]>
+     */
+    private array $requiredKeys = [
+        'telegram' => ['api_token'],
+        'twitter' => ['consumer_key', 'consumer_secret', 'access_token', 'access_token_secret'],
+        'facebook' => ['app_id', 'app_secret', 'page_access_token', 'page_id'],
+    ];
+
+    /**
+     * Register required keys for a custom platform.
+     *
+     * @param string   $platform The platform name.
+     * @param string[] $keys     Required credential keys.
+     */
+    public function registerRequiredKeys(string $platform, array $keys): void
+    {
+        $this->requiredKeys[$platform] = $keys;
+    }
+
+    /**
+     * Validate credentials for a specific platform.
+     *
+     * @return string[] Array of missing key names (empty if valid).
+     */
+    public function validate(PlatformCredentials $credentials): array
+    {
+        $required = $this->requiredKeys[$credentials->platform] ?? [];
+        $missing = [];
+
+        foreach ($required as $key) {
+            if (!$credentials->has($key)) {
+                $missing[] = $key;
+            }
+        }
+
+        return $missing;
+    }
+
+    /**
+     * Validate all platforms in a config and throw if any are invalid.
+     *
+     * @throws SynglifyException If any platform has missing credentials.
+     */
+    public function validateConfig(SynglifyConfig $config): void
+    {
+        $errors = [];
+
+        foreach ($config->configuredPlatforms() as $platform) {
+            $credentials = $config->credentials($platform);
+            $missing = $this->validate($credentials);
+
+            if (!empty($missing)) {
+                $errors[$platform] = $missing;
+            }
+        }
+
+        if (!empty($errors)) {
+            $messages = [];
+            foreach ($errors as $platform => $keys) {
+                $messages[] = "{$platform}: missing " . implode(', ', $keys);
+            }
+
+            throw new SynglifyException(
+                'Invalid configuration: ' . implode('; ', $messages)
+            );
+        }
+    }
+}
