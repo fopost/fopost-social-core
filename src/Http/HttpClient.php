@@ -86,9 +86,12 @@ class HttpClient implements HttpClientInterface
             }
         }
 
+        // Track temp files created for multipart uploads so we can clean them up
+        $tempFiles = [];
+
         // Set request body
         if (isset($options['multipart'])) {
-            $postFields = $this->buildMultipartBody($options['multipart']);
+            $postFields = $this->buildMultipartBody($options['multipart'], $tempFiles);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
             // cURL sets Content-Type with boundary automatically for array postfields
         } elseif (isset($options['json'])) {
@@ -109,20 +112,29 @@ class HttpClient implements HttpClientInterface
             $this->applyProxy($ch);
         }
 
-        $body = curl_exec($ch);
-        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $error = curl_error($ch);
-        curl_close($ch);
+        try {
+            $body = curl_exec($ch);
+            $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $error = curl_error($ch);
+            curl_close($ch);
 
-        if ($body === false) {
-            throw new SynglifyException("HTTP request failed: {$error}");
+            if ($body === false) {
+                throw new SynglifyException("HTTP request failed: {$error}");
+            }
+
+            return [
+                'status' => (int) $status,
+                'headers' => $responseHeaders,
+                'body' => (string) $body,
+            ];
+        } finally {
+            // Clean up any temp files created for multipart uploads
+            foreach ($tempFiles as $tmpFile) {
+                if (file_exists($tmpFile)) {
+                    @unlink($tmpFile);
+                }
+            }
         }
-
-        return [
-            'status' => (int) $status,
-            'headers' => $responseHeaders,
-            'body' => (string) $body,
-        ];
     }
 
     /**
@@ -134,10 +146,11 @@ class HttpClient implements HttpClientInterface
      *   - 'filename' => original filename (optional, triggers file upload)
      *   - 'headers'  => ['Content-Type' => 'image/jpeg'] (optional)
      *
-     * @param array $parts Multipart field definitions.
+     * @param array    $parts     Multipart field definitions.
+     * @param string[] $tempFiles Collects paths of created temp files for cleanup.
      * @return array cURL-compatible postfields array.
      */
-    private function buildMultipartBody(array $parts): array
+    private function buildMultipartBody(array $parts, array &$tempFiles = []): array
     {
         $postFields = [];
 
@@ -149,6 +162,7 @@ class HttpClient implements HttpClientInterface
                 // File upload — write contents to a temp file for CURLFile
                 $tmpFile = tempnam(sys_get_temp_dir(), 'synglify_');
                 file_put_contents($tmpFile, $contents);
+                $tempFiles[] = $tmpFile;
 
                 $mimeType = $part['headers']['Content-Type']
                     ?? $part['content_type']
