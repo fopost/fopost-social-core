@@ -1,0 +1,27 @@
+# Auto-detect text files and normalise line endings to LF
+* text=auto eol=lf
+
+# PHP files
+*.php diff=php
+
+# Explicitly declare text files
+*.md text
+*.txt text
+*.xml text
+*.json text
+*.yml text
+*.yaml text
+*.neon text
+
+# Exclude files from distribution archive (composer --prefer-dist)
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/.editorconfig export-ignore
+/.pre-commit-config.yaml export-ignore
+/AGENTS.md export-ignore
+/CLAUDE.md export-ignore
+/CONTRIBUTING.md export-ignore
+/CHANGELOG.md export-ignore
+/SECURITY.md export-ignore
+/phpunit.xml export-ignore
+/tests export-ignore
