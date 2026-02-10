@@ -12,7 +12,7 @@ interface PlatformResponseInterface
     /**
      * Whether the publish operation was successful.
      */
-    public function success(): bool;
+    public function isSuccess(): bool;
 
     /**
      * The external ID assigned by the platform (e.g., tweet ID, message ID).

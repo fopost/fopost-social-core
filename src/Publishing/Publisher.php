@@ -41,7 +41,7 @@ class Publisher
             $response = $platform->publish($post, $options);
 
             $result = new PublishResult(
-                success: $response->success(),
+                success: $response->isSuccess(),
                 platformName: $platformName,
                 externalId: $response->externalId(),
                 externalUrl: $response->externalUrl(),

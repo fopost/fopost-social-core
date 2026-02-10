@@ -45,7 +45,7 @@ class PlatformResponse implements PlatformResponseInterface
         );
     }
 
-    public function success(): bool
+    public function isSuccess(): bool
     {
         return $this->isSuccess;
     }
