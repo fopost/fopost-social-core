@@ -39,6 +39,14 @@ class TelegramPlatform implements PlatformInterface
     public function publish(Post $post, array $options = []): PlatformResponseInterface
     {
         $chatId = $options['chat_id'] ?? $this->credentials->get('channel_username');
+
+        if ($chatId === null || $chatId === '') {
+            throw new PlatformException(
+                message: 'Telegram chat_id is required: provide it via options or configure channel_username in credentials.',
+                platformName: 'telegram',
+            );
+        }
+
         $parseMode = $options['parse_mode'] ?? 'HTML';
 
         if ($post->hasMedia() && $post->media->count() > 1) {
