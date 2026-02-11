@@ -20,6 +20,7 @@ class ConfigValidator
         'telegram' => ['api_token'],
         'twitter' => ['consumer_key', 'consumer_secret', 'access_token', 'access_token_secret'],
         'facebook' => ['app_id', 'app_secret', 'page_access_token', 'page_id'],
+        'slack' => ['bot_token', 'channel'],
     ];
 
     /**
