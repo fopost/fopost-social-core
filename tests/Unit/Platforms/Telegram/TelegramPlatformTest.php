@@ -243,4 +243,351 @@ class TelegramPlatformTest extends TestCase
         $this->assertContains('image/jpeg', $constraints['supported_media_types']);
         $this->assertContains('video/mp4', $constraints['supported_media_types']);
     }
+
+    // ── Extended Telegram methods ───────────────────────────────────────────
+
+    public function testSendLocation(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('sendLocation'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['chat_id'] === '@test_channel'
+                        && $p['latitude'] === 51.5074
+                        && $p['longitude'] === -0.1278;
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 200]));
+
+        $result = $this->platform->sendLocation('@test_channel', 51.5074, -0.1278);
+
+        $this->assertTrue($result['ok']);
+        $this->assertSame(200, $result['result']['message_id']);
+    }
+
+    public function testSendLocationWithOptions(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('sendLocation'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['live_period'] === 600
+                        && $p['disable_notification'] === true;
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 201]));
+
+        $this->platform->sendLocation('@test_channel', 51.5074, -0.1278, [
+            'live_period' => 600,
+            'disable_notification' => true,
+        ]);
+    }
+
+    public function testSendVenue(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('sendVenue'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['chat_id'] === '@test_channel'
+                        && $p['title'] === 'Test Venue'
+                        && $p['address'] === '123 Test St';
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 210]));
+
+        $result = $this->platform->sendVenue('@test_channel', 51.5074, -0.1278, 'Test Venue', '123 Test St');
+
+        $this->assertTrue($result['ok']);
+    }
+
+    public function testSendVenueWithFoursquareId(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('sendVenue'),
+                $this->callback(function (array $options) {
+                    return $options['form_params']['foursquare_id'] === '4bf58dd8d48988d1';
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 211]));
+
+        $this->platform->sendVenue('@test_channel', 51.5074, -0.1278, 'Venue', 'Address', [
+            'foursquare_id' => '4bf58dd8d48988d1',
+        ]);
+    }
+
+    public function testSendContact(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('sendContact'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['chat_id'] === '@test_channel'
+                        && $p['phone_number'] === '+1234567890'
+                        && $p['first_name'] === 'John';
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 220]));
+
+        $result = $this->platform->sendContact('@test_channel', '+1234567890', 'John');
+
+        $this->assertTrue($result['ok']);
+    }
+
+    public function testSendContactWithLastName(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('sendContact'),
+                $this->callback(function (array $options) {
+                    return $options['form_params']['last_name'] === 'Doe';
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 221]));
+
+        $this->platform->sendContact('@test_channel', '+1234567890', 'John', [
+            'last_name' => 'Doe',
+        ]);
+    }
+
+    public function testSendVoice(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('sendVoice'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['chat_id'] === '@test_channel'
+                        && $p['voice'] === '/path/to/voice.ogg';
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 230]));
+
+        $result = $this->platform->sendVoice('@test_channel', '/path/to/voice.ogg');
+
+        $this->assertTrue($result['ok']);
+    }
+
+    public function testSendVoiceWithOptions(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('sendVoice'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['caption'] === 'Voice note'
+                        && $p['duration'] === 15
+                        && $p['parse_mode'] === 'HTML';
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 231]));
+
+        $this->platform->sendVoice('@test_channel', '/path/to/voice.ogg', [
+            'caption' => 'Voice note',
+            'duration' => 15,
+            'parse_mode' => 'HTML',
+        ]);
+    }
+
+    public function testEditMessageText(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('editMessageText'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['chat_id'] === '@test_channel'
+                        && $p['message_id'] === 42
+                        && $p['text'] === 'Updated text'
+                        && $p['parse_mode'] === 'HTML';
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 42]));
+
+        $result = $this->platform->editMessageText('@test_channel', 42, 'Updated text');
+
+        $this->assertTrue($result['ok']);
+    }
+
+    public function testEditMessageTextWithKeyboard(): void
+    {
+        $keyboard = [[['text' => 'Button', 'url' => 'https://example.com']]];
+
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('editMessageText'),
+                $this->callback(function (array $options) use ($keyboard) {
+                    $p = $options['form_params'];
+                    $markup = json_decode($p['reply_markup'], true);
+                    return $markup['inline_keyboard'] === $keyboard;
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 42]));
+
+        $this->platform->editMessageText('@test_channel', 42, 'Updated', [
+            'inline_keyboard' => $keyboard,
+        ]);
+    }
+
+    public function testEditMessageCaption(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('editMessageCaption'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['chat_id'] === '@test_channel'
+                        && $p['message_id'] === 55
+                        && $p['caption'] === 'New caption';
+                })
+            )
+            ->willReturn($this->successResponse(['message_id' => 55]));
+
+        $result = $this->platform->editMessageCaption('@test_channel', 55, 'New caption');
+
+        $this->assertTrue($result['ok']);
+    }
+
+    public function testPinMessage(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('pinChatMessage'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['chat_id'] === '@test_channel'
+                        && $p['message_id'] === 42;
+                })
+            )
+            ->willReturn([
+                'status' => 200,
+                'headers' => [],
+                'body' => json_encode(['ok' => true, 'result' => true]),
+            ]);
+
+        $this->assertTrue($this->platform->pinMessage('@test_channel', 42));
+    }
+
+    public function testPinMessageWithSilentNotification(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('pinChatMessage'),
+                $this->callback(function (array $options) {
+                    return $options['form_params']['disable_notification'] === true;
+                })
+            )
+            ->willReturn([
+                'status' => 200,
+                'headers' => [],
+                'body' => json_encode(['ok' => true, 'result' => true]),
+            ]);
+
+        $this->platform->pinMessage('@test_channel', 42, ['disable_notification' => true]);
+    }
+
+    public function testUnpinMessage(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('unpinChatMessage'),
+                $this->callback(function (array $options) {
+                    $p = $options['form_params'];
+                    return $p['chat_id'] === '@test_channel'
+                        && $p['message_id'] === 42;
+                })
+            )
+            ->willReturn([
+                'status' => 200,
+                'headers' => [],
+                'body' => json_encode(['ok' => true, 'result' => true]),
+            ]);
+
+        $this->assertTrue($this->platform->unpinMessage('@test_channel', 42));
+    }
+
+    public function testUnpinAllMessages(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->with(
+                $this->stringContains('unpinAllChatMessages'),
+                $this->callback(function (array $options) {
+                    return $options['form_params']['chat_id'] === '@test_channel';
+                })
+            )
+            ->willReturn([
+                'status' => 200,
+                'headers' => [],
+                'body' => json_encode(['ok' => true, 'result' => true]),
+            ]);
+
+        $this->assertTrue($this->platform->unpinAllMessages('@test_channel'));
+    }
+
+    public function testSendLocationThrowsOnApiError(): void
+    {
+        $this->httpClient
+            ->expects($this->once())
+            ->method('post')
+            ->willReturn([
+                'status' => 400,
+                'headers' => [],
+                'body' => json_encode([
+                    'ok' => false,
+                    'description' => 'Bad Request: invalid latitude',
+                    'error_code' => 400,
+                ]),
+            ]);
+
+        $this->expectException(PlatformException::class);
+        $this->expectExceptionMessage('Bad Request: invalid latitude');
+
+        $this->platform->sendLocation('@test_channel', 999.0, 999.0);
+    }
+
+    // ── Helpers ──────────────────────────────────────────────────────────────
+
+    private function successResponse(array $result): array
+    {
+        return [
+            'status' => 200,
+            'headers' => [],
+            'body' => json_encode(['ok' => true, 'result' => $result]),
+        ];
+    }
 }

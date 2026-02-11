@@ -297,6 +297,305 @@ class TelegramPlatform implements PlatformInterface
         return $data;
     }
 
+    // ── Extended Telegram Bot API methods ──────────────────────────────────
+
+    /**
+     * Send a location to a chat.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @param float $latitude Latitude of the location.
+     * @param float $longitude Longitude of the location.
+     * @param array $options Optional: live_period, disable_notification, reply_to_message_id, inline_keyboard, reply_keyboard.
+     * @return array Raw API response.
+     */
+    public function sendLocation(string|int $chatId, float $latitude, float $longitude, array $options = []): array
+    {
+        $params = [
+            'chat_id' => $chatId,
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+        ];
+
+        if (!empty($options['live_period'])) {
+            $params['live_period'] = $options['live_period'];
+        }
+
+        if (!empty($options['disable_notification'])) {
+            $params['disable_notification'] = true;
+        }
+
+        if (!empty($options['reply_to_message_id'])) {
+            $params['reply_to_message_id'] = $options['reply_to_message_id'];
+        }
+
+        if (!empty($options['inline_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'inline_keyboard' => $options['inline_keyboard'],
+            ]);
+        }
+
+        if (!empty($options['reply_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'keyboard' => $options['reply_keyboard'],
+            ]);
+        }
+
+        return $this->apiRequest('sendLocation', $params);
+    }
+
+    /**
+     * Send a venue to a chat.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @param float $latitude Latitude of the venue.
+     * @param float $longitude Longitude of the venue.
+     * @param string $title Name of the venue.
+     * @param string $address Address of the venue.
+     * @param array $options Optional: foursquare_id, disable_notification, reply_to_message_id, inline_keyboard, reply_keyboard.
+     * @return array Raw API response.
+     */
+    public function sendVenue(string|int $chatId, float $latitude, float $longitude, string $title, string $address, array $options = []): array
+    {
+        $params = [
+            'chat_id' => $chatId,
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+            'title' => $title,
+            'address' => $address,
+        ];
+
+        if (!empty($options['foursquare_id'])) {
+            $params['foursquare_id'] = $options['foursquare_id'];
+        }
+
+        if (!empty($options['disable_notification'])) {
+            $params['disable_notification'] = true;
+        }
+
+        if (!empty($options['reply_to_message_id'])) {
+            $params['reply_to_message_id'] = $options['reply_to_message_id'];
+        }
+
+        if (!empty($options['inline_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'inline_keyboard' => $options['inline_keyboard'],
+            ]);
+        }
+
+        if (!empty($options['reply_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'keyboard' => $options['reply_keyboard'],
+            ]);
+        }
+
+        return $this->apiRequest('sendVenue', $params);
+    }
+
+    /**
+     * Send a phone contact to a chat.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @param string $phoneNumber Contact's phone number.
+     * @param string $firstName Contact's first name.
+     * @param array $options Optional: last_name, disable_notification, reply_to_message_id, inline_keyboard, reply_keyboard.
+     * @return array Raw API response.
+     */
+    public function sendContact(string|int $chatId, string $phoneNumber, string $firstName, array $options = []): array
+    {
+        $params = [
+            'chat_id' => $chatId,
+            'phone_number' => $phoneNumber,
+            'first_name' => $firstName,
+        ];
+
+        if (!empty($options['last_name'])) {
+            $params['last_name'] = $options['last_name'];
+        }
+
+        if (!empty($options['disable_notification'])) {
+            $params['disable_notification'] = true;
+        }
+
+        if (!empty($options['reply_to_message_id'])) {
+            $params['reply_to_message_id'] = $options['reply_to_message_id'];
+        }
+
+        if (!empty($options['inline_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'inline_keyboard' => $options['inline_keyboard'],
+            ]);
+        }
+
+        if (!empty($options['reply_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'keyboard' => $options['reply_keyboard'],
+            ]);
+        }
+
+        return $this->apiRequest('sendContact', $params);
+    }
+
+    /**
+     * Send a voice message to a chat.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @param string $voicePath Path or URL to the voice file (.ogg encoded with OPUS).
+     * @param array $options Optional: caption, parse_mode, duration, disable_notification, reply_to_message_id, inline_keyboard.
+     * @return array Raw API response.
+     */
+    public function sendVoice(string|int $chatId, string $voicePath, array $options = []): array
+    {
+        $params = [
+            'chat_id' => $chatId,
+            'voice' => $voicePath,
+        ];
+
+        if (!empty($options['caption'])) {
+            $params['caption'] = $options['caption'];
+        }
+
+        if (!empty($options['parse_mode'])) {
+            $params['parse_mode'] = $options['parse_mode'];
+        }
+
+        if (!empty($options['duration'])) {
+            $params['duration'] = $options['duration'];
+        }
+
+        if (!empty($options['disable_notification'])) {
+            $params['disable_notification'] = true;
+        }
+
+        if (!empty($options['reply_to_message_id'])) {
+            $params['reply_to_message_id'] = $options['reply_to_message_id'];
+        }
+
+        if (!empty($options['inline_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'inline_keyboard' => $options['inline_keyboard'],
+            ]);
+        }
+
+        return $this->apiRequest('sendVoice', $params);
+    }
+
+    /**
+     * Edit the text of a previously sent message.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @param int $messageId Identifier of the message to edit.
+     * @param string $text New text of the message.
+     * @param array $options Optional: parse_mode, disable_web_page_preview, inline_keyboard.
+     * @return array Raw API response.
+     */
+    public function editMessageText(string|int $chatId, int $messageId, string $text, array $options = []): array
+    {
+        $params = [
+            'chat_id' => $chatId,
+            'message_id' => $messageId,
+            'text' => $text,
+            'parse_mode' => $options['parse_mode'] ?? 'HTML',
+        ];
+
+        if (!empty($options['disable_web_page_preview'])) {
+            $params['disable_web_page_preview'] = true;
+        }
+
+        if (!empty($options['inline_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'inline_keyboard' => $options['inline_keyboard'],
+            ]);
+        }
+
+        return $this->apiRequest('editMessageText', $params);
+    }
+
+    /**
+     * Edit the caption of a previously sent message.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @param int $messageId Identifier of the message to edit.
+     * @param string $caption New caption for the message.
+     * @param array $options Optional: parse_mode, inline_keyboard.
+     * @return array Raw API response.
+     */
+    public function editMessageCaption(string|int $chatId, int $messageId, string $caption, array $options = []): array
+    {
+        $params = [
+            'chat_id' => $chatId,
+            'message_id' => $messageId,
+            'caption' => $caption,
+        ];
+
+        if (!empty($options['parse_mode'])) {
+            $params['parse_mode'] = $options['parse_mode'];
+        }
+
+        if (!empty($options['inline_keyboard'])) {
+            $params['reply_markup'] = json_encode([
+                'inline_keyboard' => $options['inline_keyboard'],
+            ]);
+        }
+
+        return $this->apiRequest('editMessageCaption', $params);
+    }
+
+    /**
+     * Pin a message in a chat.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @param int $messageId Identifier of the message to pin.
+     * @param array $options Optional: disable_notification.
+     * @return bool True on success.
+     */
+    public function pinMessage(string|int $chatId, int $messageId, array $options = []): bool
+    {
+        $params = [
+            'chat_id' => $chatId,
+            'message_id' => $messageId,
+        ];
+
+        if (!empty($options['disable_notification'])) {
+            $params['disable_notification'] = true;
+        }
+
+        $response = $this->apiRequest('pinChatMessage', $params);
+
+        return ($response['ok'] ?? false) === true;
+    }
+
+    /**
+     * Unpin a specific message in a chat.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @param int $messageId Identifier of the message to unpin.
+     * @return bool True on success.
+     */
+    public function unpinMessage(string|int $chatId, int $messageId): bool
+    {
+        $response = $this->apiRequest('unpinChatMessage', [
+            'chat_id' => $chatId,
+            'message_id' => $messageId,
+        ]);
+
+        return ($response['ok'] ?? false) === true;
+    }
+
+    /**
+     * Unpin all messages in a chat.
+     *
+     * @param string|int $chatId Chat or channel identifier.
+     * @return bool True on success.
+     */
+    public function unpinAllMessages(string|int $chatId): bool
+    {
+        $response = $this->apiRequest('unpinAllChatMessages', [
+            'chat_id' => $chatId,
+        ]);
+
+        return ($response['ok'] ?? false) === true;
+    }
+
     /**
      * Build a PlatformResponse from a successful Telegram API response.
      */
