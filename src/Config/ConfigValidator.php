@@ -23,6 +23,7 @@ class ConfigValidator
         'reddit' => ['client_id', 'client_secret', 'access_token', 'username'],
         'discord' => ['bot_token', 'channel_id'],
         'slack' => ['bot_token', 'channel'],
+        'instagram' => ['access_token', 'instagram_account_id'],
     ];
 
     /**
