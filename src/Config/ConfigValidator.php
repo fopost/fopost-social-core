@@ -26,6 +26,7 @@ class ConfigValidator
         'instagram' => ['access_token', 'instagram_account_id'],
         'pinterest' => ['access_token', 'board_id'],
         'whatsapp' => ['access_token', 'phone_number_id'],
+        'tumblr' => ['access_token', 'blog_identifier'],
     ];
 
     /**
