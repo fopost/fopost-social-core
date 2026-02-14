@@ -14,7 +14,7 @@ We take security seriously at Owlstack. If you discover a security vulnerability
 
 **Please do NOT open a public GitHub issue for security vulnerabilities.**
 
-Instead, send an email to **alihesari.com@gmail.com** with:
+Instead, send an email to **ali@alihesari.com** with:
 
 - A description of the vulnerability
 - Steps to reproduce the issue
