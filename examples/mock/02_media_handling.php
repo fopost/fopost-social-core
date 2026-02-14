@@ -9,7 +9,7 @@ declare(strict_types=1);
  * immutable add(), and iteration.
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Content\Media;
 use Owlstack\Core\Content\MediaCollection;

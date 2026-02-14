@@ -15,7 +15,7 @@ declare(strict_types=1);
  *   7. Inspect results and delivery statuses
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Config\ConfigValidator;
 use Owlstack\Core\Config\PlatformCredentials;

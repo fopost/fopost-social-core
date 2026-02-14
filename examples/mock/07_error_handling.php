@@ -9,7 +9,7 @@ declare(strict_types=1);
  * and shows how to catch them at different levels.
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Exceptions\AuthenticationException;
 use Owlstack\Core\Exceptions\ContentTooLongException;

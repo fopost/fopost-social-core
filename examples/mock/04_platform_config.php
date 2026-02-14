@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Shows PlatformCredentials, OwlstackConfig, and ConfigValidator.
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Config\ConfigValidator;
 use Owlstack\Core\Config\PlatformCredentials;

@@ -21,7 +21,7 @@ declare(strict_types=1);
  * @see https://developers.facebook.com/docs/instagram-platform/content-publishing
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Config\PlatformCredentials;
 use Owlstack\Core\Content\Post;

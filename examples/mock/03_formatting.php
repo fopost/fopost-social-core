@@ -9,7 +9,7 @@ declare(strict_types=1);
  * CanonicalLink, and platform-specific formatters.
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Content\CanonicalLink;
 use Owlstack\Core\Content\Post;

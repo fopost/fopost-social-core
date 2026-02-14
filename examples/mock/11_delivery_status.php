@@ -9,7 +9,7 @@ declare(strict_types=1);
  * Framework packages use it to track publishing progress in their storage.
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Delivery\DeliveryStatus;
 

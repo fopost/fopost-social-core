@@ -9,7 +9,7 @@ declare(strict_types=1);
  * implement the OAuthProviderInterface and TokenStoreInterface.
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Auth\AccessToken;
 use Owlstack\Core\Auth\Contracts\OAuthProviderInterface;

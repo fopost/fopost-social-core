@@ -20,7 +20,7 @@ declare(strict_types=1);
  * @see https://discord.com/developers/docs/resources/webhook
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Config\PlatformCredentials;
 use Owlstack\Core\Content\Post;

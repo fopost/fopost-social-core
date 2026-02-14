@@ -19,7 +19,7 @@ declare(strict_types=1);
  * @see https://developers.pinterest.com/docs/api/v5/pins-create
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Config\PlatformCredentials;
 use Owlstack\Core\Content\Post;

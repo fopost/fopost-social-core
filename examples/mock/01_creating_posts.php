@@ -10,7 +10,7 @@ declare(strict_types=1);
  * from their own models and hand them to the Publisher.
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Owlstack\Core\Content\Post;
 use Owlstack\Core\Content\Media;
