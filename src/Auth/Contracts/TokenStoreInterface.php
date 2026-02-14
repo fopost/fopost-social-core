@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Auth\Contracts;
+namespace Owlstack\Core\Auth\Contracts;
 
-use Synglify\Core\Auth\AccessToken;
+use Owlstack\Core\Auth\AccessToken;
 
 /**
  * Contract for storing and retrieving OAuth tokens.

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Events;
+namespace Owlstack\Core\Events;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Publishing\PublishResult;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Publishing\PublishResult;
 
 /**
  * Event fired after content is successfully published to a platform.

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Auth;
+namespace Owlstack\Core\Auth;
 
-use Synglify\Core\Auth\Contracts\OAuthProviderInterface;
-use Synglify\Core\Auth\Contracts\TokenStoreInterface;
-use Synglify\Core\Exceptions\AuthenticationException;
+use Owlstack\Core\Auth\Contracts\OAuthProviderInterface;
+use Owlstack\Core\Auth\Contracts\TokenStoreInterface;
+use Owlstack\Core\Exceptions\AuthenticationException;
 
 /**
  * Manages the OAuth flow using provider and token store contracts.

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\LinkedIn;
+namespace Owlstack\Core\Platforms\LinkedIn;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Exceptions\MediaValidationException;
-use Synglify\Core\Exceptions\PlatformException;
-use Synglify\Core\Exceptions\RateLimitException;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Contracts\PlatformInterface;
-use Synglify\Core\Platforms\Contracts\PlatformResponseInterface;
-use Synglify\Core\Platforms\PlatformResponse;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Exceptions\MediaValidationException;
+use Owlstack\Core\Exceptions\PlatformException;
+use Owlstack\Core\Exceptions\RateLimitException;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Contracts\PlatformInterface;
+use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
+use Owlstack\Core\Platforms\PlatformResponse;
 
 /**
  * LinkedIn API platform implementation.
@@ -270,7 +270,7 @@ class LinkedInPlatform implements PlatformInterface
      *
      * @throws MediaValidationException If the file is invalid.
      */
-    private function validateMedia(\Synglify\Core\Content\Media $media): void
+    private function validateMedia(\Owlstack\Core\Content\Media $media): void
     {
         if (!in_array($media->mimeType, self::ALLOWED_IMAGE_TYPES, true)) {
             throw new MediaValidationException(

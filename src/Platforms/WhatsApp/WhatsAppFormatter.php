@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\WhatsApp;
+namespace Owlstack\Core\Platforms\WhatsApp;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\Contracts\FormatterInterface;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\Contracts\FormatterInterface;
 
 /**
  * Formats content for WhatsApp messages.

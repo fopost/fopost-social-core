@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Config;
+namespace Owlstack\Core\Config;
 
 /**
  * Value object representing API credentials for a platform.

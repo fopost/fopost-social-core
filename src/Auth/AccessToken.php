@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Auth;
+namespace Owlstack\Core\Auth;
 
 use DateTimeImmutable;
 

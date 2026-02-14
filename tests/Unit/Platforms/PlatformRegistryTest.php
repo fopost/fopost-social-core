@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms;
+namespace Owlstack\Core\Tests\Unit\Platforms;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Exceptions\SynglifyException;
-use Synglify\Core\Platforms\Contracts\PlatformInterface;
-use Synglify\Core\Platforms\PlatformRegistry;
+use Owlstack\Core\Exceptions\OwlstackException;
+use Owlstack\Core\Platforms\Contracts\PlatformInterface;
+use Owlstack\Core\Platforms\PlatformRegistry;
 
 class PlatformRegistryTest extends TestCase
 {
@@ -25,7 +25,7 @@ class PlatformRegistryTest extends TestCase
     {
         $registry = new PlatformRegistry();
 
-        $this->expectException(SynglifyException::class);
+        $this->expectException(OwlstackException::class);
         $this->expectExceptionMessage("Platform 'unknown' is not registered");
 
         $registry->get('unknown');

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Support;
+namespace Owlstack\Core\Support;
 
 /**
  * Array utility helpers.

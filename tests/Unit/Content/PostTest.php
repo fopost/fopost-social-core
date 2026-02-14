@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Content;
+namespace Owlstack\Core\Tests\Unit\Content;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Media;
-use Synglify\Core\Content\MediaCollection;
-use Synglify\Core\Content\Post;
+use Owlstack\Core\Content\Media;
+use Owlstack\Core\Content\MediaCollection;
+use Owlstack\Core\Content\Post;
 
 class PostTest extends TestCase
 {

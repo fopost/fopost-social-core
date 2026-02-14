@@ -22,13 +22,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Discord\DiscordFormatter;
-use Synglify\Core\Platforms\Discord\DiscordPlatform;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Discord\DiscordFormatter;
+use Owlstack\Core\Platforms\Discord\DiscordPlatform;
 
 echo "=== Discord Platform Example ===\n\n";
 
@@ -39,7 +39,7 @@ $http = new class implements HttpClientInterface {
         return [
             'status' => 200,
             'headers' => [],
-            'body' => json_encode(['id' => '123456789', 'username' => 'SynglifyBot']),
+            'body' => json_encode(['id' => '123456789', 'username' => 'OwlstackBot']),
         ];
     }
     public function post(string $url, array $options = []): array
@@ -80,11 +80,11 @@ $botCredentials = new PlatformCredentials('discord', [
 $botPlatform = new DiscordPlatform($botCredentials, $http, $formatter);
 
 $post = new Post(
-    title: 'New Release: Synglify v2.0',
-    body: 'We just released Synglify v2.0 with Discord integration! '
+    title: 'New Release: Owlstack v2.0',
+    body: 'We just released Owlstack v2.0 with Discord integration! '
         . 'Now you can publish content directly to your Discord channels.',
-    url: 'https://synglify.com/releases/v2',
-    tags: ['release', 'synglify', 'discord'],
+    url: 'https://owlstack.com/releases/v2',
+    tags: ['release', 'owlstack', 'discord'],
 );
 
 $result = $botPlatform->publish($post);
@@ -110,13 +110,13 @@ $webhookPlatform = new DiscordPlatform($webhookCredentials, $http, $formatter);
 
 $webhookPost = new Post(
     title: 'Automated Alert',
-    body: 'New blog post published: "Getting Started with Synglify"',
-    url: 'https://synglify.com/blog/getting-started',
+    body: 'New blog post published: "Getting Started with Owlstack"',
+    url: 'https://owlstack.com/blog/getting-started',
 );
 
 $webhookResult = $webhookPlatform->publish($webhookPost, [
-    'username' => 'Synglify Bot',
-    'avatar_url' => 'https://synglify.com/logo.png',
+    'username' => 'Owlstack Bot',
+    'avatar_url' => 'https://owlstack.com/logo.png',
 ]);
 echo "   Success: " . ($webhookResult->isSuccess() ? 'Yes' : 'No') . "\n";
 echo "   Message ID: " . $webhookResult->externalId() . "\n\n";

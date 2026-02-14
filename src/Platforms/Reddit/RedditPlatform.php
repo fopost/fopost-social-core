@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\Reddit;
+namespace Owlstack\Core\Platforms\Reddit;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Exceptions\PlatformException;
-use Synglify\Core\Exceptions\RateLimitException;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Contracts\PlatformInterface;
-use Synglify\Core\Platforms\Contracts\PlatformResponseInterface;
-use Synglify\Core\Platforms\PlatformResponse;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Exceptions\PlatformException;
+use Owlstack\Core\Exceptions\RateLimitException;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Contracts\PlatformInterface;
+use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
+use Owlstack\Core\Platforms\PlatformResponse;
 
 /**
  * Reddit API platform implementation.
@@ -34,7 +34,7 @@ class RedditPlatform implements PlatformInterface
     private const AUTH_URL = 'https://www.reddit.com/api/v1/access_token';
     private const MAX_TITLE_LENGTH = 300;
     private const MAX_BODY_LENGTH = 40000;
-    private const USER_AGENT_PREFIX = 'Synglify/1.0';
+    private const USER_AGENT_PREFIX = 'Owlstack/1.0';
 
     public function __construct(
         private readonly PlatformCredentials $credentials,

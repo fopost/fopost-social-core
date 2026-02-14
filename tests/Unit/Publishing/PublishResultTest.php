@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Publishing;
+namespace Owlstack\Core\Tests\Unit\Publishing;
 
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Publishing\PublishResult;
+use Owlstack\Core\Publishing\PublishResult;
 
 class PublishResultTest extends TestCase
 {

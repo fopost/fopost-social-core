@@ -1,10 +1,10 @@
-# Synglify Core
+# Owlstack Core
 
-Framework-agnostic PHP core for [Synglify](https://synglify.com) — a content publishing and synchronization engine for social media platforms.
+Framework-agnostic PHP core for [Owlstack](https://owlstack.com) — a content publishing and synchronization engine for social media platforms.
 
 ## About
 
-This package contains the shared core logic used by all Synglify framework integrations (Laravel, WordPress, etc.). It provides:
+This package contains the shared core logic used by all Owlstack framework integrations (Laravel, WordPress, etc.). It provides:
 
 - **Platform abstractions** — Interfaces and implementations for Telegram, Twitter/X, and Facebook
 - **Content model** — Framework-agnostic Post, Media, and MediaCollection value objects
@@ -17,7 +17,7 @@ This package contains the shared core logic used by all Synglify framework integ
 ## Installation
 
 ```bash
-composer require synglify/synglify-core
+composer require owlstack/owlstack-core
 ```
 
 ## Requirements
@@ -29,13 +29,13 @@ composer require synglify/synglify-core
 ## Usage
 
 ```php
-use Synglify\Core\Content\Post;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Http\HttpClient;
-use Synglify\Core\Platforms\PlatformRegistry;
-use Synglify\Core\Platforms\Telegram\TelegramPlatform;
-use Synglify\Core\Platforms\Telegram\TelegramFormatter;
-use Synglify\Core\Publishing\Publisher;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Http\HttpClient;
+use Owlstack\Core\Platforms\PlatformRegistry;
+use Owlstack\Core\Platforms\Telegram\TelegramPlatform;
+use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
+use Owlstack\Core\Publishing\Publisher;
 
 // Set up platform
 $credentials = new PlatformCredentials('telegram', [
@@ -55,7 +55,7 @@ $registry->register($platform);
 $publisher = new Publisher($registry);
 $post = new Post(
     title: 'Hello World',
-    body: 'My first post via Synglify',
+    body: 'My first post via Owlstack',
     url: 'https://example.com/hello-world',
 );
 

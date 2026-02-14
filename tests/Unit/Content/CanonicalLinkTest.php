@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Content;
+namespace Owlstack\Core\Tests\Unit\Content;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\CanonicalLink;
+use Owlstack\Core\Content\CanonicalLink;
 
 class CanonicalLinkTest extends TestCase
 {

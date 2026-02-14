@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Telegram;
+namespace Owlstack\Core\Tests\Unit\Platforms\Telegram;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Platforms\Telegram\TelegramFormatter;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
 
 class TelegramFormatterTest extends TestCase
 {
@@ -43,12 +43,12 @@ class TelegramFormatterTest extends TestCase
 
     public function testFormatWithHashtags(): void
     {
-        $post = new Post(title: 'Title', body: 'Body', tags: ['php', 'synglify']);
+        $post = new Post(title: 'Title', body: 'Body', tags: ['php', 'owlstack']);
 
         $result = $this->formatter->format($post);
 
         $this->assertStringContainsString('#php', $result);
-        $this->assertStringContainsString('#synglify', $result);
+        $this->assertStringContainsString('#owlstack', $result);
     }
 
     public function testFormatCaptionMode(): void

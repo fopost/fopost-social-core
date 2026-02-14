@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Formatting;
+namespace Owlstack\Core\Tests\Unit\Formatting;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\CharacterTruncator;
 
 class CharacterTruncatorTest extends TestCase
 {

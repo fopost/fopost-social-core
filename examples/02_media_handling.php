@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Content\Media;
-use Synglify\Core\Content\MediaCollection;
+use Owlstack\Core\Content\Media;
+use Owlstack\Core\Content\MediaCollection;
 
 echo "=== Example 02: Media Handling ===\n\n";
 

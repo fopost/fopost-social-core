@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Discord;
+namespace Owlstack\Core\Tests\Unit\Platforms\Discord;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Exceptions\PlatformException;
-use Synglify\Core\Exceptions\RateLimitException;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Discord\DiscordFormatter;
-use Synglify\Core\Platforms\Discord\DiscordPlatform;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Exceptions\PlatformException;
+use Owlstack\Core\Exceptions\RateLimitException;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Discord\DiscordFormatter;
+use Owlstack\Core\Platforms\Discord\DiscordPlatform;
 
 class DiscordPlatformTest extends TestCase
 {
@@ -168,7 +168,7 @@ class DiscordPlatformTest extends TestCase
             ->with(
                 $this->anything(),
                 $this->callback(function (array $options) {
-                    return $options['json']['username'] === 'Synglify Bot'
+                    return $options['json']['username'] === 'Owlstack Bot'
                         && $options['json']['tts'] === true;
                 })
             )
@@ -180,7 +180,7 @@ class DiscordPlatformTest extends TestCase
 
         $post = new Post(title: 'Custom', body: 'Content');
         $platform->publish($post, [
-            'username' => 'Synglify Bot',
+            'username' => 'Owlstack Bot',
             'tts' => true,
         ]);
     }
@@ -258,7 +258,7 @@ class DiscordPlatformTest extends TestCase
             ->willReturn([
                 'status' => 200,
                 'headers' => [],
-                'body' => json_encode(['id' => '123', 'username' => 'SynglifyBot']),
+                'body' => json_encode(['id' => '123', 'username' => 'OwlstackBot']),
             ]);
 
         $this->assertTrue($platform->validateCredentials());

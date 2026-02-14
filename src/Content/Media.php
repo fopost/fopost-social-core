@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Content;
+namespace Owlstack\Core\Content;
 
 /**
  * Represents a media attachment (image, video, audio, document).

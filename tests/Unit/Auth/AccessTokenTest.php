@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Auth;
+namespace Owlstack\Core\Tests\Unit\Auth;
 
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Auth\AccessToken;
+use Owlstack\Core\Auth\AccessToken;
 
 class AccessTokenTest extends TestCase
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Exceptions;
+namespace Owlstack\Core\Exceptions;
 
 /**
  * Thrown when a media attachment fails validation (unsupported format, size too large, etc.).
  */
-class MediaValidationException extends SynglifyException
+class MediaValidationException extends OwlstackException
 {
     public function __construct(
         string $message,

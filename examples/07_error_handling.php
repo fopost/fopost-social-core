@@ -5,26 +5,26 @@ declare(strict_types=1);
 /**
  * Example 07: Error Handling
  *
- * Walks through every exception in the Synglify hierarchy
+ * Walks through every exception in the Owlstack hierarchy
  * and shows how to catch them at different levels.
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Exceptions\AuthenticationException;
-use Synglify\Core\Exceptions\ContentTooLongException;
-use Synglify\Core\Exceptions\MediaValidationException;
-use Synglify\Core\Exceptions\PlatformException;
-use Synglify\Core\Exceptions\RateLimitException;
-use Synglify\Core\Exceptions\SynglifyException;
+use Owlstack\Core\Exceptions\AuthenticationException;
+use Owlstack\Core\Exceptions\ContentTooLongException;
+use Owlstack\Core\Exceptions\MediaValidationException;
+use Owlstack\Core\Exceptions\PlatformException;
+use Owlstack\Core\Exceptions\RateLimitException;
+use Owlstack\Core\Exceptions\OwlstackException;
 
 echo "=== Example 07: Error Handling ===\n\n";
 
-// ── 1. Base SynglifyException ───────────────────────────────────────────
-echo "1) SynglifyException (base)\n";
+// ── 1. Base OwlstackException ───────────────────────────────────────────
+echo "1) OwlstackException (base)\n";
 try {
-    throw new SynglifyException('Something went wrong in Synglify');
-} catch (SynglifyException $e) {
+    throw new OwlstackException('Something went wrong in Owlstack');
+} catch (OwlstackException $e) {
     echo "   Message: {$e->getMessage()}\n\n";
 }
 
@@ -44,7 +44,7 @@ try {
     echo "   httpStatusCode: {$e->httpStatusCode}\n";
     echo "   apiErrorCode  : {$e->apiErrorCode}\n";
     echo "   rawResponse   : " . json_encode($e->rawResponse) . "\n";
-    echo "   Is SynglifyException? " . ($e instanceof SynglifyException ? 'yes' : 'no') . "\n\n";
+    echo "   Is OwlstackException? " . ($e instanceof OwlstackException ? 'yes' : 'no') . "\n\n";
 }
 
 // ── 3. RateLimitException ───────────────────────────────────────────────
@@ -72,7 +72,7 @@ try {
     throw new AuthenticationException('Invalid or expired access token for Telegram');
 } catch (AuthenticationException $e) {
     echo "   Message: {$e->getMessage()}\n";
-    echo "   Is SynglifyException? " . ($e instanceof SynglifyException ? 'yes' : 'no') . "\n\n";
+    echo "   Is OwlstackException? " . ($e instanceof OwlstackException ? 'yes' : 'no') . "\n\n";
 }
 
 // ── 5. ContentTooLongException ──────────────────────────────────────────
@@ -107,9 +107,9 @@ try {
 }
 
 // ── 7. Catching at the base level ───────────────────────────────────────
-echo "7) Polymorphic catch — all Synglify exceptions\n";
+echo "7) Polymorphic catch — all Owlstack exceptions\n";
 $exceptions = [
-    new SynglifyException('base error'),
+    new OwlstackException('base error'),
     new PlatformException('api error', 'telegram', 500),
     new RateLimitException('rate limited', 'twitter'),
     new AuthenticationException('bad token'),
@@ -120,7 +120,7 @@ $exceptions = [
 foreach ($exceptions as $ex) {
     try {
         throw $ex;
-    } catch (SynglifyException $e) {
+    } catch (OwlstackException $e) {
         $class = (new ReflectionClass($e))->getShortName();
         echo "   {$class}: {$e->getMessage()}\n";
     }

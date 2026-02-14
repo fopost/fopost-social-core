@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Facebook;
+namespace Owlstack\Core\Tests\Unit\Platforms\Facebook;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Content\Media;
-use Synglify\Core\Content\MediaCollection;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Exceptions\PlatformException;
-use Synglify\Core\Exceptions\RateLimitException;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Facebook\FacebookFormatter;
-use Synglify\Core\Platforms\Facebook\FacebookPlatform;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Content\Media;
+use Owlstack\Core\Content\MediaCollection;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Exceptions\PlatformException;
+use Owlstack\Core\Exceptions\RateLimitException;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
+use Owlstack\Core\Platforms\Facebook\FacebookPlatform;
 
 class FacebookPlatformTest extends TestCase
 {

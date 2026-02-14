@@ -1,15 +1,15 @@
 # CLAUDE.md
 
-This file provides guidance for Claude, Cursor, and other AI assistants working with the Synglify Core codebase.
+This file provides guidance for Claude, Cursor, and other AI assistants working with the Owlstack Core codebase.
 
 ## Project Overview
 
-**Synglify Core** is a framework-agnostic PHP library for publishing and synchronizing content across social media platforms (Telegram, Twitter/X, Facebook, and more). It is the shared foundation used by all Synglify framework integrations (Laravel, WordPress, etc.).
+**Owlstack Core** is a framework-agnostic PHP library for publishing and synchronizing content across social media platforms (Telegram, Twitter/X, Facebook, and more). It is the shared foundation used by all Owlstack framework integrations (Laravel, WordPress, etc.).
 
-- **Repository:** `synglify/synglify-core`
+- **Repository:** `owlstack/owlstack-core`
 - **Language:** PHP 8.1+
 - **Dependencies:** Zero framework dependencies (only `ext-curl` and `ext-json`)
-- **Namespace:** `Synglify\Core\`
+- **Namespace:** `Owlstack\Core\`
 - **License:** MIT
 
 ## Architecture Principles
@@ -18,7 +18,7 @@ This file provides guidance for Claude, Cursor, and other AI assistants working 
 2. **Contracts-first design** — Infrastructure concerns (storage, queues, events, HTTP) are defined as interfaces in `Contracts/` subdirectories. Framework packages provide concrete implementations.
 3. **Value objects are immutable** — All value objects (`Post`, `Media`, `AccessToken`, `PublishResult`, etc.) use `readonly` constructor properties.
 4. **One class per file** — Every class, interface, and enum lives in its own file.
-5. **PSR-4 autoloading** — Namespace `Synglify\Core\` maps to `src/`.
+5. **PSR-4 autoloading** — Namespace `Owlstack\Core\` maps to `src/`.
 
 ## Directory Structure
 
@@ -29,7 +29,7 @@ src/
 ├── Content/         # Post, Media, MediaCollection value objects
 ├── Delivery/        # Delivery status tracking
 ├── Events/          # Event dispatcher contract and event objects
-├── Exceptions/      # Exception hierarchy (all extend SynglifyException)
+├── Exceptions/      # Exception hierarchy (all extend OwlstackException)
 ├── Formatting/      # Platform-specific formatters and text utilities
 ├── Http/            # cURL HTTP client and HTTP client contract
 ├── Platforms/       # Platform implementations (Telegram, Twitter, Facebook)
@@ -65,7 +65,7 @@ Each platform consists of two classes:
 
 ### Exception Hierarchy
 
-All exceptions extend `SynglifyException` (which extends `RuntimeException`):
+All exceptions extend `OwlstackException` (which extends `RuntimeException`):
 - `AuthenticationException` — OAuth/token failures
 - `PlatformException` — API errors from platforms
 - `RateLimitException` — Rate limiting
@@ -104,7 +104,7 @@ composer install
 ### Adding a New Exception
 
 1. Create the exception class in `src/Exceptions/`.
-2. Extend `SynglifyException`.
+2. Extend `OwlstackException`.
 3. Add any platform-specific context as constructor parameters.
 
 ## Things to Avoid

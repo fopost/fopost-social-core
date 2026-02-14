@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Exceptions;
+namespace Owlstack\Core\Exceptions;
 
 use DateTimeImmutable;
 

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Publishing;
+namespace Owlstack\Core\Tests\Unit\Publishing;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Events\Contracts\EventDispatcherInterface;
-use Synglify\Core\Events\PostFailed;
-use Synglify\Core\Events\PostPublished;
-use Synglify\Core\Exceptions\PlatformException;
-use Synglify\Core\Platforms\Contracts\PlatformInterface;
-use Synglify\Core\Platforms\Contracts\PlatformResponseInterface;
-use Synglify\Core\Platforms\PlatformRegistry;
-use Synglify\Core\Platforms\PlatformResponse;
-use Synglify\Core\Publishing\Publisher;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
+use Owlstack\Core\Events\PostFailed;
+use Owlstack\Core\Events\PostPublished;
+use Owlstack\Core\Exceptions\PlatformException;
+use Owlstack\Core\Platforms\Contracts\PlatformInterface;
+use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
+use Owlstack\Core\Platforms\PlatformRegistry;
+use Owlstack\Core\Platforms\PlatformResponse;
+use Owlstack\Core\Publishing\Publisher;
 
 class PublisherTest extends TestCase
 {

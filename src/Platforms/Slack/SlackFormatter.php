@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\Slack;
+namespace Owlstack\Core\Platforms\Slack;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\Contracts\FormatterInterface;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\Contracts\FormatterInterface;
 
 /**
  * Formats content for Slack using mrkdwn syntax.

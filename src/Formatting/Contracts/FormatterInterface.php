@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Formatting\Contracts;
+namespace Owlstack\Core\Formatting\Contracts;
 
-use Synglify\Core\Content\Post;
+use Owlstack\Core\Content\Post;
 
 /**
  * Contract for platform-specific content formatters.

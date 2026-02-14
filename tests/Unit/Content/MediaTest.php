@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Content;
+namespace Owlstack\Core\Tests\Unit\Content;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Media;
+use Owlstack\Core\Content\Media;
 
 class MediaTest extends TestCase
 {

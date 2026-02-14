@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Http\Contracts;
+namespace Owlstack\Core\Http\Contracts;
 
 /**
  * Thin HTTP client abstraction.

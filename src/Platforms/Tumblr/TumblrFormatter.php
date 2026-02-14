@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\Tumblr;
+namespace Owlstack\Core\Platforms\Tumblr;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\Contracts\FormatterInterface;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\Contracts\FormatterInterface;
 
 /**
  * Formats content for Tumblr posts using Neue Post Format (NPF).

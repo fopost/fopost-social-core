@@ -17,30 +17,30 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Config\ConfigValidator;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Config\SynglifyConfig;
-use Synglify\Core\Content\Media;
-use Synglify\Core\Content\MediaCollection;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Delivery\DeliveryStatus;
-use Synglify\Core\Events\Contracts\EventDispatcherInterface;
-use Synglify\Core\Events\PostFailed;
-use Synglify\Core\Events\PostPublished;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Facebook\FacebookFormatter;
-use Synglify\Core\Platforms\Facebook\FacebookPlatform;
-use Synglify\Core\Platforms\PlatformRegistry;
-use Synglify\Core\Platforms\Telegram\TelegramFormatter;
-use Synglify\Core\Platforms\Telegram\TelegramPlatform;
-use Synglify\Core\Platforms\Twitter\TwitterFormatter;
-use Synglify\Core\Platforms\Twitter\TwitterPlatform;
-use Synglify\Core\Publishing\Publisher;
+use Owlstack\Core\Config\ConfigValidator;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Config\OwlstackConfig;
+use Owlstack\Core\Content\Media;
+use Owlstack\Core\Content\MediaCollection;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Delivery\DeliveryStatus;
+use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
+use Owlstack\Core\Events\PostFailed;
+use Owlstack\Core\Events\PostPublished;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
+use Owlstack\Core\Platforms\Facebook\FacebookPlatform;
+use Owlstack\Core\Platforms\PlatformRegistry;
+use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
+use Owlstack\Core\Platforms\Telegram\TelegramPlatform;
+use Owlstack\Core\Platforms\Twitter\TwitterFormatter;
+use Owlstack\Core\Platforms\Twitter\TwitterPlatform;
+use Owlstack\Core\Publishing\Publisher;
 
 echo "╔══════════════════════════════════════════════════╗\n";
-echo "║   Synglify Core — Full End-to-End Workflow       ║\n";
+echo "║   Owlstack Core — Full End-to-End Workflow       ║\n";
 echo "╚══════════════════════════════════════════════════╝\n\n";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -48,11 +48,11 @@ echo "╚═══════════════════════�
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 echo "STEP 1: Configuration\n";
 
-$config = new SynglifyConfig(
+$config = new OwlstackConfig(
     platforms: [
         'telegram' => [
             'api_token' => '123456789:ABCdefGHIjklMNOpqrsTUVwxyz',
-            'channel_username' => '@synglify_news',
+            'channel_username' => '@owlstack_news',
         ],
         'twitter' => [
             'consumer_key' => 'ck_demo',
@@ -68,7 +68,7 @@ $config = new SynglifyConfig(
         ],
     ],
     options: [
-        'default_tags' => ['synglify'],
+        'default_tags' => ['owlstack'],
     ],
 );
 
@@ -83,7 +83,7 @@ $validator = new ConfigValidator();
 try {
     $validator->validateConfig($config);
     echo "   All credentials valid!\n\n";
-} catch (\Synglify\Core\Exceptions\SynglifyException $e) {
+} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
     echo "   INVALID: {$e->getMessage()}\n\n";
     exit(1);
 }
@@ -176,11 +176,11 @@ echo "   In-memory event dispatcher ready.\n\n";
 echo "STEP 5: Create Post\n";
 
 $post = new Post(
-    title: 'Synglify Core v1.0 Released!',
-    body: 'We are proud to announce Synglify Core v1.0 — a framework-agnostic PHP library that lets you publish content to multiple social media platforms with a single, unified API.',
-    url: 'https://synglify.com/blog/v1-release',
-    excerpt: 'Synglify Core v1.0 is here! Publish to Telegram, Twitter/X, and Facebook from one codebase.',
-    tags: ['synglify', 'php', 'opensource', 'social-media'],
+    title: 'Owlstack Core v1.0 Released!',
+    body: 'We are proud to announce Owlstack Core v1.0 — a framework-agnostic PHP library that lets you publish content to multiple social media platforms with a single, unified API.',
+    url: 'https://owlstack.com/blog/v1-release',
+    excerpt: 'Owlstack Core v1.0 is here! Publish to Telegram, Twitter/X, and Facebook from one codebase.',
+    tags: ['owlstack', 'php', 'opensource', 'social-media'],
     metadata: ['campaign' => 'v1-launch'],
 );
 

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Exceptions;
+namespace Owlstack\Core\Exceptions;
 
 /**
  * Thrown when a platform API returns an error.
  */
-class PlatformException extends SynglifyException
+class PlatformException extends OwlstackException
 {
     public function __construct(
         string $message,

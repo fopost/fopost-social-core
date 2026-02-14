@@ -10,9 +10,9 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Support\Arr;
-use Synglify\Core\Support\Clock;
-use Synglify\Core\Support\Str;
+use Owlstack\Core\Support\Arr;
+use Owlstack\Core\Support\Clock;
+use Owlstack\Core\Support\Str;
 
 echo "=== Example 09: Support Utilities ===\n\n";
 

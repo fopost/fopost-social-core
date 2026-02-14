@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Formatting;
+namespace Owlstack\Core\Formatting;
 
 /**
  * Converts tags into platform-formatted hashtag strings.

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Delivery;
+namespace Owlstack\Core\Delivery;
 
 /**
  * Represents the lifecycle status of a content delivery.

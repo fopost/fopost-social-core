@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Events\Contracts;
+namespace Owlstack\Core\Events\Contracts;
 
 /**
  * Contract for event dispatching.

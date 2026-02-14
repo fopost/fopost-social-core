@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Formatting;
+namespace Owlstack\Core\Formatting;
 
 /**
  * Smart text truncation that respects word boundaries.

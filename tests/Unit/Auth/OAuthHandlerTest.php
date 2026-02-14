@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Auth;
+namespace Owlstack\Core\Tests\Unit\Auth;
 
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Auth\AccessToken;
-use Synglify\Core\Auth\Contracts\OAuthProviderInterface;
-use Synglify\Core\Auth\Contracts\TokenStoreInterface;
-use Synglify\Core\Auth\OAuthHandler;
-use Synglify\Core\Exceptions\AuthenticationException;
+use Owlstack\Core\Auth\AccessToken;
+use Owlstack\Core\Auth\Contracts\OAuthProviderInterface;
+use Owlstack\Core\Auth\Contracts\TokenStoreInterface;
+use Owlstack\Core\Auth\OAuthHandler;
+use Owlstack\Core\Exceptions\AuthenticationException;
 
 class OAuthHandlerTest extends TestCase
 {

@@ -12,16 +12,16 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Events\Contracts\EventDispatcherInterface;
-use Synglify\Core\Events\PostFailed;
-use Synglify\Core\Events\PostPublished;
-use Synglify\Core\Platforms\Contracts\PlatformInterface;
-use Synglify\Core\Platforms\Contracts\PlatformResponseInterface;
-use Synglify\Core\Platforms\PlatformRegistry;
-use Synglify\Core\Platforms\PlatformResponse;
-use Synglify\Core\Publishing\Publisher;
-use Synglify\Core\Publishing\PublishResult;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
+use Owlstack\Core\Events\PostFailed;
+use Owlstack\Core\Events\PostPublished;
+use Owlstack\Core\Platforms\Contracts\PlatformInterface;
+use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
+use Owlstack\Core\Platforms\PlatformRegistry;
+use Owlstack\Core\Platforms\PlatformResponse;
+use Owlstack\Core\Publishing\Publisher;
+use Owlstack\Core\Publishing\PublishResult;
 
 echo "=== Example 08: Events ===\n\n";
 
@@ -73,7 +73,7 @@ $crashPlatform = new class implements PlatformInterface {
     public function name(): string { return 'crash-stub'; }
     public function publish(Post $post, array $options = []): PlatformResponseInterface
     {
-        throw new \Synglify\Core\Exceptions\PlatformException('Connection timed out', 'crash-stub', 504);
+        throw new \Owlstack\Core\Exceptions\PlatformException('Connection timed out', 'crash-stub', 504);
     }
     public function delete(string $externalId): bool { return false; }
     public function validateCredentials(): bool { return false; }

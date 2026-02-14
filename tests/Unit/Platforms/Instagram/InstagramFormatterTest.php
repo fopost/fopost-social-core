@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Instagram;
+namespace Owlstack\Core\Tests\Unit\Platforms\Instagram;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Platforms\Instagram\InstagramFormatter;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Platforms\Instagram\InstagramFormatter;
 
 class InstagramFormatterTest extends TestCase
 {

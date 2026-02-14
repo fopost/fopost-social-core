@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\Contracts;
+namespace Owlstack\Core\Platforms\Contracts;
 
 /**
  * Represents the response from a platform after a publish operation.

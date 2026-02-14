@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Content;
+namespace Owlstack\Core\Content;
 
 /**
  * Handles generating and injecting canonical URLs into published content.

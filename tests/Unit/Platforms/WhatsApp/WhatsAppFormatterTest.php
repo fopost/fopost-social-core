@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\WhatsApp;
+namespace Owlstack\Core\Tests\Unit\Platforms\WhatsApp;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Platforms\WhatsApp\WhatsAppFormatter;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Platforms\WhatsApp\WhatsAppFormatter;
 
 class WhatsAppFormatterTest extends TestCase
 {

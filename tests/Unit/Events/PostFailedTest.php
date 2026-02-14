@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Events;
+namespace Owlstack\Core\Tests\Unit\Events;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Events\PostFailed;
-use Synglify\Core\Publishing\PublishResult;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Events\PostFailed;
+use Owlstack\Core\Publishing\PublishResult;
 
 class PostFailedTest extends TestCase
 {

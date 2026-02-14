@@ -1,10 +1,10 @@
 {
-    "name": "synglify/synglify-core",
-    "description": "Framework-agnostic PHP core for Synglify — content publishing and synchronization engine for social media platforms.",
+    "name": "owlstack/owlstack-core",
+    "description": "Framework-agnostic PHP core for Owlstack — content publishing and synchronization engine for social media platforms.",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "synglify",
+        "owlstack",
         "social-media",
         "publishing",
         "telegram",
@@ -31,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Synglify\\Core\\": "src/"
+            "Owlstack\\Core\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Synglify\\Core\\Tests\\": "tests/"
+            "Owlstack\\Core\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",

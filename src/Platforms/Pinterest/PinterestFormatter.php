@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\Pinterest;
+namespace Owlstack\Core\Platforms\Pinterest;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\Contracts\FormatterInterface;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\Contracts\FormatterInterface;
 
 /**
  * Formats content for Pinterest Pin descriptions.

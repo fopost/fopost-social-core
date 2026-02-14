@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Config;
+namespace Owlstack\Core\Tests\Unit\Config;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Config\SynglifyConfig;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Config\OwlstackConfig;
 
-class SynglifyConfigTest extends TestCase
+class OwlstackConfigTest extends TestCase
 {
     public function testCredentialsFromArray(): void
     {
-        $config = new SynglifyConfig([
+        $config = new OwlstackConfig([
             'telegram' => ['api_token' => 'tok'],
         ]);
 
@@ -25,21 +25,21 @@ class SynglifyConfigTest extends TestCase
     public function testCredentialsFromPlatformCredentialsInstance(): void
     {
         $creds = new PlatformCredentials('twitter', ['consumer_key' => 'ck']);
-        $config = new SynglifyConfig(['twitter' => $creds]);
+        $config = new OwlstackConfig(['twitter' => $creds]);
 
         $this->assertSame($creds, $config->credentials('twitter'));
     }
 
     public function testCredentialsReturnsNullForUnknownPlatform(): void
     {
-        $config = new SynglifyConfig([]);
+        $config = new OwlstackConfig([]);
 
         $this->assertNull($config->credentials('unknown'));
     }
 
     public function testHasPlatform(): void
     {
-        $config = new SynglifyConfig(['telegram' => ['api_token' => 'x']]);
+        $config = new OwlstackConfig(['telegram' => ['api_token' => 'x']]);
 
         $this->assertTrue($config->hasPlatform('telegram'));
         $this->assertFalse($config->hasPlatform('twitter'));
@@ -47,7 +47,7 @@ class SynglifyConfigTest extends TestCase
 
     public function testConfiguredPlatforms(): void
     {
-        $config = new SynglifyConfig([
+        $config = new OwlstackConfig([
             'telegram' => ['api_token' => 'x'],
             'facebook' => ['app_id' => 'y'],
         ]);
@@ -57,7 +57,7 @@ class SynglifyConfigTest extends TestCase
 
     public function testOptionReturnsValueOrDefault(): void
     {
-        $config = new SynglifyConfig([], ['debug' => true]);
+        $config = new OwlstackConfig([], ['debug' => true]);
 
         $this->assertTrue($config->option('debug'));
         $this->assertSame('fallback', $config->option('missing', 'fallback'));

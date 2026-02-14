@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\WhatsApp\WhatsAppFormatter;
-use Synglify\Core\Platforms\WhatsApp\WhatsAppPlatform;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\WhatsApp\WhatsAppFormatter;
+use Owlstack\Core\Platforms\WhatsApp\WhatsAppPlatform;
 
 // -- Mock HTTP client for demonstration (replace with real HttpClient) --------
 
@@ -127,7 +127,7 @@ echo "Caption     :\n{$formatter->formatCaption($post)}\n\n";
 echo "=== Text Message ===\n\n";
 
 $textPost = new Post(
-    title: 'Hello from Synglify',
+    title: 'Hello from Owlstack',
     body: 'This is a text message with a link preview.',
     url: 'https://example.com',
 );
@@ -227,7 +227,7 @@ echo "=== Delete (Not Supported) ===\n\n";
 
 try {
     $platform->delete('wamid.test123');
-} catch (\Synglify\Core\Exceptions\PlatformException $e) {
+} catch (\Owlstack\Core\Exceptions\PlatformException $e) {
     echo "Expected error: {$e->getMessage()}\n\n";
 }
 

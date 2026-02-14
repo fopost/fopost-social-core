@@ -15,19 +15,19 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Facebook\FacebookFormatter;
-use Synglify\Core\Platforms\Facebook\FacebookPlatform;
-use Synglify\Core\Platforms\PlatformRegistry;
-use Synglify\Core\Platforms\Telegram\TelegramFormatter;
-use Synglify\Core\Platforms\Telegram\TelegramPlatform;
-use Synglify\Core\Platforms\Twitter\TwitterFormatter;
-use Synglify\Core\Platforms\Twitter\TwitterPlatform;
-use Synglify\Core\Publishing\Publisher;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
+use Owlstack\Core\Platforms\Facebook\FacebookPlatform;
+use Owlstack\Core\Platforms\PlatformRegistry;
+use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
+use Owlstack\Core\Platforms\Telegram\TelegramPlatform;
+use Owlstack\Core\Platforms\Twitter\TwitterFormatter;
+use Owlstack\Core\Platforms\Twitter\TwitterPlatform;
+use Owlstack\Core\Publishing\Publisher;
 
 echo "=== Example 06: Publishing ===\n\n";
 
@@ -88,7 +88,7 @@ $truncator        = new CharacterTruncator();
 $telegram = new TelegramPlatform(
     credentials: new PlatformCredentials('telegram', [
         'api_token' => 'fake-token',
-        'channel_username' => '@synglify_demo',
+        'channel_username' => '@owlstack_demo',
     ]),
     httpClient: $http,
     formatter: new TelegramFormatter($hashtagExtractor, $truncator),
@@ -126,10 +126,10 @@ echo "Registered: " . implode(', ', $registry->names()) . "\n\n";
 
 // ── Create a Post ───────────────────────────────────────────────────────
 $post = new Post(
-    title: 'Synglify Core 1.0 is out!',
-    body: 'We are thrilled to announce Synglify Core v1.0 — a framework-agnostic PHP library for publishing to social media platforms.',
-    url: 'https://synglify.com/blog/v1-release',
-    tags: ['synglify', 'php', 'opensource'],
+    title: 'Owlstack Core 1.0 is out!',
+    body: 'We are thrilled to announce Owlstack Core v1.0 — a framework-agnostic PHP library for publishing to social media platforms.',
+    url: 'https://owlstack.com/blog/v1-release',
+    tags: ['owlstack', 'php', 'opensource'],
 );
 
 // ── Publish to each platform individually ───────────────────────────────

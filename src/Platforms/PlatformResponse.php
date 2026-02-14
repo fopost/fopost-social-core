@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms;
+namespace Owlstack\Core\Platforms;
 
-use Synglify\Core\Platforms\Contracts\PlatformResponseInterface;
+use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
 
 /**
  * Default implementation of PlatformResponseInterface.

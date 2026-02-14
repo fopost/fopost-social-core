@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Tumblr;
+namespace Owlstack\Core\Tests\Unit\Platforms\Tumblr;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Platforms\Tumblr\TumblrFormatter;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Platforms\Tumblr\TumblrFormatter;
 
 class TumblrFormatterTest extends TestCase
 {

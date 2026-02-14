@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Pinterest;
+namespace Owlstack\Core\Tests\Unit\Platforms\Pinterest;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Platforms\Pinterest\PinterestFormatter;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Platforms\Pinterest\PinterestFormatter;
 
 class PinterestFormatterTest extends TestCase
 {

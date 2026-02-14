@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms;
+namespace Owlstack\Core\Platforms;
 
-use Synglify\Core\Platforms\Contracts\PlatformInterface;
-use Synglify\Core\Exceptions\SynglifyException;
+use Owlstack\Core\Platforms\Contracts\PlatformInterface;
+use Owlstack\Core\Exceptions\OwlstackException;
 
 /**
  * Registry that holds all available platform instances.
@@ -28,12 +28,12 @@ class PlatformRegistry
     /**
      * Get a platform by name.
      *
-     * @throws SynglifyException If the platform is not registered.
+     * @throws OwlstackException If the platform is not registered.
      */
     public function get(string $name): PlatformInterface
     {
         if (!isset($this->platforms[$name])) {
-            throw new SynglifyException("Platform '{$name}' is not registered.");
+            throw new OwlstackException("Platform '{$name}' is not registered.");
         }
 
         return $this->platforms[$name];

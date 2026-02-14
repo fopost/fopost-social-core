@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\Instagram;
+namespace Owlstack\Core\Platforms\Instagram;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\Contracts\FormatterInterface;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\Contracts\FormatterInterface;
 
 /**
  * Formats content for Instagram captions.

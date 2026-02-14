@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Config;
+namespace Owlstack\Core\Tests\Unit\Config;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Config\ConfigValidator;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Config\SynglifyConfig;
-use Synglify\Core\Exceptions\SynglifyException;
+use Owlstack\Core\Config\ConfigValidator;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Config\OwlstackConfig;
+use Owlstack\Core\Exceptions\OwlstackException;
 
 class ConfigValidatorTest extends TestCase
 {
@@ -57,12 +57,12 @@ class ConfigValidatorTest extends TestCase
 
     public function testValidateConfigThrowsOnMissingCredentials(): void
     {
-        $config = new SynglifyConfig([
+        $config = new OwlstackConfig([
             'telegram' => [],
             'facebook' => ['app_id' => 'id'],
         ]);
 
-        $this->expectException(SynglifyException::class);
+        $this->expectException(OwlstackException::class);
         $this->expectExceptionMessage('Invalid configuration');
 
         $this->validator->validateConfig($config);
@@ -70,7 +70,7 @@ class ConfigValidatorTest extends TestCase
 
     public function testValidateConfigPassesWithValidCredentials(): void
     {
-        $config = new SynglifyConfig([
+        $config = new OwlstackConfig([
             'telegram' => ['api_token' => 'tok'],
             'twitter' => [
                 'consumer_key' => 'a',

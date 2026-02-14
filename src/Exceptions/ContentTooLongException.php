@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Exceptions;
+namespace Owlstack\Core\Exceptions;
 
 /**
  * Thrown when content exceeds a platform's character limit.
  */
-class ContentTooLongException extends SynglifyException
+class ContentTooLongException extends OwlstackException
 {
     public function __construct(
         public readonly string $platformName,

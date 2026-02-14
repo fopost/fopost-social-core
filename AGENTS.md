@@ -4,7 +4,7 @@ Instructions for AI coding agents (OpenAI Codex, GitHub Copilot Workspace, GPT-b
 
 ## Identity
 
-This is **synglify-core**, a framework-agnostic PHP 8.1+ library for publishing content to social media platforms. It is the foundation layer — zero external framework dependencies.
+This is **owlstack-core**, a framework-agnostic PHP 8.1+ library for publishing content to social media platforms. It is the foundation layer — zero external framework dependencies.
 
 ## Setup
 
@@ -31,7 +31,7 @@ All tests must pass before submitting changes.
 
 - PHP 8.1+ with `declare(strict_types=1);` in every file.
 - Follow PSR-12 coding standard.
-- PSR-4 autoloading: `Synglify\Core\` maps to `src/`.
+- PSR-4 autoloading: `Owlstack\Core\` maps to `src/`.
 - Fully type all parameters and return types.
 - Use readonly constructor promotion for value objects.
 - Use named arguments for clarity when constructing objects.
@@ -39,10 +39,10 @@ All tests must pass before submitting changes.
 ## Architecture Rules
 
 1. **No framework dependencies.** Do not import Laravel, Symfony, WordPress, or any framework classes. This package depends only on `ext-curl` and `ext-json`.
-2. **Contracts-first.** All infrastructure concerns (storage, queues, events, HTTP clients) must be defined as interfaces in a `Contracts/` subdirectory. Framework packages (synglify-laravel, synglify-wordpress) provide implementations.
+2. **Contracts-first.** All infrastructure concerns (storage, queues, events, HTTP clients) must be defined as interfaces in a `Contracts/` subdirectory. Framework packages (owlstack-laravel, owlstack-wordpress) provide implementations.
 3. **Immutable value objects.** `Post`, `Media`, `AccessToken`, `PublishResult`, and similar objects use `readonly` properties and must not have setters.
 4. **One class per file.** Each class, interface, enum, and trait lives in its own file.
-5. **Exception hierarchy.** All exceptions must extend `Synglify\Core\Exceptions\SynglifyException`.
+5. **Exception hierarchy.** All exceptions must extend `Owlstack\Core\Exceptions\OwlstackException`.
 
 ## File Organization
 
@@ -53,7 +53,7 @@ All tests must pass before submitting changes.
 | `src/Content/` | Post, Media, MediaCollection value objects |
 | `src/Delivery/` | Delivery status tracking |
 | `src/Events/` | Event dispatcher contract and event objects |
-| `src/Exceptions/` | Exception classes (all extend SynglifyException) |
+| `src/Exceptions/` | Exception classes (all extend OwlstackException) |
 | `src/Formatting/` | Platform-specific formatters and text utilities |
 | `src/Http/` | cURL HTTP client and contract |
 | `src/Platforms/` | Platform implementations (Telegram, Twitter/X, Facebook) |

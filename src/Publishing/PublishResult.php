@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Publishing;
+namespace Owlstack\Core\Publishing;
 
 use DateTimeImmutable;
 

@@ -19,13 +19,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Reddit\RedditFormatter;
-use Synglify\Core\Platforms\Reddit\RedditPlatform;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Reddit\RedditFormatter;
+use Owlstack\Core\Platforms\Reddit\RedditPlatform;
 
 echo "=== Reddit Platform Example ===\n\n";
 
@@ -92,9 +92,9 @@ echo "   Credentials valid: " . ($isValid ? 'Yes' : 'No') . "\n\n";
 // ── 2. Publish a self-post (text) ──────────────────────────────────────
 echo "2. Publishing a self-post...\n";
 $post = new Post(
-    title: 'Just discovered Synglify for social media automation',
+    title: 'Just discovered Owlstack for social media automation',
     body: "I've been looking for a way to publish content across multiple platforms "
-        . "and found Synglify. It supports Telegram, Twitter, Facebook, and now Reddit!\n\n"
+        . "and found Owlstack. It supports Telegram, Twitter, Facebook, and now Reddit!\n\n"
         . "Has anyone else tried something similar?",
     tags: ['php', 'automation', 'socialmedia'],
 );
@@ -107,9 +107,9 @@ echo "   URL: " . $result->externalUrl() . "\n\n";
 // ── 3. Publish a link post ─────────────────────────────────────────────
 echo "3. Publishing a link post...\n";
 $linkPost = new Post(
-    title: 'Synglify: Open-source social media publishing engine',
+    title: 'Owlstack: Open-source social media publishing engine',
     body: '',
-    url: 'https://synglify.com',
+    url: 'https://owlstack.com',
 );
 
 $linkResult = $platform->publish($linkPost, ['subreddit' => 'opensource']);

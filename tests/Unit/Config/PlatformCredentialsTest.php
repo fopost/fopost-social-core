@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Config;
+namespace Owlstack\Core\Tests\Unit\Config;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Config\PlatformCredentials;
+use Owlstack\Core\Config\PlatformCredentials;
 
 class PlatformCredentialsTest extends TestCase
 {

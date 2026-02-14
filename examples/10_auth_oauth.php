@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Auth\AccessToken;
-use Synglify\Core\Auth\Contracts\OAuthProviderInterface;
-use Synglify\Core\Auth\Contracts\TokenStoreInterface;
-use Synglify\Core\Auth\OAuthHandler;
+use Owlstack\Core\Auth\AccessToken;
+use Owlstack\Core\Auth\Contracts\OAuthProviderInterface;
+use Owlstack\Core\Auth\Contracts\TokenStoreInterface;
+use Owlstack\Core\Auth\OAuthHandler;
 
 echo "=== Example 10: Authentication & OAuth ===\n\n";
 
@@ -146,7 +146,7 @@ echo "   getToken(): {$fetched->token}\n";
 echo "\n   Getting token for unknown account...\n";
 try {
     $handler->getToken('non-existent');
-} catch (\Synglify\Core\Exceptions\AuthenticationException $e) {
+} catch (\Owlstack\Core\Exceptions\AuthenticationException $e) {
     echo "   Caught: {$e->getMessage()}\n";
 }
 

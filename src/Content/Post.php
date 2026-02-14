@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Content;
+namespace Owlstack\Core\Content;
 
 /**
  * Represents a piece of content to be published to social platforms.
  *
- * This is the central value object in Synglify. Framework packages
+ * This is the central value object in Owlstack. Framework packages
  * construct Post instances from their own content models (Eloquent,
  * WP_Post, etc.) and pass them to the Publisher.
  */

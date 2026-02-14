@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Slack\SlackPlatform;
-use Synglify\Core\Platforms\Slack\SlackFormatter;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Slack\SlackPlatform;
+use Owlstack\Core\Platforms\Slack\SlackFormatter;
 
 // -- Mock HTTP client for demonstration (replace with real HttpClient) --------
 
@@ -40,7 +40,7 @@ $mockHttp = new class implements HttpClientInterface {
                     'ok' => true,
                     'url' => 'https://myworkspace.slack.com/',
                     'team' => 'My Workspace',
-                    'user' => 'synglify-bot',
+                    'user' => 'owlstack-bot',
                     'team_id' => 'T0123ABC',
                     'user_id' => 'U0123BOT',
                     'bot_id' => 'B0123BOT',
@@ -108,10 +108,10 @@ $botCredentials = new PlatformCredentials('slack', [
 $slack = new SlackPlatform($botCredentials, $mockHttp);
 
 $post = new Post(
-    title: 'New Release: Synglify v2.0',
+    title: 'New Release: Owlstack v2.0',
     body: 'We just shipped a major update with Slack integration and Block Kit support!',
-    url: 'https://synglify.com/releases/v2',
-    tags: ['release', 'synglify', 'slack'],
+    url: 'https://owlstack.com/releases/v2',
+    tags: ['release', 'owlstack', 'slack'],
 );
 
 $result = $slack->publish($post);
@@ -141,7 +141,7 @@ $replyPost = new Post(
 
 $result = $slack->publish($replyPost, [
     'thread_ts' => '1700000000.000001',
-    'username' => 'Synglify Release Bot',
+    'username' => 'Owlstack Release Bot',
     'icon_emoji' => ':rocket:',
     'unfurl_links' => false,
 ]);

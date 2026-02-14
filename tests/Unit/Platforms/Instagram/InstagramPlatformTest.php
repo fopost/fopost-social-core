@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Instagram;
+namespace Owlstack\Core\Tests\Unit\Platforms\Instagram;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Exceptions\PlatformException;
-use Synglify\Core\Exceptions\RateLimitException;
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Platforms\Instagram\InstagramFormatter;
-use Synglify\Core\Platforms\Instagram\InstagramPlatform;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Exceptions\PlatformException;
+use Owlstack\Core\Exceptions\RateLimitException;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Platforms\Instagram\InstagramFormatter;
+use Owlstack\Core\Platforms\Instagram\InstagramPlatform;
 
 class InstagramPlatformTest extends TestCase
 {

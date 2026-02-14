@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\LinkedIn;
+namespace Owlstack\Core\Tests\Unit\Platforms\LinkedIn;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Platforms\LinkedIn\LinkedInFormatter;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Platforms\LinkedIn\LinkedInFormatter;
 
 class LinkedInFormatterTest extends TestCase
 {

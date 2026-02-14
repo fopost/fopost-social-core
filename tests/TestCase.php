@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests;
+namespace Owlstack\Core\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Formatting;
+namespace Owlstack\Core\Tests\Unit\Formatting;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Formatting\HashtagExtractor;
 
 class HashtagExtractorTest extends TestCase
 {
@@ -18,9 +18,9 @@ class HashtagExtractorTest extends TestCase
 
     public function testExtractBasicTags(): void
     {
-        $result = $this->extractor->extract(['php', 'synglify']);
+        $result = $this->extractor->extract(['php', 'owlstack']);
 
-        $this->assertSame('#php #synglify', $result);
+        $this->assertSame('#php #owlstack', $result);
     }
 
     public function testExtractStripsExistingHashSymbols(): void

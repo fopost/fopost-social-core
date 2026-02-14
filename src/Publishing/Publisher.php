@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Publishing;
+namespace Owlstack\Core\Publishing;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Events\Contracts\EventDispatcherInterface;
-use Synglify\Core\Events\PostPublished;
-use Synglify\Core\Events\PostFailed;
-use Synglify\Core\Exceptions\PlatformException;
-use Synglify\Core\Platforms\Contracts\PlatformInterface;
-use Synglify\Core\Platforms\PlatformRegistry;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
+use Owlstack\Core\Events\PostPublished;
+use Owlstack\Core\Events\PostFailed;
+use Owlstack\Core\Exceptions\PlatformException;
+use Owlstack\Core\Platforms\Contracts\PlatformInterface;
+use Owlstack\Core\Platforms\PlatformRegistry;
 
 /**
  * The main publishing orchestrator.

@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Delivery\DeliveryStatus;
+use Owlstack\Core\Delivery\DeliveryStatus;
 
 echo "=== Example 11: Delivery Status ===\n\n";
 

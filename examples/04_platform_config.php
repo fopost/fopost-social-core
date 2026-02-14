@@ -5,14 +5,14 @@ declare(strict_types=1);
 /**
  * Example 04: Platform Configuration & Validation
  *
- * Shows PlatformCredentials, SynglifyConfig, and ConfigValidator.
+ * Shows PlatformCredentials, OwlstackConfig, and ConfigValidator.
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Config\ConfigValidator;
-use Synglify\Core\Config\PlatformCredentials;
-use Synglify\Core\Config\SynglifyConfig;
+use Owlstack\Core\Config\ConfigValidator;
+use Owlstack\Core\Config\PlatformCredentials;
+use Owlstack\Core\Config\OwlstackConfig;
 
 echo "=== Example 04: Platform Configuration ===\n\n";
 
@@ -39,10 +39,10 @@ try {
 }
 echo "\n";
 
-// ── 2. SynglifyConfig — central config container ────────────────────────
-echo "2) SynglifyConfig\n";
+// ── 2. OwlstackConfig — central config container ────────────────────────
+echo "2) OwlstackConfig\n";
 
-$config = new SynglifyConfig(
+$config = new OwlstackConfig(
     platforms: [
         'telegram' => [
             'api_token' => '123456:ABC-DEF',
@@ -77,7 +77,7 @@ $creds = $config->credentials('twitter');
 echo "   twitter consumer_key    : " . $creds->get('consumer_key') . "\n\n";
 
 // You can also pass pre-built PlatformCredentials instances:
-$config2 = new SynglifyConfig(
+$config2 = new OwlstackConfig(
     platforms: [
         'telegram' => $telegramCreds,
     ],
@@ -112,12 +112,12 @@ echo "\n   Full config validation...\n";
 try {
     $validator->validateConfig($config);
     echo "   Config is valid!\n";
-} catch (\Synglify\Core\Exceptions\SynglifyException $e) {
+} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
     echo "   Invalid: {$e->getMessage()}\n";
 }
 
 // Bad config
-$badConfig = new SynglifyConfig([
+$badConfig = new OwlstackConfig([
     'twitter' => ['consumer_key' => 'ck'],
     'facebook' => [],
 ]);
@@ -125,7 +125,7 @@ $badConfig = new SynglifyConfig([
 echo "\n   Bad config validation...\n";
 try {
     $validator->validateConfig($badConfig);
-} catch (\Synglify\Core\Exceptions\SynglifyException $e) {
+} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
     echo "   Caught: {$e->getMessage()}\n";
 }
 

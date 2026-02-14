@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Platforms\Contracts;
+namespace Owlstack\Core\Platforms\Contracts;
 
-use Synglify\Core\Content\Post;
-use Synglify\Core\Publishing\PublishResult;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Publishing\PublishResult;
 
 /**
  * Contract that every social media platform must implement.

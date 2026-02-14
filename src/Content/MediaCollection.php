@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Content;
+namespace Owlstack\Core\Content;
 
 use Countable;
 use IteratorAggregate;

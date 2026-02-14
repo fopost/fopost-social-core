@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Facebook;
+namespace Owlstack\Core\Tests\Unit\Platforms\Facebook;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Platforms\Facebook\FacebookFormatter;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
 
 class FacebookFormatterTest extends TestCase
 {

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Config;
+namespace Owlstack\Core\Config;
 
 /**
- * Central configuration object for Synglify.
+ * Central configuration object for Owlstack.
  *
  * Holds all settings: registered platform credentials, default options,
  * and feature flags. Framework packages populate this from their own
  * config systems (Laravel config, WP options, env files, etc.).
  */
-class SynglifyConfig
+class OwlstackConfig
 {
     /** @var array<string, PlatformCredentials> */
     private array $platforms = [];

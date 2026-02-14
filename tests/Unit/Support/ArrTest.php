@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Support;
+namespace Owlstack\Core\Tests\Unit\Support;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Support\Arr;
+use Owlstack\Core\Support\Arr;
 
 class ArrTest extends TestCase
 {

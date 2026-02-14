@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Http;
+namespace Owlstack\Core\Http;
 
-use Synglify\Core\Http\Contracts\HttpClientInterface;
-use Synglify\Core\Exceptions\SynglifyException;
+use Owlstack\Core\Http\Contracts\HttpClientInterface;
+use Owlstack\Core\Exceptions\OwlstackException;
 
 /**
  * Default cURL-based HTTP client implementation.
@@ -49,7 +49,7 @@ class HttpClient implements HttpClientInterface
      * @param string $url     Request URL.
      * @param array  $options Request options.
      * @return array{status: int, headers: array, body: string}
-     * @throws SynglifyException On cURL errors.
+     * @throws OwlstackException On cURL errors.
      */
     private function request(string $method, string $url, array $options = []): array
     {
@@ -119,7 +119,7 @@ class HttpClient implements HttpClientInterface
             curl_close($ch);
 
             if ($body === false) {
-                throw new SynglifyException("HTTP request failed: {$error}");
+                throw new OwlstackException("HTTP request failed: {$error}");
             }
 
             return [
@@ -160,7 +160,7 @@ class HttpClient implements HttpClientInterface
 
             if (isset($part['filename'])) {
                 // File upload — write contents to a temp file for CURLFile
-                $tmpFile = tempnam(sys_get_temp_dir(), 'synglify_');
+                $tmpFile = tempnam(sys_get_temp_dir(), 'owlstack_');
                 file_put_contents($tmpFile, $contents);
                 $tempFiles[] = $tmpFile;
 

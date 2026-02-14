@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Slack;
+namespace Owlstack\Core\Tests\Unit\Platforms\Slack;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Platforms\Slack\SlackFormatter;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Platforms\Slack\SlackFormatter;
 
 class SlackFormatterTest extends TestCase
 {

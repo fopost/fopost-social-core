@@ -11,13 +11,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Synglify\Core\Content\CanonicalLink;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Platforms\Facebook\FacebookFormatter;
-use Synglify\Core\Platforms\Telegram\TelegramFormatter;
-use Synglify\Core\Platforms\Twitter\TwitterFormatter;
+use Owlstack\Core\Content\CanonicalLink;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
+use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
+use Owlstack\Core\Platforms\Twitter\TwitterFormatter;
 
 echo "=== Example 03: Formatting ===\n\n";
 
@@ -40,7 +40,7 @@ echo "   Constructor suffix: " . $customTruncator->truncate($longText, 50) . "\n
 $extractor = new HashtagExtractor();
 
 echo "2) HashtagExtractor\n";
-echo "   Basic    : " . $extractor->extract(['php', 'laravel', 'synglify']) . "\n";
+echo "   Basic    : " . $extractor->extract(['php', 'laravel', 'owlstack']) . "\n";
 echo "   Prefixed : " . $extractor->extract(['#php', '#laravel']) . "\n";
 echo "   Specials : " . $extractor->extract(['hello world', 'c++', 'node.js']) . "\n";
 echo "   Max 2    : " . $extractor->extract(['a', 'b', 'c', 'd'], 2) . "\n";

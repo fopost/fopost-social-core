@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Synglify\Core\Tests\Unit\Platforms\Discord;
+namespace Owlstack\Core\Tests\Unit\Platforms\Discord;
 
 use PHPUnit\Framework\TestCase;
-use Synglify\Core\Content\Media;
-use Synglify\Core\Content\MediaCollection;
-use Synglify\Core\Content\Post;
-use Synglify\Core\Formatting\CharacterTruncator;
-use Synglify\Core\Formatting\HashtagExtractor;
-use Synglify\Core\Platforms\Discord\DiscordFormatter;
+use Owlstack\Core\Content\Media;
+use Owlstack\Core\Content\MediaCollection;
+use Owlstack\Core\Content\Post;
+use Owlstack\Core\Formatting\CharacterTruncator;
+use Owlstack\Core\Formatting\HashtagExtractor;
+use Owlstack\Core\Platforms\Discord\DiscordFormatter;
 
 class DiscordFormatterTest extends TestCase
 {
