@@ -48,6 +48,7 @@ The shared engine behind [Owlstack](https://owlstack.dev) — publish content to
 - [Multi-Platform Publishing](#multi-platform-publishing)
 - [Advanced Usage](#advanced-usage)
 - [Testing](#testing)
+- [Examples](#examples)
 - [Framework Integrations](#framework-integrations)
 - [Contributing](#contributing)
 - [Security](#security)
@@ -1200,6 +1201,36 @@ Clock::freeze(new DateTimeImmutable('2025-06-15 10:00:00'));
 // All Clock::now() calls return the frozen time
 Clock::unfreeze();
 ```
+
+---
+
+## Examples
+
+The `examples/` directory contains runnable scripts demonstrating every feature:
+
+### Mock Examples (no API keys needed)
+
+Safe to run immediately — use mock HTTP clients that simulate API responses locally.
+
+```bash
+php examples/mock/platform_slack.php
+php examples/mock/01_creating_posts.php
+```
+
+### Real API Examples
+
+Send real requests to social media APIs. Requires valid credentials.
+
+```bash
+# 1. Set credentials
+export SLACK_BOT_TOKEN=xoxb-your-real-token
+export SLACK_CHANNEL=C0123GENERAL
+
+# 2. Run
+php examples/real/platform_slack.php
+```
+
+All 11 platforms are covered. See [examples/README.md](examples/README.md) for the full list and [examples/real/README.md](examples/real/README.md) for credential setup instructions.
 
 ---
 
