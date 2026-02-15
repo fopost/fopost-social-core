@@ -12,9 +12,12 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/owlstacks/owlstack-core/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/owlstacks/owlstack-core/tests.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
   <a href="https://packagist.org/packages/owlstack/owlstack-core"><img src="https://img.shields.io/packagist/v/owlstack/owlstack-core.svg?style=flat-square" alt="Latest Version"></a>
+  <a href="https://packagist.org/packages/owlstack/owlstack-core"><img src="https://img.shields.io/packagist/dt/owlstack/owlstack-core.svg?style=flat-square" alt="Total Downloads"></a>
   <a href="https://packagist.org/packages/owlstack/owlstack-core"><img src="https://img.shields.io/packagist/php-v/owlstack/owlstack-core.svg?style=flat-square" alt="PHP Version"></a>
   <a href="LICENSE"><img src="https://img.shields.io/packagist/l/owlstack/owlstack-core.svg?style=flat-square" alt="License"></a>
+  <a href="https://github.com/owlstacks/owlstack-core"><img src="https://img.shields.io/github/stars/owlstacks/owlstack-core?style=flat-square" alt="GitHub Stars"></a>
 </p>
 
 ---
