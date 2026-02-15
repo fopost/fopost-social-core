@@ -2,7 +2,7 @@
   <a href="https://owlstack.dev">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/owlstacks/owlstack-docs/refs/heads/main/static/img/logo-light-transparent.png">
-      <img src="https://raw.githubusercontent.com/owlstacks/owlstack-docs/refs/heads/main/static/img/logo-dark-transparent.png" alt="Owlstack">
+      <img src="https://raw.githubusercontent.com/owlstacks/owlstack-docs/refs/heads/main/static/img/logo-dark-transparent.png" alt="Owlstack" height="200px">
     </picture>
   </a>
 </p>
