@@ -1209,7 +1209,6 @@ Clock::unfreeze();
 |:--------|:----------|:-----------|
 | **owlstack/owlstack-laravel** | Laravel 10+ | [owlstack-laravel](https://github.com/owlstack/owlstack-laravel) |
 | **owlstack/owlstack-wordpress** | WordPress 6+ | [owlstack-wordpress](https://github.com/owlstack/owlstack-wordpress) |
-| **owlstack/owlstack-js-core** | Node.js / JS | [owlstack-js-core](https://github.com/owlstack/owlstack-js-core) |
 
 ---
 
