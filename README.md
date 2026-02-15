@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://owlstack.dev">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://owlstack.dev/images/logo-dark.svg">
-      <img src="https://owlstack.dev/images/logo-light.svg" alt="Owlstack" width="280">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/owlstacks/owlstack-docs/refs/heads/main/static/img/logo-dark-transparent.png">
+      <img src="https://raw.githubusercontent.com/owlstacks/owlstack-docs/refs/heads/main/static/img/logo-light-transparent.png" alt="Owlstack">
     </picture>
   </a>
 </p>
