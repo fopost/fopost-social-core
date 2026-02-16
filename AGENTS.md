@@ -69,6 +69,30 @@ All tests must pass before submitting changes.
 3. Register the platform in `PlatformRegistry`.
 4. Add unit tests under `tests/Unit/Platforms/{Name}/`.
 
+## ⚠️ MANDATORY: Project Roadmap Reference
+
+The private project roadmap is available at `.roadmap/` in the project root (symlinked to `owlstack-roadmap` repository).
+
+### Roadmap Rules
+
+1. **READ the roadmap before starting any task** to understand project priorities, planned features, and architecture decisions.
+2. **Consult these roadmap files** for context:
+   - `.roadmap/ROADMAP.md` — Phased development plan and milestones
+   - `.roadmap/TODO.md` — Current task priorities and status
+   - `.roadmap/ARCHITECTURE.md` — Technical architecture, repo structure, database schema
+   - `.roadmap/STRATEGY.md` — Business model (Free SDK + Paid Cloud)
+   - `.roadmap/REVENUE.md` — Pricing tiers and financial projections
+   - `.roadmap/DESIGNER-ROADMAP.md` — Design system and brand guidelines
+   - `.roadmap/USER-JOURNEY.md` — User journey maps and conversion funnels
+3. **Ask questions** if a task conflicts with or is unclear in relation to the roadmap.
+4. **NEVER modify** any file inside `.roadmap/`. It is **read-only** reference material.
+5. **NEVER commit** anything from `.roadmap/` — it is gitignored and symlinked.
+6. **Align your work** with the roadmap's priorities, milestones, and architecture decisions.
+7. **If a requested task contradicts the roadmap**, inform the user about the conflict before proceeding.
+8. **Do NOT update the roadmap** based on tasks you complete. The developer manages the roadmap separately.
+
+---
+
 ## ⚠️ MANDATORY: Git Branching Workflow
 
 **NEVER commit or push directly to the `main` branch. This is the most important rule in this repository.**

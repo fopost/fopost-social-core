@@ -116,6 +116,18 @@ composer install
 - **Never** suppress errors with `@` operator.
 - **Never** use `var_dump`, `print_r`, or `dd()` in production code.
 
+## ⚠️ MANDATORY: Roadmap Reference
+
+- Before starting work, read `.roadmap/` for project context, priorities, and architecture decisions.
+- Key files: `ROADMAP.md` (phases), `TODO.md` (tasks), `ARCHITECTURE.md` (tech), `STRATEGY.md` (business model).
+- **NEVER modify** files in `.roadmap/`. It is read-only.
+- **NEVER commit** anything from `.roadmap/`.
+- If a task conflicts with the roadmap, flag it before proceeding.
+- Ask questions based on the roadmap to clarify scope and priorities.
+- **Do NOT update the roadmap** based on tasks you complete.
+
+---
+
 ## ⚠️ MANDATORY: Git Branching Workflow
 
 **Read and follow ALL branching rules defined in `AGENTS.md`.**

@@ -36,6 +36,15 @@ Before making ANY code changes, you MUST:
 
 See `AGENTS.md` in the project root for the complete set of rules.
 
+## ⚠️ MANDATORY: Roadmap Reference
+
+- Read `.roadmap/` before starting any task for project context and priorities.
+- Key files: `ROADMAP.md`, `TODO.md`, `ARCHITECTURE.md`, `STRATEGY.md`, `REVENUE.md`.
+- **NEVER modify** roadmap files. They are read-only.
+- **NEVER commit** anything from `.roadmap/`.
+- Align work with roadmap priorities. Flag conflicts before proceeding.
+- **Do NOT update the roadmap** based on completed tasks.
+
 ## Project Context
 
 - **Package:** owlstack-core (framework-agnostic PHP 8.1+ social media publishing library)
