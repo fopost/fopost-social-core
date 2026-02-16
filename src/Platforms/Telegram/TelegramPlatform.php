@@ -160,7 +160,6 @@ class TelegramPlatform implements PlatformInterface
 
         // Add media-specific parameters
         $mediaFieldName = $this->resolveMediaFieldName($media);
-        $params[$mediaFieldName] = $media->path;
 
         if ($media->isVideo() || $media->isAudio()) {
             if ($media->duration !== null) {
@@ -177,7 +176,13 @@ class TelegramPlatform implements PlatformInterface
             }
         }
 
-        $response = $this->apiRequest($method, $params);
+        // Upload local files via multipart; URLs/file_ids via form_params.
+        if ($this->isLocalFile($media->path)) {
+            $response = $this->apiRequestWithFiles($method, $params, [$mediaFieldName => $media->path]);
+        } else {
+            $params[$mediaFieldName] = $media->path;
+            $response = $this->apiRequest($method, $params);
+        }
 
         return $this->buildResponse($response);
     }
@@ -189,11 +194,21 @@ class TelegramPlatform implements PlatformInterface
     {
         $caption = $this->formatter->format($post, ['is_caption' => true]);
         $mediaItems = [];
+        $localFiles = [];
 
         foreach ($post->media->all() as $index => $media) {
+            // For local files, use attach:// protocol so Telegram reads from the multipart fields.
+            if ($this->isLocalFile($media->path)) {
+                $attachName = 'file_' . $index;
+                $localFiles[$attachName] = $media->path;
+                $mediaPath = 'attach://' . $attachName;
+            } else {
+                $mediaPath = $media->path;
+            }
+
             $item = [
                 'type' => $media->isVideo() ? 'video' : 'photo',
-                'media' => $media->path,
+                'media' => $mediaPath,
             ];
 
             // Only the first item gets the caption
@@ -210,7 +225,11 @@ class TelegramPlatform implements PlatformInterface
             'media' => json_encode($mediaItems),
         ];
 
-        $response = $this->apiRequest('sendMediaGroup', $params);
+        if ($localFiles !== []) {
+            $response = $this->apiRequestWithFiles('sendMediaGroup', $params, $localFiles);
+        } else {
+            $response = $this->apiRequest('sendMediaGroup', $params);
+        }
 
         return $this->buildResponse($response);
     }
@@ -252,6 +271,18 @@ class TelegramPlatform implements PlatformInterface
     }
 
     /**
+     * Check whether a path refers to a local file (as opposed to a URL or file_id).
+     */
+    private function isLocalFile(string $path): bool
+    {
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return false;
+        }
+
+        return file_exists($path);
+    }
+
+    /**
      * Send a request to the Telegram Bot API.
      *
      * @param string $method Telegram API method name (e.g. 'sendMessage').
@@ -269,6 +300,65 @@ class TelegramPlatform implements PlatformInterface
             'form_params' => $params,
         ]);
 
+        return $this->handleApiResponse($response);
+    }
+
+    /**
+     * Send a request to the Telegram Bot API with file uploads via multipart.
+     *
+     * @param string                $method Telegram API method name.
+     * @param array                 $params Regular request parameters.
+     * @param array<string, string> $files  Map of field name => local file path.
+     * @return array Decoded API response.
+     * @throws PlatformException On API errors.
+     * @throws RateLimitException On 429 rate limit responses.
+     */
+    private function apiRequestWithFiles(string $method, array $params, array $files): array
+    {
+        $apiToken = $this->credentials->require('api_token');
+        $url = self::API_BASE_URL . $apiToken . '/' . $method;
+
+        $multipart = [];
+
+        // Add regular params as multipart text fields.
+        foreach ($params as $key => $value) {
+            $multipart[] = [
+                'name'     => $key,
+                'contents' => is_bool($value) ? ($value ? '1' : '0') : (string) $value,
+            ];
+        }
+
+        // Add files as multipart file fields.
+        foreach ($files as $fieldName => $filePath) {
+            $mimeType = function_exists('mime_content_type')
+                ? (mime_content_type($filePath) ?: 'application/octet-stream')
+                : 'application/octet-stream';
+
+            $multipart[] = [
+                'name'     => $fieldName,
+                'contents' => file_get_contents($filePath),
+                'filename' => basename($filePath),
+                'headers'  => ['Content-Type' => $mimeType],
+            ];
+        }
+
+        $response = $this->httpClient->post($url, [
+            'multipart' => $multipart,
+        ]);
+
+        return $this->handleApiResponse($response);
+    }
+
+    /**
+     * Parse and validate a Telegram API response.
+     *
+     * @param array{status: int, headers: array, body: string} $response
+     * @return array Decoded successful response.
+     * @throws PlatformException On API errors.
+     * @throws RateLimitException On 429 rate limit responses.
+     */
+    private function handleApiResponse(array $response): array
+    {
         $data = json_decode($response['body'], true);
 
         if ($response['status'] === 429) {
