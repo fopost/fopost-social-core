@@ -115,3 +115,20 @@ composer install
 - **Never** commit real API tokens or credentials.
 - **Never** suppress errors with `@` operator.
 - **Never** use `var_dump`, `print_r`, or `dd()` in production code.
+
+## ⚠️ MANDATORY: Git Branching Workflow
+
+**Read and follow ALL branching rules defined in `AGENTS.md`.**
+
+Key points reiterated for Claude:
+
+1. **NEVER** commit or push directly to `main`. Always create a branch first.
+2. Before ANY code change, run:
+   ```bash
+   git checkout main && git pull origin main
+   git checkout -b fix/description   # or feature/, refactor/, docs/, test/, chore/
+   ```
+3. Use conventional commit messages: `fix:`, `feat:`, `refactor:`, `docs:`, `test:`, `chore:`.
+4. Run `./vendor/bin/phpunit` before committing to ensure all tests pass.
+5. Push the branch to remote and inform the developer it's ready for PR review.
+6. **NEVER** merge into `main`. The developer handles merging and releases.

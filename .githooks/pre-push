@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# =============================================================================
+# Pre-push hook: Prevent direct pushes to the main branch
+# =============================================================================
+# This hook is a safety net to enforce the branching workflow.
+# AI agents and developers should always work on feature/fix branches
+# and merge to main via Pull Requests only.
+# =============================================================================
+
+current_branch=$(git symbolic-ref HEAD 2>/dev/null | sed -e 's,.*/\(.*\),\1,')
+
+if [ "$current_branch" = "main" ]; then
+    echo ""
+    echo "🚫 BLOCKED: Direct push to 'main' is not allowed!"
+    echo ""
+    echo "This repository requires a branching workflow:"
+    echo "  1. Create a branch:  git checkout -b fix/your-description"
+    echo "  2. Make changes and commit on that branch"
+    echo "  3. Push the branch:  git push origin fix/your-description"
+    echo "  4. Create a Pull Request to merge into main"
+    echo ""
+    echo "Branch naming conventions:"
+    echo "  fix/      - Bug fixes"
+    echo "  feature/  - New features"
+    echo "  refactor/ - Code refactoring"
+    echo "  docs/     - Documentation"
+    echo "  test/     - Tests"
+    echo "  chore/    - Maintenance"
+    echo ""
+    exit 1
+fi

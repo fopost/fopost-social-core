@@ -69,11 +69,84 @@ All tests must pass before submitting changes.
 3. Register the platform in `PlatformRegistry`.
 4. Add unit tests under `tests/Unit/Platforms/{Name}/`.
 
-## Commit Guidelines
+## ⚠️ MANDATORY: Git Branching Workflow
 
-- Use imperative mood in commit messages (e.g., "Add Twitter platform support").
+**NEVER commit or push directly to the `main` branch. This is the most important rule in this repository.**
+
+Before making ANY code changes, you MUST follow this workflow:
+
+### Step 1: Create a Branch
+
+Always create a new branch from `main` using the appropriate naming convention:
+
+| Prefix | Use Case | Example |
+|--------|----------|---------|
+| `fix/` | Bug fixes | `fix/telegram-message-parsing` |
+| `feature/` | New features | `feature/youtube-platform` |
+| `refactor/` | Code refactoring | `refactor/http-client` |
+| `docs/` | Documentation changes | `docs/api-reference` |
+| `test/` | Adding/updating tests | `test/publisher-unit-tests` |
+| `chore/` | Maintenance tasks | `chore/update-dependencies` |
+
+```bash
+git checkout main
+git pull origin main
+git checkout -b fix/short-description   # or feature/, refactor/, docs/, test/, chore/
+```
+
+### Step 2: Make Changes on the Branch
+
+All code changes, commits, and pushes happen ONLY on the feature/fix branch. Never on `main`.
+
+### Step 3: Commit with Conventional Commit Messages
+
+Use [Conventional Commits](https://www.conventionalcommits.org/) format:
+
+- `fix: resolve Telegram message parsing issue`
+- `feat: add YouTube platform support`
+- `refactor: extract HTTP retry logic`
+- `docs: update API reference for Publisher`
+- `test: add unit tests for WhatsApp formatter`
+- `chore: update phpunit to v11`
+
+Rules:
+- Use imperative mood (e.g., "Add" not "Added").
 - One logical change per commit.
-- Reference issue numbers when applicable.
+- Reference issue numbers when applicable (e.g., `fix: resolve token refresh (#42)`).
+
+### Step 4: Push the Branch
+
+```bash
+git push origin fix/short-description
+```
+
+### Step 5: Inform the Developer
+
+After pushing, inform the user that:
+- The branch is ready for review.
+- A Pull Request should be created to merge into `main`.
+- **Do NOT run `git merge` into `main` yourself.**
+
+### Complete Example
+
+```bash
+git checkout main
+git pull origin main
+git checkout -b fix/telegram-send-photo
+# ... make changes ...
+./vendor/bin/phpunit                          # ensure tests pass
+git add .
+git commit -m "fix: resolve Telegram sendPhoto media type detection"
+git push origin fix/telegram-send-photo
+# Done — inform the developer the branch is ready for PR
+```
+
+## Release Process
+
+- Releases and version bumping are handled by the human developer ONLY.
+- Do NOT modify version numbers unless explicitly asked.
+- Do NOT create git tags.
+- Do NOT merge branches into `main`.
 
 ## Do Not
 
