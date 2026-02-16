@@ -128,11 +128,9 @@ composer install
 
 ---
 
-## ⚠️ MANDATORY: Git Branching Workflow
+## ⚠️ MANDATORY: Git Branching & Commit Workflow
 
-**Read and follow ALL branching rules defined in `AGENTS.md`.**
-
-Key points reiterated for Claude:
+**Read and follow ALL rules defined in `AGENTS.md`.** Key points reiterated:
 
 1. **NEVER** commit or push directly to `main`. Always create a branch first.
 2. Before ANY code change, run:
@@ -140,7 +138,9 @@ Key points reiterated for Claude:
    git checkout main && git pull origin main
    git checkout -b fix/description   # or feature/, refactor/, docs/, test/, chore/
    ```
-3. Use conventional commit messages: `fix:`, `feat:`, `refactor:`, `docs:`, `test:`, `chore:`.
-4. Run `./vendor/bin/phpunit` before committing to ensure all tests pass.
-5. Push the branch to remote and inform the developer it's ready for PR review.
-6. **NEVER** merge into `main`. The developer handles merging and releases.
+3. **Test before EVERY commit** — run `./vendor/bin/phpunit` and only commit if all tests pass.
+4. **Atomic commits** — each commit is exactly one logical change, self-contained and independently valid.
+5. **Conventional commit messages**: `fix:`, `feat:`, `refactor:`, `docs:`, `test:`, `chore:`.
+6. **Multiple changes = multiple commits** — never bundle unrelated changes into one commit.
+7. Push the branch to remote and inform the developer it's ready for PR review.
+8. **NEVER** merge into `main`. The developer handles merging and releases.

@@ -17,7 +17,9 @@ Before making ANY code changes, you MUST:
 
 2. **Make all changes on that branch** — never on `main`.
 
-3. **Use conventional commit messages**:
+3. **Test before EVERY commit** — run `./vendor/bin/phpunit`, only commit if all tests pass.
+
+4. **Atomic commits** — each commit is one logical change that passes all tests independently:
    - `fix: description` for bug fixes
    - `feat: description` for new features
    - `refactor: description` for refactoring
@@ -25,14 +27,11 @@ Before making ANY code changes, you MUST:
    - `test: description` for tests
    - `chore: description` for maintenance
 
-4. **Run tests before committing**:
-   ```bash
-   ./vendor/bin/phpunit
-   ```
+5. **Multiple changes = multiple commits** — never bundle unrelated changes.
 
-5. **Push the branch** to remote.
+6. **Push the branch** to remote.
 
-6. **Do NOT merge into `main`** — the developer will review and merge via Pull Request.
+7. **Do NOT merge into `main`** — the developer will review and merge via Pull Request.
 
 See `AGENTS.md` in the project root for the complete set of rules.
 

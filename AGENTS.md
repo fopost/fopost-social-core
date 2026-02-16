@@ -122,7 +122,36 @@ git checkout -b fix/short-description   # or feature/, refactor/, docs/, test/, 
 
 All code changes, commits, and pushes happen ONLY on the feature/fix branch. Never on `main`.
 
-### Step 3: Commit with Conventional Commit Messages
+### Step 3: Test Before Every Commit
+
+**You MUST run the test suite and confirm all tests pass BEFORE every commit.** This is non-negotiable.
+
+```bash
+./vendor/bin/phpunit
+```
+
+- If tests fail, **fix the issue first** — do NOT commit failing code.
+- If you added new code, **add or update tests** for it before committing.
+- A pre-commit git hook is configured to enforce this automatically.
+
+### Step 4: Atomic Commits with Conventional Messages
+
+**Every commit must be one self-contained logical change.** This is called an "atomic commit."
+
+#### What is an Atomic Commit?
+
+- Each commit represents **exactly one logical change** (one fix, one feature, one refactor).
+- Each commit **passes all tests independently** — the codebase is never broken at any commit.
+- Each commit can be **reverted, cherry-picked, or reviewed on its own** without side effects.
+
+#### What is NOT an Atomic Commit?
+
+- Mixing a bug fix with an unrelated refactor in one commit.
+- Committing half-finished work that breaks tests.
+- A single giant commit with multiple unrelated changes.
+- Commit messages like "WIP", "misc changes", "updates".
+
+#### Conventional Commit Format
 
 Use [Conventional Commits](https://www.conventionalcommits.org/) format:
 
@@ -138,13 +167,27 @@ Rules:
 - One logical change per commit.
 - Reference issue numbers when applicable (e.g., `fix: resolve token refresh (#42)`).
 
-### Step 4: Push the Branch
+#### Multiple Changes = Multiple Commits
+
+If a task involves several changes, split them into separate atomic commits:
+
+```bash
+# Good: three atomic commits
+git commit -m "fix: correct Telegram entity offset calculation"
+git commit -m "test: add edge case tests for Telegram entities"
+git commit -m "docs: update Telegram platform usage examples"
+
+# Bad: one giant commit
+git commit -m "fix Telegram stuff and update docs and tests"  # ❌ NEVER
+```
+
+### Step 5: Push the Branch
 
 ```bash
 git push origin fix/short-description
 ```
 
-### Step 5: Inform the Developer
+### Step 6: Inform the Developer
 
 After pushing, inform the user that:
 - The branch is ready for review.
@@ -157,10 +200,18 @@ After pushing, inform the user that:
 git checkout main
 git pull origin main
 git checkout -b fix/telegram-send-photo
-# ... make changes ...
-./vendor/bin/phpunit                          # ensure tests pass
-git add .
+
+# Make first logical change...
+./vendor/bin/phpunit                          # ✅ tests pass
+git add src/Platforms/Telegram/TelegramPlatform.php
 git commit -m "fix: resolve Telegram sendPhoto media type detection"
+
+# Make second logical change (related tests)...
+./vendor/bin/phpunit                          # ✅ tests pass
+git add tests/Unit/Platforms/Telegram/
+git commit -m "test: add sendPhoto media type edge case tests"
+
+# Push
 git push origin fix/telegram-send-photo
 # Done — inform the developer the branch is ready for PR
 ```
