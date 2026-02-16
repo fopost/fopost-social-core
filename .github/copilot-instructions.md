@@ -1,64 +1,47 @@
 # GitHub Copilot Agent Instructions
 
-Instructions for GitHub Copilot (Chat, Edits, Agent mode) working in this repository.
+> **Read and follow ALL rules in `AGENTS.md` first.** This file contains Copilot-specific instructions only.
 
-## ⚠️ MANDATORY: Git Branching Workflow
+---
 
-**NEVER commit or push directly to the `main` branch.**
+## Copilot-Specific Behavior
 
-Before making ANY code changes, you MUST:
+- **Always check existing patterns** before generating code — read a similar class in the same module first.
+- **Match surrounding code style exactly** — indentation, naming, type hints, docblock style.
+- **Read existing tests** before writing new ones — match the assertion style and mocking patterns used in the project.
+- **Prefer reading over guessing** — if unsure about a class name, interface method, or directory structure, search the codebase.
 
-1. **Create a branch** from `main`:
-   ```bash
-   git checkout main && git pull origin main
-   git checkout -b <prefix>/<short-description>
-   ```
-   Prefixes: `fix/`, `feature/`, `refactor/`, `docs/`, `test/`, `chore/`
+---
 
-2. **Make all changes on that branch** — never on `main`.
+## Quick Reference
 
-3. **Test before EVERY commit** — run `./vendor/bin/phpunit`, only commit if all tests pass.
+| Item | Value |
+|------|-------|
+| Namespace | `Owlstack\Core\` maps to `src/` |
+| Tests | `./vendor/bin/phpunit` — all must pass before commit |
+| PHP | 8.1+ with `declare(strict_types=1)` |
+| Style | PSR-12, fully typed, no `mixed` unless necessary |
+| Platforms | 11 — see `src/Platforms/` |
+| Interfaces | `src/Platforms/Contracts/PlatformInterface.php`, `src/Formatting/Contracts/FormatterInterface.php` |
 
-4. **Atomic commits** — each commit is one logical change that passes all tests independently:
-   - `fix: description` for bug fixes
-   - `feat: description` for new features
-   - `refactor: description` for refactoring
-   - `docs: description` for documentation
-   - `test: description` for tests
-   - `chore: description` for maintenance
+---
 
-5. **Multiple changes = multiple commits** — never bundle unrelated changes.
+## Git & Commit Rules (Reiterated)
 
-6. **Push the branch** to remote.
+1. **NEVER** push to `main`. Create a branch: `fix/`, `feature/`, `refactor/`, `docs/`, `test/`, `chore/`.
+2. **Test before EVERY commit** — `./vendor/bin/phpunit`, only commit if all pass.
+3. **Atomic commits** — one logical change per commit, passes tests independently.
+4. **Conventional messages** — `fix:`, `feat:`, `refactor:`, `docs:`, `test:`, `chore:`.
+5. **Multiple changes = multiple commits.**
+6. Push branch and inform developer it's ready for PR.
+7. **Do NOT merge into `main`.**
 
-7. **Do NOT merge into `main`** — the developer will review and merge via Pull Request.
+---
 
-See `AGENTS.md` in the project root for the complete set of rules.
+## Roadmap
 
-## ⚠️ MANDATORY: Roadmap Reference
+- Read `.roadmap/` for project context before tasks.
+- **Never modify** `.roadmap/` files — read-only reference.
+- Flag conflicts between tasks and roadmap priorities.
 
-- Read `.roadmap/` before starting any task for project context and priorities.
-- Key files: `ROADMAP.md`, `TODO.md`, `ARCHITECTURE.md`, `STRATEGY.md`, `REVENUE.md`.
-- **NEVER modify** roadmap files. They are read-only.
-- **NEVER commit** anything from `.roadmap/`.
-- Align work with roadmap priorities. Flag conflicts before proceeding.
-- **Do NOT update the roadmap** based on completed tasks.
-
-## Project Context
-
-- **Package:** owlstack-core (framework-agnostic PHP 8.1+ social media publishing library)
-- **Namespace:** `Owlstack\Core\`
-- **Dependencies:** Zero framework deps (only `ext-curl`, `ext-json`)
-- **Code style:** PSR-12, strict types, fully typed parameters and returns
-- **Tests:** PHPUnit — all tests must pass before committing
-
-## Key Rules
-
-- No framework-specific code (Laravel, Symfony, WordPress).
-- Contracts-first design — use interfaces in `Contracts/` subdirectories.
-- Value objects are immutable (`readonly` properties).
-- One class per file.
-- All exceptions extend `OwlstackException`.
-- No static methods or global state.
-- No hardcoded API URLs.
-- No real API tokens or credentials in code.
+See `AGENTS.md` for complete rules.
