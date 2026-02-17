@@ -3,11 +3,18 @@
 # =============================================================================
 # Pre-commit hook: Run tests before every commit
 # =============================================================================
+# PRIMARY HOOK SYSTEM: .githooks/ (configured via core.hooksPath)
+#
 # This hook enforces the "test before commit" rule.
 # Every commit must pass all tests — no exceptions.
 #
 # If tests fail, the commit is blocked. Fix the failing tests first.
 # To bypass in emergencies: git commit --no-verify (NOT recommended)
+#
+# Note: .pre-commit-config.yaml exists for optional supplementary checks
+# (trailing whitespace, YAML/JSON validation, large file detection, etc.)
+# but requires separate installation: pip install pre-commit && pre-commit install
+# This .githooks/ system is the primary and always-active hook system.
 # =============================================================================
 
 echo ""

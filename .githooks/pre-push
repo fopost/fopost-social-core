@@ -3,27 +3,35 @@
 # =============================================================================
 # Pre-push hook: Prevent direct pushes to the main branch
 # =============================================================================
+# PRIMARY HOOK SYSTEM: .githooks/ (configured via core.hooksPath)
+#
 # This hook is a safety net to enforce the branching workflow.
 # AI agents and developers should always work on feature/fix branches
 # and merge to main via Pull Requests only.
+#
+# Detection: reads stdin refspecs (primary) and checks current branch (fallback).
+# stdin is authoritative — it catches cases like `git push origin HEAD:main`
+# from any branch. The branch name check handles edge cases where stdin is empty.
 # =============================================================================
 
-current_branch=$(git symbolic-ref HEAD 2>/dev/null | sed -e 's,.*/\(.*\),\1,')
-
-# Also check the refspec arguments passed to the pre-push hook.
-# pre-push receives lines on stdin: <local ref> <local sha> <remote ref> <remote sha>
 pushing_to_main=false
 
-if [ "$current_branch" = "main" ]; then
-    pushing_to_main=true
-fi
-
-# Check if any refspec targets main on the remote
-while read local_ref local_sha remote_ref remote_sha; do
+# Primary check: read stdin refspecs provided by git to the pre-push hook.
+# Format per line: <local ref> <local sha> <remote ref> <remote sha>
+while read -r local_ref local_sha remote_ref remote_sha; do
     if echo "$remote_ref" | grep -qE '(refs/heads/main)$'; then
         pushing_to_main=true
     fi
 done
+
+# Fallback check: if stdin was empty, check the current branch name.
+# This catches `git push` with no explicit refspec while on main.
+if [ "$pushing_to_main" = false ]; then
+    current_branch=$(git symbolic-ref HEAD 2>/dev/null | sed -e 's,.*/\(.*\),\1,')
+    if [ "$current_branch" = "main" ]; then
+        pushing_to_main=true
+    fi
+fi
 
 if [ "$pushing_to_main" = true ]; then
     echo ""

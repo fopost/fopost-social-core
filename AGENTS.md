@@ -10,6 +10,8 @@
 
 **OwlStack Core** is a framework-agnostic PHP library for publishing content across social media platforms.
 
+> **Brand name:** "OwlStack" (capital S). The PHP namespace uses `Owlstack\Core\` (lowercase s) — this is intentional and cannot be changed.
+
 | Property | Value |
 |----------|-------|
 | **Type** | Composer package (library, not application) |
@@ -295,6 +297,8 @@ All changes happen ONLY on the feature/fix branch. Never on `main`.
 ```
 
 A pre-commit git hook (`.githooks/pre-commit`) enforces this automatically.
+
+> **Hook system:** This project uses `.githooks/` as the primary hook system (configured via `core.hooksPath`). A `.pre-commit-config.yaml` also exists for optional supplementary linting but requires separate installation.
 
 ### Step 4: Atomic Commits with Conventional Messages
 
