@@ -31,7 +31,23 @@ cd owlstack-core
 composer install
 ```
 
-4. Run the test suite to verify your setup:
+4. Set up git hooks:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+This activates the project's git hooks:
+- **pre-commit**: Runs PHPUnit before every commit — blocks commit if tests fail.
+- **pre-push**: Blocks direct pushes to `main` — enforces the branching workflow.
+
+> **Optional:** For supplementary linting (trailing whitespace, YAML/JSON validation, large file detection), install the [pre-commit](https://pre-commit.com) framework:
+> ```bash
+> pip install pre-commit && pre-commit install
+> ```
+> This is optional — the `.githooks/` system is the primary and always-active hook system.
+
+5. Run the test suite to verify your setup:
 
 ```bash
 ./vendor/bin/phpunit

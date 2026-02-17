@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# =============================================================================
+# Pre-push hook: Prevent direct pushes to the main branch
+# =============================================================================
+# PRIMARY HOOK SYSTEM: .githooks/ (configured via core.hooksPath)
+#
+# This hook is a safety net to enforce the branching workflow.
+# AI agents and developers should always work on feature/fix branches
+# and merge to main via Pull Requests only.
+#
+# Detection: reads stdin refspecs (primary) and checks current branch (fallback).
+# stdin is authoritative — it catches cases like `git push origin HEAD:main`
+# from any branch. The branch name check handles edge cases where stdin is empty.
+# =============================================================================
+
+pushing_to_main=false
+
+# Primary check: read stdin refspecs provided by git to the pre-push hook.
+# Format per line: <local ref> <local sha> <remote ref> <remote sha>
+while read -r local_ref local_sha remote_ref remote_sha; do
+    if echo "$remote_ref" | grep -qE '(refs/heads/main)$'; then
+        pushing_to_main=true
+    fi
+done
+
+# Fallback check: if stdin was empty, check the current branch name.
+# This catches `git push` with no explicit refspec while on main.
+if [ "$pushing_to_main" = false ]; then
+    current_branch=$(git symbolic-ref HEAD 2>/dev/null | sed -e 's,.*/\(.*\),\1,')
+    if [ "$current_branch" = "main" ]; then
+        pushing_to_main=true
+    fi
+fi
+
+if [ "$pushing_to_main" = true ]; then
+    echo ""
+    echo "🚫 BLOCKED: Direct push to 'main' is not allowed!"
+    echo ""
+    echo "This repository requires a branching workflow:"
+    echo "  1. Create a branch:  git checkout -b fix/your-description"
+    echo "  2. Make changes and commit on that branch"
+    echo "  3. Push the branch:  git push origin fix/your-description"
+    echo "  4. Create a Pull Request to merge into main"
+    echo ""
+    echo "Branch naming conventions:"
+    echo "  fix/      - Bug fixes"
+    echo "  feature/  - New features"
+    echo "  refactor/ - Code refactoring"
+    echo "  docs/     - Documentation"
+    echo "  test/     - Tests"
+    echo "  chore/    - Maintenance"
+    echo ""
+    exit 1
+fi
