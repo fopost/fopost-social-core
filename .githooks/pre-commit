@@ -14,12 +14,20 @@ echo ""
 echo "🧪 Running tests before commit..."
 echo ""
 
-# Check if phpunit exists
-if [ ! -f "vendor/bin/phpunit" ]; then
-    echo "⚠️  PHPUnit not found. Run 'composer install' first."
-    echo "   Skipping tests (PHPUnit not installed)."
+# Check if vendor directory exists (composer install ran)
+if [ ! -d "vendor" ]; then
+    echo "⚠️  'vendor/' not found. Dependencies not installed."
+    echo "   Run 'composer install' first."
     echo ""
-    exit 0
+    exit 1
+fi
+
+# Check if PHPUnit is available
+if [ ! -f "vendor/bin/phpunit" ]; then
+    echo "❌ PHPUnit not found at 'vendor/bin/phpunit'."
+    echo "   Run 'composer install' to install dev dependencies."
+    echo ""
+    exit 1
 fi
 
 # Run PHPUnit with stop-on-failure for fast feedback

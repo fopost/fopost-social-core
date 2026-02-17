@@ -10,7 +10,22 @@
 
 current_branch=$(git symbolic-ref HEAD 2>/dev/null | sed -e 's,.*/\(.*\),\1,')
 
+# Also check the refspec arguments passed to the pre-push hook.
+# pre-push receives lines on stdin: <local ref> <local sha> <remote ref> <remote sha>
+pushing_to_main=false
+
 if [ "$current_branch" = "main" ]; then
+    pushing_to_main=true
+fi
+
+# Check if any refspec targets main on the remote
+while read local_ref local_sha remote_ref remote_sha; do
+    if echo "$remote_ref" | grep -qE '(refs/heads/main)$'; then
+        pushing_to_main=true
+    fi
+done
+
+if [ "$pushing_to_main" = true ]; then
     echo ""
     echo "🚫 BLOCKED: Direct push to 'main' is not allowed!"
     echo ""

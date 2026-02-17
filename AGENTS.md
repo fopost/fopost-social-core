@@ -294,7 +294,7 @@ All changes happen ONLY on the feature/fix branch. Never on `main`.
 ./vendor/bin/phpunit
 ```
 
-A pre-commit git hook enforces this automatically.
+A pre-commit git hook (`.githooks/pre-commit`) enforces this automatically.
 
 ### Step 4: Atomic Commits with Conventional Messages
 
