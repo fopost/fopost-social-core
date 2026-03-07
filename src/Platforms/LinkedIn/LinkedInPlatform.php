@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
+// phpcs:disable WordPress.WP.AlternativeFunctions -- Framework-agnostic library; uses native PHP functions for portability.
+// phpcs:disable WordPress.PHP.DiscouragedPHPFunctions -- urlencode required for URN encoding in API calls.
+
 namespace Owlstack\Core\Platforms\LinkedIn;
 
 use Owlstack\Core\Content\Post;

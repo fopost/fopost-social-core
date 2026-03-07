@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2025-07-25
+
+### Fixed
+- Added PHPCS inline directives (`phpcs:disable`) to all source, example, and test files for WordPress Plugin Check compatibility
+- Framework-agnostic library files now pass WordPress coding standards when bundled as a vendor dependency in WordPress plugins
+- Suppressed `WordPress.Security.EscapeOutput.ExceptionNotEscaped` — exceptions are not WordPress output in this library
+- Suppressed `WordPress.WP.AlternativeFunctions` — native PHP functions (cURL, json_encode, file_get_contents) are required for framework independence
+- Suppressed `WordPress.PHP.DiscouragedPHPFunctions` — base64_encode/urlencode required for OAuth and API operations
+- Suppressed `WordPress.PHP.NoSilencedErrors` — @unlink used for temporary file cleanup in HttpClient
+- Suppressed `Universal.Operators.DisallowShortTernary` — short ternary intentionally used for concise null/empty handling
+
+## [1.0.0]
+
 ### Added
 - Framework-agnostic PHP core for social media publishing
 - Platform abstractions with `PlatformInterface` and `PlatformResponseInterface`

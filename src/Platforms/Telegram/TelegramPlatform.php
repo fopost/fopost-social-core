@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
+// phpcs:disable Universal.Operators.DisallowShortTernary.Found -- Short ternary used intentionally for concise null/empty fallbacks.
+// phpcs:disable WordPress.WP.AlternativeFunctions -- Framework-agnostic library; uses native PHP functions for portability.
+
 namespace Owlstack\Core\Platforms\Telegram;
 
 use Owlstack\Core\Content\Media;

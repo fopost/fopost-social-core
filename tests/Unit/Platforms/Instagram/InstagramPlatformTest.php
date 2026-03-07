@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable WordPress.WP.AlternativeFunctions -- Test files for framework-agnostic library.
 
 declare(strict_types=1);
 
