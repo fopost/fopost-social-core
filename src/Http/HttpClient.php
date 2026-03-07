@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+// phpcs:disable WordPress.WP.AlternativeFunctions -- Framework-agnostic HTTP client; uses native cURL/file functions for portability.
+// phpcs:disable WordPress.PHP.DiscouragedPHPFunctions -- base64_encode/urlencode required for multipart encoding.
+// phpcs:disable WordPress.PHP.NoSilencedErrors.Discouraged -- @unlink used for temp file cleanup.
+
 namespace Owlstack\Core\Http;
 
 use Owlstack\Core\Http\Contracts\HttpClientInterface;

@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable WordPress,Universal.Operators.DisallowShortTernary -- Example files for framework-agnostic library.
 
 /**
  * Slack — Real API Example

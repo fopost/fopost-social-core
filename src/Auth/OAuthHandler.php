@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
+
 namespace Owlstack\Core\Auth;
 
 use Owlstack\Core\Auth\Contracts\OAuthProviderInterface;

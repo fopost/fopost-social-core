@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
+// phpcs:disable Universal.Operators.DisallowShortTernary.Found -- Short ternary used intentionally for concise null/empty fallbacks.
+
 namespace Owlstack\Core\Platforms\Slack;
 
 use DateTimeImmutable;

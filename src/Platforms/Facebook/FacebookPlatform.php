@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
+// phpcs:disable WordPress.WP.AlternativeFunctions -- Framework-agnostic library; uses native PHP functions for portability.
+
 namespace Owlstack\Core\Platforms\Facebook;
 
 use Owlstack\Core\Content\Post;

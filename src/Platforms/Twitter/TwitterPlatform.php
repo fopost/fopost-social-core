@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
+// phpcs:disable WordPress.WP.AlternativeFunctions -- Framework-agnostic library; uses native PHP functions for portability.
+// phpcs:disable WordPress.PHP.DiscouragedPHPFunctions -- base64_encode required for OAuth HMAC-SHA1 signature and media upload.
+
 namespace Owlstack\Core\Platforms\Twitter;
 
 use Owlstack\Core\Content\Media;
