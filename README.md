@@ -32,6 +32,7 @@ The shared engine behind [Owlstack](https://owlstack.dev) — publish content to
 
 - [Why Owlstack Core?](#why-owlstack-core)
 - [Supported Platforms](#supported-platforms)
+- [Platform Availability & Requirements](#platform-availability--requirements)
 - [Architecture Overview](#architecture-overview)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
@@ -85,6 +86,51 @@ The shared engine behind [Owlstack](https://owlstack.dev) — publish content to
 | **Slack** | 40,000 | — | — | Bot & webhook modes, Block Kit support |
 | **Tumblr** | 4,096 | — | — | NPF content blocks, draft/queue/private states |
 | **WhatsApp** | 4,096 | — | JPEG, PNG, MP4, PDF, DOCX | Template messages, document sending |
+
+---
+
+## Platform Availability & Requirements
+
+Not all platforms can be used immediately — some require OAuth app review or API access approval from the platform provider. Below is a breakdown of what's ready to use, what needs approval, and what's planned.
+
+### Ready to Use (No Approval Needed)
+
+These platforms use open APIs, bot tokens, or webhooks — no app review required:
+
+| Platform | Auth Method | Notes |
+|:---------|:------------|:------|
+| **Telegram** | Bot API | Create a bot via [@BotFather](https://t.me/BotFather) instantly |
+| **Discord** | Webhook / Bot Token | Users provide their own webhook URL or bot token |
+| **Slack** | Webhook / Bot Token | Users provide their own webhook URL or bot token |
+| **Twitter/X** | OAuth 1.0a | Self-service registration at [developer.x.com](https://developer.x.com) |
+| **Reddit** | OAuth | Self-service at [reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) |
+| **Tumblr** | OAuth | Self-service at [tumblr.com/oauth/apps](https://www.tumblr.com/oauth/apps) |
+
+### Require App Review / API Approval
+
+These platforms require submitting your application for review before production use. Apply as soon as your product is live:
+
+| Platform | Auth Method | Approval Required | Where to Apply |
+|:---------|:------------|:------------------|:---------------|
+| **Facebook** | OAuth | `pages_manage_posts`, `pages_read_engagement` permissions | [Meta App Review](https://developers.facebook.com/docs/app-review) |
+| **Instagram** | OAuth | `instagram_content_publish` permission | [Meta App Review](https://developers.facebook.com/docs/app-review) (same portal) |
+| **LinkedIn** | OAuth | Community Management API access | [LinkedIn Developer Portal](https://learn.microsoft.com/en-us/linkedin/marketing/) |
+| **Pinterest** | OAuth | Production API access | [Pinterest Developer Portal](https://developers.pinterest.com/) |
+| **WhatsApp** | Business API | Meta Business verification + WhatsApp Business Platform | [Meta for Developers](https://developers.facebook.com/docs/whatsapp) |
+
+### Planned (Not Yet Implemented)
+
+These platforms are shown in the dashboard but do not have `owlstack-core` implementations yet:
+
+| Platform | Auth Method | Approval Needed | Complexity |
+|:---------|:------------|:----------------|:-----------|
+| **Bluesky** | App Password | No (open AT Protocol) | Low |
+| **Mastodon** | OAuth | No (federated, open protocol) | Low |
+| **Threads** | OAuth | Yes (Meta App Review) | Medium |
+| **TikTok** | OAuth | Yes ([TikTok Developer Portal](https://developers.tiktok.com/)) | Medium |
+| **YouTube** | OAuth | Yes (Google OAuth consent screen verification) | Medium |
+
+> **Tip:** Facebook, Instagram, Threads, and WhatsApp all go through the same [Meta App Review](https://developers.facebook.com/docs/app-review) portal — apply for all of them in a single review cycle.
 
 ---
 
