@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="https://owlstack.dev">
+  <a href="https://fopost.com">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/owlstacks/owlstack-docs/refs/heads/main/static/img/logo-light-transparent.png">
-      <img src="https://raw.githubusercontent.com/owlstacks/owlstack-docs/refs/heads/main/static/img/logo-dark-transparent.png" alt="Owlstack" height="200px">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/fopost/fopost-docs/refs/heads/main/static/img/logo-light-transparent.png">
+      <img src="https://raw.githubusercontent.com/fopost/fopost-docs/refs/heads/main/static/img/logo-dark-transparent.png" alt="FoPost" height="200px">
     </picture>
   </a>
 </p>
@@ -12,25 +12,25 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/owlstacks/owlstack-core/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/owlstacks/owlstack-core/tests.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
-  <a href="https://packagist.org/packages/owlstack/owlstack-core"><img src="https://img.shields.io/packagist/v/owlstack/owlstack-core.svg?style=flat-square" alt="Latest Version"></a>
-  <a href="https://packagist.org/packages/owlstack/owlstack-core"><img src="https://img.shields.io/packagist/dt/owlstack/owlstack-core.svg?style=flat-square" alt="Total Downloads"></a>
-  <a href="https://packagist.org/packages/owlstack/owlstack-core"><img src="https://img.shields.io/packagist/php-v/owlstack/owlstack-core.svg?style=flat-square" alt="PHP Version"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/packagist/l/owlstack/owlstack-core.svg?style=flat-square" alt="License"></a>
-  <a href="https://github.com/owlstacks/owlstack-core"><img src="https://img.shields.io/github/stars/owlstacks/owlstack-core?style=flat-square" alt="GitHub Stars"></a>
+  <a href="https://github.com/fopost/fopost-social-core/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/fopost/fopost-social-core/tests.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
+  <a href="https://packagist.org/packages/fopost/social-core"><img src="https://img.shields.io/packagist/v/fopost/social-core.svg?style=flat-square" alt="Latest Version"></a>
+  <a href="https://packagist.org/packages/fopost/social-core"><img src="https://img.shields.io/packagist/dt/fopost/social-core.svg?style=flat-square" alt="Total Downloads"></a>
+  <a href="https://packagist.org/packages/fopost/social-core"><img src="https://img.shields.io/packagist/php-v/fopost/social-core.svg?style=flat-square" alt="PHP Version"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/packagist/l/fopost/social-core.svg?style=flat-square" alt="License"></a>
+  <a href="https://github.com/fopost/fopost-social-core"><img src="https://img.shields.io/github/stars/fopost/fopost-social-core?style=flat-square" alt="GitHub Stars"></a>
 </p>
 
 ---
 
-# Owlstack Core
+# FoPost Social Core
 
-The shared engine behind [Owlstack](https://owlstack.dev) — publish content to **11 social media platforms** through a single, unified PHP API. Zero framework dependencies. Works with Laravel, WordPress, or standalone.
+The shared engine behind [FoPost](https://fopost.com) — publish content to **11 social media platforms** through a single, unified PHP API. Zero framework dependencies. Works with Laravel, WordPress, or standalone.
 
 ---
 
 ## Table of Contents
 
-- [Why Owlstack Core?](#why-owlstack-core)
+- [Why FoPost Social Core?](#why-fopost-social-core)
 - [Supported Platforms](#supported-platforms)
 - [Platform Availability & Requirements](#platform-availability--requirements)
 - [Architecture Overview](#architecture-overview)
@@ -59,7 +59,7 @@ The shared engine behind [Owlstack](https://owlstack.dev) — publish content to
 
 ---
 
-## Why Owlstack Core?
+## Why FoPost Social Core?
 
 - **11 platforms, one API** — Telegram, Twitter/X, Facebook, LinkedIn, Discord, Instagram, Pinterest, Reddit, Slack, Tumblr, and WhatsApp
 - **Zero dependencies** — Pure PHP 8.1+, only ext-curl and ext-json required
@@ -120,7 +120,7 @@ These platforms require submitting your application for review before production
 
 ### Planned (Not Yet Implemented)
 
-These platforms are shown in the dashboard but do not have `owlstack-core` implementations yet:
+These platforms are shown in the dashboard but do not have `fopost-social-core` implementations yet:
 
 | Platform | Auth Method | Approval Needed | Complexity |
 |:---------|:------------|:----------------|:-----------|
@@ -136,7 +136,7 @@ These platforms are shown in the dashboard but do not have `owlstack-core` imple
 
 ## Architecture Overview
 
-Owlstack Core is built on a **contract-driven, layered architecture** with zero framework dependencies. Framework packages (Laravel, WordPress) provide concrete implementations for storage, queues, and events.
+FoPost Social Core is built on a **contract-driven, layered architecture** with zero framework dependencies. Framework packages (Laravel, WordPress) provide concrete implementations for storage, queues, and events.
 
 ```mermaid
 graph TB
@@ -144,7 +144,7 @@ graph TB
         APP[Application Code]
     end
 
-    subgraph "Owlstack Core"
+    subgraph "FoPost Social Core"
         direction TB
         PUB[Publisher]
         REG[PlatformRegistry]
@@ -261,7 +261,7 @@ sequenceDiagram
 ## Installation
 
 ```bash
-composer require owlstack/owlstack-core
+composer require fopost/social-core
 ```
 
 ### Requirements
@@ -277,15 +277,15 @@ composer require owlstack/owlstack-core
 ## Quick Start
 
 ```php
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\MediaCollection;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\PlatformRegistry;
-use Owlstack\Core\Platforms\Telegram\TelegramPlatform;
-use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
-use Owlstack\Core\Publishing\Publisher;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\MediaCollection;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\PlatformRegistry;
+use Fopost\Social\Platforms\Telegram\TelegramPlatform;
+use Fopost\Social\Platforms\Telegram\TelegramFormatter;
+use Fopost\Social\Publishing\Publisher;
 
 // 1. Configure credentials
 $credentials = new PlatformCredentials('telegram', [
@@ -305,7 +305,7 @@ $registry->register($platform);
 $publisher = new Publisher($registry);
 $post = new Post(
     title: 'Hello World',
-    body: 'My first post via Owlstack!',
+    body: 'My first post via FoPost!',
     url: 'https://example.com/hello-world',
     tags: ['opensource', 'php'],
 );
@@ -333,7 +333,7 @@ The content layer uses **immutable value objects** that are platform-agnostic.
 The central content object. All properties are readonly.
 
 ```php
-use Owlstack\Core\Content\Post;
+use Fopost\Social\Content\Post;
 
 $post = new Post(
     title: 'My Article Title',
@@ -371,7 +371,7 @@ $post->getMeta('missing', 'default'); // 'default'
 A single media attachment (image, video, audio, or document).
 
 ```php
-use Owlstack\Core\Content\Media;
+use Fopost\Social\Content\Media;
 
 $image = new Media(
     path: '/path/to/photo.jpg',
@@ -393,7 +393,7 @@ $image->isDocument(); // false
 An immutable, typed collection. Adding returns a **new** instance.
 
 ```php
-use Owlstack\Core\Content\MediaCollection;
+use Fopost\Social\Content\MediaCollection;
 
 $collection = new MediaCollection();
 $collection = $collection->add($image1);
@@ -418,7 +418,7 @@ foreach ($collection as $media) {
 Appends a "Read more" link to content, respecting character limits.
 
 ```php
-use Owlstack\Core\Content\CanonicalLink;
+use Fopost\Social\Content\CanonicalLink;
 
 $link = new CanonicalLink("\n\nRead more: {url}");
 $text = $link->inject($content, 'https://example.com', maxLength: 280);
@@ -433,7 +433,7 @@ $text = $link->inject($content, 'https://example.com', maxLength: 280);
 A readonly credential bag for a single platform.
 
 ```php
-use Owlstack\Core\Config\PlatformCredentials;
+use Fopost\Social\Config\PlatformCredentials;
 
 $creds = new PlatformCredentials('twitter', [
     'consumer_key' => '...',
@@ -453,7 +453,7 @@ $creds->all();                       // full credentials array
 Central configuration for multiple platforms.
 
 ```php
-use Owlstack\Core\Config\FopostConfig;
+use Fopost\Social\Config\FopostConfig;
 
 $config = new FopostConfig(
     platforms: [
@@ -476,7 +476,7 @@ $config->option('default_hashtag_count'); // 5
 Validates that required credential keys are present for each platform.
 
 ```php
-use Owlstack\Core\Config\ConfigValidator;
+use Fopost\Social\Config\ConfigValidator;
 
 $validator = new ConfigValidator();
 $missing = $validator->validate($credentials); // ['access_token_secret']
@@ -513,7 +513,7 @@ $validator->validateConfig($config);
 The main orchestrator. Resolves the platform, publishes, dispatches events, and returns a result — **never throws exceptions**.
 
 ```php
-use Owlstack\Core\Publishing\Publisher;
+use Fopost\Social\Publishing\Publisher;
 
 $publisher = new Publisher($registry, $eventDispatcher); // dispatcher is optional
 
@@ -546,7 +546,7 @@ Each platform has a dedicated formatter implementing `FormatterInterface`. Forma
 - **URL handling** — Platform-specific link formatting (t.co wrapping for Twitter, `<url|text>` for Slack)
 
 ```php
-use Owlstack\Core\Formatting\Contracts\FormatterInterface;
+use Fopost\Social\Formatting\Contracts\FormatterInterface;
 
 // Every formatter implements:
 $formatter->format($post, $options);  // Formatted string
@@ -559,7 +559,7 @@ $formatter->maxLength();              // 4096
 Word-boundary-aware text truncation.
 
 ```php
-use Owlstack\Core\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\CharacterTruncator;
 
 $truncator = new CharacterTruncator(ellipsis: '…');
 $truncator->truncate('Hello World', maxLength: 8); // 'Hello…'
@@ -570,7 +570,7 @@ $truncator->truncate('Hello World', maxLength: 8); // 'Hello…'
 Converts tags to hashtag strings, sanitizing special characters.
 
 ```php
-use Owlstack\Core\Formatting\HashtagExtractor;
+use Fopost\Social\Formatting\HashtagExtractor;
 
 $extractor = new HashtagExtractor();
 $extractor->extract(['PHP', 'social media'], maxCount: 5);
@@ -595,8 +595,8 @@ flowchart LR
 The auth layer provides contracts for OAuth flows. Framework packages supply concrete implementations for token storage.
 
 ```php
-use Owlstack\Core\Auth\OAuthHandler;
-use Owlstack\Core\Auth\AccessToken;
+use Fopost\Social\Auth\OAuthHandler;
+use Fopost\Social\Auth\AccessToken;
 
 // Set up handler (provider & store are interface implementations)
 $handler = new OAuthHandler($provider, $tokenStore, 'twitter');
@@ -669,9 +669,9 @@ sequenceDiagram
 Hook into the publish lifecycle with the event dispatcher.
 
 ```php
-use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
-use Owlstack\Core\Events\PostPublished;
-use Owlstack\Core\Events\PostFailed;
+use Fopost\Social\Events\Contracts\EventDispatcherInterface;
+use Fopost\Social\Events\PostPublished;
+use Fopost\Social\Events\PostFailed;
 
 class MyDispatcher implements EventDispatcherInterface
 {
@@ -706,7 +706,7 @@ $publisher = new Publisher($registry, new MyDispatcher());
 A PHP 8.1 backed enum for tracking delivery lifecycle in your storage layer.
 
 ```php
-use Owlstack\Core\Delivery\DeliveryStatus;
+use Fopost\Social\Delivery\DeliveryStatus;
 
 $status = DeliveryStatus::Pending;     // 'pending'
 $status = DeliveryStatus::Publishing;  // 'publishing'
@@ -727,7 +727,7 @@ stateDiagram-v2
 
 ### Error Handling
 
-Owlstack Core uses a structured exception hierarchy. The `Publisher` catches all exceptions internally, but you can handle them directly when calling platform methods.
+FoPost Social Core uses a structured exception hierarchy. The `Publisher` catches all exceptions internally, but you can handle them directly when calling platform methods.
 
 ```mermaid
 classDiagram
@@ -739,7 +739,7 @@ classDiagram
     PlatformException <|-- RateLimitException
 
     class FopostException {
-        Base exception for all Owlstack errors
+        Base exception for all FoPost errors
     }
     class AuthenticationException {
         Invalid or expired credentials
@@ -767,9 +767,9 @@ classDiagram
 ```
 
 ```php
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Exceptions\ContentTooLongException;
-use Owlstack\Core\Exceptions\MediaValidationException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Exceptions\ContentTooLongException;
+use Fopost\Social\Exceptions\MediaValidationException;
 
 try {
     $response = $platform->publish($post);
@@ -791,7 +791,7 @@ try {
 A zero-dependency cURL-based HTTP client.
 
 ```php
-use Owlstack\Core\Http\HttpClient;
+use Fopost\Social\Http\HttpClient;
 
 $client = new HttpClient(
     timeout: 30,
@@ -830,7 +830,7 @@ Supported options: `headers`, `json`, `body`, `form_params`, `multipart`, `query
 #### Arr — Array Helpers
 
 ```php
-use Owlstack\Core\Support\Arr;
+use Fopost\Social\Support\Arr;
 
 Arr::get($data, 'user.profile.name', 'Unknown'); // Dot-notation access
 Arr::filterEmpty(['a' => 1, 'b' => null, 'c' => '']); // ['a' => 1]
@@ -840,7 +840,7 @@ Arr::only($data, ['name', 'email']); // Whitelist keys
 #### Str — String Helpers
 
 ```php
-use Owlstack\Core\Support\Str;
+use Fopost\Social\Support\Str;
 
 Str::limit('Hello World', 8, '…'); // 'Hello…'
 Str::slug('My Article Title');      // 'my-article-title'
@@ -850,7 +850,7 @@ Str::startsWith('Hello', 'He');    // true
 #### Clock — Testable Time
 
 ```php
-use Owlstack\Core\Support\Clock;
+use Fopost\Social\Support\Clock;
 
 Clock::now();        // DateTimeImmutable
 Clock::timestamp();  // int
@@ -1125,10 +1125,10 @@ foreach ($results as $platform => $result) {
 Implement `PlatformInterface` to add a new platform:
 
 ```php
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformResponse;
-use Owlstack\Core\Content\Post;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformResponse;
+use Fopost\Social\Content\Post;
 
 class MastodonPlatform implements PlatformInterface
 {
@@ -1174,8 +1174,8 @@ class MastodonPlatform implements PlatformInterface
 ### Custom Formatter
 
 ```php
-use Owlstack\Core\Formatting\Contracts\FormatterInterface;
-use Owlstack\Core\Content\Post;
+use Fopost\Social\Formatting\Contracts\FormatterInterface;
+use Fopost\Social\Content\Post;
 
 class MastodonFormatter implements FormatterInterface
 {
@@ -1200,8 +1200,8 @@ class MastodonFormatter implements FormatterInterface
 ### Custom Token Store
 
 ```php
-use Owlstack\Core\Auth\Contracts\TokenStoreInterface;
-use Owlstack\Core\Auth\AccessToken;
+use Fopost\Social\Auth\Contracts\TokenStoreInterface;
+use Fopost\Social\Auth\AccessToken;
 
 class DatabaseTokenStore implements TokenStoreInterface
 {
@@ -1243,7 +1243,7 @@ composer test
 The `Clock::freeze()` utility lets you control time in tests:
 
 ```php
-use Owlstack\Core\Support\Clock;
+use Fopost\Social\Support\Clock;
 
 Clock::freeze(new DateTimeImmutable('2025-06-15 10:00:00'));
 // All Clock::now() calls return the frozen time
@@ -1256,8 +1256,8 @@ Clock::unfreeze();
 
 | Package | Framework | Repository |
 |:--------|:----------|:-----------|
-| **owlstack/owlstack-laravel** | Laravel 10+ | [owlstack-laravel](https://github.com/owlstacks/owlstack-laravel) |
-| **owlstack/owlstack-wordpress** | WordPress 6+ | [owlstack-wordpress](https://github.com/owlstacks/owlstack-wordpress) |
+| **fopost/social-laravel** | Laravel 10+ | [fopost-social-laravel](https://github.com/fopost/fopost-social-laravel) |
+| **fopost/social-wordpress** | WordPress 6+ | [fopost-social-wp](https://github.com/fopost/fopost-social-wp) |
 
 ---
 
@@ -1276,5 +1276,5 @@ MIT License. See [LICENSE](LICENSE) for details.
 ---
 
 <p align="center">
-  Built with 🦉 by <a href="https://alihesari.com">Ali Hesari</a>
+  Built by <a href="https://fopost.com">FoPost</a>
 </p>

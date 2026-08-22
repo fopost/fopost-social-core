@@ -1,6 +1,6 @@
-# Contributing to Owlstack Core
+# Contributing to FoPost Social Core
 
-Thank you for your interest in contributing to Owlstack Core! This document provides guidelines and instructions for contributing.
+Thank you for your interest in contributing to FoPost Social Core! This document provides guidelines and instructions for contributing.
 
 ## Code of Conduct
 
@@ -21,8 +21,8 @@ Please be respectful and constructive in all interactions. We are committed to p
 2. Clone your fork locally:
 
 ```bash
-git clone git@github.com:your-username/owlstack-core.git
-cd owlstack-core
+git clone git@github.com:your-username/fopost-social-core.git
+cd fopost-social-core
 ```
 
 3. Install dependencies:
@@ -120,7 +120,7 @@ git checkout -b feature/your-feature-name
 
 - Place unit tests in `tests/Unit/` mirroring the `src/` directory structure.
 - Place integration tests in `tests/Integration/`.
-- Extend `Owlstack\Core\Tests\TestCase` for all test classes.
+- Extend `Fopost\Social\Tests\TestCase` for all test classes.
 - Name test methods descriptively: `test_it_publishes_to_telegram_successfully()`.
 - Use data providers for testing multiple scenarios.
 
@@ -172,4 +172,4 @@ Fixes #15
 
 ## License
 
-By contributing to Owlstack Core, you agree that your contributions will be licensed under the MIT License.
+By contributing to FoPost Social Core, you agree that your contributions will be licensed under the MIT License.
