@@ -448,14 +448,14 @@ $creds->require('consumer_key');     // value or throws InvalidArgumentException
 $creds->all();                       // full credentials array
 ```
 
-#### OwlstackConfig
+#### FopostConfig
 
 Central configuration for multiple platforms.
 
 ```php
-use Owlstack\Core\Config\OwlstackConfig;
+use Owlstack\Core\Config\FopostConfig;
 
-$config = new OwlstackConfig(
+$config = new FopostConfig(
     platforms: [
         'telegram' => ['api_token' => '...'],
         'twitter'  => ['consumer_key' => '...', /* ... */],
@@ -731,14 +731,14 @@ Owlstack Core uses a structured exception hierarchy. The `Publisher` catches all
 
 ```mermaid
 classDiagram
-    RuntimeException <|-- OwlstackException
-    OwlstackException <|-- AuthenticationException
-    OwlstackException <|-- ContentTooLongException
-    OwlstackException <|-- MediaValidationException
-    OwlstackException <|-- PlatformException
+    RuntimeException <|-- FopostException
+    FopostException <|-- AuthenticationException
+    FopostException <|-- ContentTooLongException
+    FopostException <|-- MediaValidationException
+    FopostException <|-- PlatformException
     PlatformException <|-- RateLimitException
 
-    class OwlstackException {
+    class FopostException {
         Base exception for all Owlstack errors
     }
     class AuthenticationException {

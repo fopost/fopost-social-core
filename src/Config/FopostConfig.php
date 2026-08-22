@@ -11,7 +11,7 @@ namespace Fopost\Social\Config;
  * and feature flags. Framework packages populate this from their own
  * config systems (Laravel config, WP options, env files, etc.).
  */
-class OwlstackConfig
+class FopostConfig
 {
     /** @var array<string, PlatformCredentials> */
     private array $platforms = [];

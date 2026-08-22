@@ -40,7 +40,7 @@ for f in examples/mock/*.php; do php "$f"; done
 | `01_creating_posts.php` | Creating `Post` objects with various options |
 | `02_media_handling.php` | `Media` and `MediaCollection` usage |
 | `03_formatting.php` | Platform formatters, truncation, hashtags |
-| `04_platform_config.php` | `PlatformCredentials`, `OwlstackConfig`, validation |
+| `04_platform_config.php` | `PlatformCredentials`, `FopostConfig`, validation |
 | `05_platform_registry.php` | Registering and resolving platforms |
 | `06_publishing.php` | Full publish flow with `Publisher` |
 | `07_error_handling.php` | Exception types and handling |

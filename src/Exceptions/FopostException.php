@@ -9,6 +9,6 @@ use RuntimeException;
 /**
  * Base exception for all Owlstack errors.
  */
-class OwlstackException extends RuntimeException
+class FopostException extends RuntimeException
 {
 }

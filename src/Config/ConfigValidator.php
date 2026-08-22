@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace Fopost\Social\Config;
 
-use Fopost\Social\Exceptions\OwlstackException;
+use Fopost\Social\Exceptions\FopostException;
 
 /**
  * Validates that platform configurations have all required credentials.
@@ -64,9 +64,9 @@ class ConfigValidator
     /**
      * Validate all platforms in a config and throw if any are invalid.
      *
-     * @throws OwlstackException If any platform has missing credentials.
+     * @throws FopostException If any platform has missing credentials.
      */
-    public function validateConfig(OwlstackConfig $config): void
+    public function validateConfig(FopostConfig $config): void
     {
         $errors = [];
 
@@ -85,7 +85,7 @@ class ConfigValidator
                 $messages[] = "{$platform}: missing " . implode(', ', $keys);
             }
 
-            throw new OwlstackException(
+            throw new FopostException(
                 'Invalid configuration: ' . implode('; ', $messages)
             );
         }

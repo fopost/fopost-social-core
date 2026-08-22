@@ -33,11 +33,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `PlatformRegistry` for managing multiple platform instances
 - OAuth handler with `OAuthProviderInterface` and `TokenStoreInterface` contracts
 - `AccessToken` value object with expiration and refresh token support
-- Configuration system with `OwlstackConfig`, `PlatformCredentials`, and `ConfigValidator`
+- Configuration system with `FopostConfig`, `PlatformCredentials`, and `ConfigValidator`
 - `DeliveryStatus` enum for tracking publish delivery states
 - Event system with `EventDispatcherInterface`, `PostPublished`, and `PostFailed` events
 - cURL-based HTTP client with zero framework dependencies
 - Proxy support with authentication in HTTP client
-- Exception hierarchy: `OwlstackException`, `AuthenticationException`, `PlatformException`, `RateLimitException`, `ContentTooLongException`, `MediaValidationException`
+- Exception hierarchy: `FopostException`, `AuthenticationException`, `PlatformException`, `RateLimitException`, `ContentTooLongException`, `MediaValidationException`
 - Support utilities: `Arr`, `Str`, `Clock` helpers
 - PHPUnit test configuration with Unit and Integration test suites

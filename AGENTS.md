@@ -34,7 +34,7 @@ Discord, Facebook, Instagram, LinkedIn, Pinterest, Reddit, Slack, Telegram, Tumb
 2. **Contracts-first.** Infrastructure concerns (HTTP, events, storage) are defined as interfaces in `Contracts/` subdirectories. Framework packages (owlstack-laravel, owlstack-wordpress) provide implementations.
 3. **Immutable value objects.** `Post`, `Media`, `AccessToken`, `PublishResult`, and similar objects use `readonly` properties. No setters.
 4. **One class per file.** Every class, interface, enum, and trait lives in its own file.
-5. **Exception hierarchy.** All exceptions extend `Owlstack\Core\Exceptions\OwlstackException`.
+5. **Exception hierarchy.** All exceptions extend `Owlstack\Core\Exceptions\FopostException`.
 
 ---
 
@@ -49,7 +49,7 @@ src/
 ├── Delivery/                # Delivery status tracking
 ├── Events/                  # Event dispatcher contract and event objects
 │   └── Contracts/
-├── Exceptions/              # Exception hierarchy (all extend OwlstackException)
+├── Exceptions/              # Exception hierarchy (all extend FopostException)
 ├── Formatting/              # Text truncation, hashtag extraction
 │   └── Contracts/           # FormatterInterface
 ├── Http/                    # cURL HTTP client
@@ -137,7 +137,7 @@ The `Publisher` class (`src/Publishing/Publisher.php`) orchestrates publishing:
 
 ### Exception Hierarchy
 
-All exceptions extend `OwlstackException` (which extends `RuntimeException`):
+All exceptions extend `FopostException` (which extends `RuntimeException`):
 
 | Exception | Use Case |
 |-----------|----------|

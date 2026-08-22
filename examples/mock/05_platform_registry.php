@@ -89,7 +89,7 @@ echo "   externalId: {$response->externalId()}\n\n";
 echo "5) Accessing a non-existent platform\n";
 try {
     $registry->get('linkedin');
-} catch (\Fopost\Social\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\FopostException $e) {
     echo "   Caught: {$e->getMessage()}\n";
 }
 

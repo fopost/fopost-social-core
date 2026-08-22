@@ -17,15 +17,15 @@ use Fopost\Social\Exceptions\ContentTooLongException;
 use Fopost\Social\Exceptions\MediaValidationException;
 use Fopost\Social\Exceptions\PlatformException;
 use Fopost\Social\Exceptions\RateLimitException;
-use Fopost\Social\Exceptions\OwlstackException;
+use Fopost\Social\Exceptions\FopostException;
 
 echo "=== Example 07: Error Handling ===\n\n";
 
-// ── 1. Base OwlstackException ───────────────────────────────────────────
-echo "1) OwlstackException (base)\n";
+// ── 1. Base FopostException ───────────────────────────────────────────
+echo "1) FopostException (base)\n";
 try {
-    throw new OwlstackException('Something went wrong in Owlstack');
-} catch (OwlstackException $e) {
+    throw new FopostException('Something went wrong in Owlstack');
+} catch (FopostException $e) {
     echo "   Message: {$e->getMessage()}\n\n";
 }
 
@@ -45,7 +45,7 @@ try {
     echo "   httpStatusCode: {$e->httpStatusCode}\n";
     echo "   apiErrorCode  : {$e->apiErrorCode}\n";
     echo "   rawResponse   : " . json_encode($e->rawResponse) . "\n";
-    echo "   Is OwlstackException? " . ($e instanceof OwlstackException ? 'yes' : 'no') . "\n\n";
+    echo "   Is FopostException? " . ($e instanceof FopostException ? 'yes' : 'no') . "\n\n";
 }
 
 // ── 3. RateLimitException ───────────────────────────────────────────────
@@ -73,7 +73,7 @@ try {
     throw new AuthenticationException('Invalid or expired access token for Telegram');
 } catch (AuthenticationException $e) {
     echo "   Message: {$e->getMessage()}\n";
-    echo "   Is OwlstackException? " . ($e instanceof OwlstackException ? 'yes' : 'no') . "\n\n";
+    echo "   Is FopostException? " . ($e instanceof FopostException ? 'yes' : 'no') . "\n\n";
 }
 
 // ── 5. ContentTooLongException ──────────────────────────────────────────
@@ -110,7 +110,7 @@ try {
 // ── 7. Catching at the base level ───────────────────────────────────────
 echo "7) Polymorphic catch — all Owlstack exceptions\n";
 $exceptions = [
-    new OwlstackException('base error'),
+    new FopostException('base error'),
     new PlatformException('api error', 'telegram', 500),
     new RateLimitException('rate limited', 'twitter'),
     new AuthenticationException('bad token'),
@@ -121,7 +121,7 @@ $exceptions = [
 foreach ($exceptions as $ex) {
     try {
         throw $ex;
-    } catch (OwlstackException $e) {
+    } catch (FopostException $e) {
         $class = (new ReflectionClass($e))->getShortName();
         echo "   {$class}: {$e->getMessage()}\n";
     }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Fopost\Social\Http;
 
 use Fopost\Social\Http\Contracts\HttpClientInterface;
-use Fopost\Social\Exceptions\OwlstackException;
+use Fopost\Social\Exceptions\FopostException;
 
 /**
  * Default cURL-based HTTP client implementation.
@@ -53,7 +53,7 @@ class HttpClient implements HttpClientInterface
      * @param string $url     Request URL.
      * @param array  $options Request options.
      * @return array{status: int, headers: array, body: string}
-     * @throws OwlstackException On cURL errors.
+     * @throws FopostException On cURL errors.
      */
     private function request(string $method, string $url, array $options = []): array
     {
@@ -123,7 +123,7 @@ class HttpClient implements HttpClientInterface
             curl_close($ch);
 
             if ($body === false) {
-                throw new OwlstackException("HTTP request failed: {$error}");
+                throw new FopostException("HTTP request failed: {$error}");
             }
 
             return [

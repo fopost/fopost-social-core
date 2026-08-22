@@ -7,6 +7,6 @@ namespace Fopost\Social\Exceptions;
 /**
  * Thrown when authentication fails (token expired, invalid credentials, etc.).
  */
-class AuthenticationException extends OwlstackException
+class AuthenticationException extends FopostException
 {
 }

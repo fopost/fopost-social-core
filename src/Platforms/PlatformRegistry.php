@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Fopost\Social\Platforms;
 
 use Fopost\Social\Platforms\Contracts\PlatformInterface;
-use Fopost\Social\Exceptions\OwlstackException;
+use Fopost\Social\Exceptions\FopostException;
 
 /**
  * Registry that holds all available platform instances.
@@ -30,12 +30,12 @@ class PlatformRegistry
     /**
      * Get a platform by name.
      *
-     * @throws OwlstackException If the platform is not registered.
+     * @throws FopostException If the platform is not registered.
      */
     public function get(string $name): PlatformInterface
     {
         if (!isset($this->platforms[$name])) {
-            throw new OwlstackException("Platform '{$name}' is not registered.");
+            throw new FopostException("Platform '{$name}' is not registered.");
         }
 
         return $this->platforms[$name];

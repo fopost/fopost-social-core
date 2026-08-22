@@ -7,7 +7,7 @@ namespace Fopost\Social\Exceptions;
 /**
  * Thrown when a platform API returns an error.
  */
-class PlatformException extends OwlstackException
+class PlatformException extends FopostException
 {
     public function __construct(
         string $message,

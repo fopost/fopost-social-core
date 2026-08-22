@@ -7,7 +7,7 @@ namespace Fopost\Social\Exceptions;
 /**
  * Thrown when a media attachment fails validation (unsupported format, size too large, etc.).
  */
-class MediaValidationException extends OwlstackException
+class MediaValidationException extends FopostException
 {
     public function __construct(
         string $message,

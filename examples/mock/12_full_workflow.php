@@ -20,7 +20,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Fopost\Social\Config\ConfigValidator;
 use Fopost\Social\Config\PlatformCredentials;
-use Fopost\Social\Config\OwlstackConfig;
+use Fopost\Social\Config\FopostConfig;
 use Fopost\Social\Content\Media;
 use Fopost\Social\Content\MediaCollection;
 use Fopost\Social\Content\Post;
@@ -49,7 +49,7 @@ echo "╚═══════════════════════�
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 echo "STEP 1: Configuration\n";
 
-$config = new OwlstackConfig(
+$config = new FopostConfig(
     platforms: [
         'telegram' => [
             'api_token' => '123456789:ABCdefGHIjklMNOpqrsTUVwxyz',
@@ -84,7 +84,7 @@ $validator = new ConfigValidator();
 try {
     $validator->validateConfig($config);
     echo "   All credentials valid!\n\n";
-} catch (\Fopost\Social\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\FopostException $e) {
     echo "   INVALID: {$e->getMessage()}\n\n";
     exit(1);
 }

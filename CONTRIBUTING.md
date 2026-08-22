@@ -82,7 +82,7 @@ git checkout -b feature/your-feature-name
 - **Contracts-first.** Define interfaces in `Contracts/` subdirectories for infrastructure concerns.
 - **Immutable value objects.** Use `readonly` properties; do not add setters.
 - **One class per file.** Each class, interface, enum, and trait must have its own file.
-- **Exception hierarchy.** All exceptions must extend `OwlstackException`.
+- **Exception hierarchy.** All exceptions must extend `FopostException`.
 
 ### Naming Conventions
 
