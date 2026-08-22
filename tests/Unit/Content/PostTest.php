@@ -63,9 +63,9 @@ class PostTest extends TestCase
 
     public function testGetMetaReturnsValueOrDefault(): void
     {
-        $post = new Post(title: 'T', body: 'B', metadata: ['author' => 'Ali']);
+        $post = new Post(title: 'T', body: 'B', metadata: ['author' => 'Jamie']);
 
-        $this->assertSame('Ali', $post->getMeta('author'));
+        $this->assertSame('Jamie', $post->getMeta('author'));
         $this->assertNull($post->getMeta('missing'));
         $this->assertSame('fallback', $post->getMeta('missing', 'fallback'));
     }

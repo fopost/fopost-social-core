@@ -39,7 +39,7 @@ echo "   Arr::get missing    : " . var_export(Arr::get($nested, 'database.port',
 $dirty = ['a' => 1, 'b' => null, 'c' => '', 'd' => 0, 'e' => 'hello'];
 echo "   Arr::filterEmpty    : " . json_encode(Arr::filterEmpty($dirty)) . "\n";
 
-$full = ['name' => 'Ali', 'email' => 'ali@example.com', 'role' => 'admin', 'age' => 30];
+$full = ['name' => 'Jamie', 'email' => 'jamie@example.com', 'role' => 'admin', 'age' => 30];
 echo "   Arr::only           : " . json_encode(Arr::only($full, ['name', 'email'])) . "\n\n";
 
 // ── 2. Str — string helpers ────────────────────────────────────────────
