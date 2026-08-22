@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Auth\Contracts;
+namespace Fopost\Social\Auth\Contracts;
 
-use Owlstack\Core\Auth\AccessToken;
+use Fopost\Social\Auth\AccessToken;
 
 /**
  * Contract for storing and retrieving OAuth tokens.

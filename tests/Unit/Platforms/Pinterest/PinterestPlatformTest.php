@@ -3,16 +3,16 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Pinterest;
+namespace Fopost\Social\Tests\Unit\Platforms\Pinterest;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Pinterest\PinterestFormatter;
-use Owlstack\Core\Platforms\Pinterest\PinterestPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Pinterest\PinterestFormatter;
+use Fopost\Social\Platforms\Pinterest\PinterestPlatform;
 
 class PinterestPlatformTest extends TestCase
 {

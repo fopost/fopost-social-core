@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Auth;
+namespace Fopost\Social\Tests\Unit\Auth;
 
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Auth\AccessToken;
+use Fopost\Social\Auth\AccessToken;
 
 class AccessTokenTest extends TestCase
 {

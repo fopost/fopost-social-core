@@ -3,20 +3,20 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Telegram;
+namespace Fopost\Social\Tests\Unit\Platforms\Telegram;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\MediaCollection;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
-use Owlstack\Core\Platforms\Telegram\TelegramPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\MediaCollection;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Telegram\TelegramFormatter;
+use Fopost\Social\Platforms\Telegram\TelegramPlatform;
 
 class TelegramPlatformTest extends TestCase
 {

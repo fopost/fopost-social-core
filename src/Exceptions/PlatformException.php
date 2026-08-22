@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Exceptions;
+namespace Fopost\Social\Exceptions;
 
 /**
  * Thrown when a platform API returns an error.
  */
-class PlatformException extends OwlstackException
+class PlatformException extends FopostException
 {
     public function __construct(
         string $message,

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Publishing;
+namespace Fopost\Social\Tests\Unit\Publishing;
 
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Publishing\PublishResult;
+use Fopost\Social\Publishing\PublishResult;
 
 class PublishResultTest extends TestCase
 {

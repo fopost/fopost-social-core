@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Auth;
+namespace Fopost\Social\Auth;
 
 use DateTimeImmutable;
 

@@ -21,13 +21,13 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/helpers.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
-use Owlstack\Core\Platforms\Telegram\TelegramPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\Telegram\TelegramFormatter;
+use Fopost\Social\Platforms\Telegram\TelegramPlatform;
 
 // -- Load credentials ---------------------------------------------------------
 
@@ -63,10 +63,10 @@ if (! $valid) {
 echo "  Publishing test message...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test message sent via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'telegram', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test message sent via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'telegram', 'test'],
 );
 
 $result = $telegram->publish($post);

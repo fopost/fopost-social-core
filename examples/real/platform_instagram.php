@@ -26,10 +26,10 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/helpers.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\Instagram\InstagramPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\Instagram\InstagramPlatform;
 
 // -- Load credentials ---------------------------------------------------------
 
@@ -66,9 +66,9 @@ echo "  Publishing test image to Instagram...\n";
 echo "  Image URL: {$imageUrl}\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'Testing the Owlstack Core library — publishing to Instagram. 🦉',
-    tags: ['owlstack', 'instagram', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'Testing the FoPost Social Core library — publishing to Instagram. 🦉',
+    tags: ['fopost', 'instagram', 'test'],
 );
 
 $result = $instagram->publish($post, [

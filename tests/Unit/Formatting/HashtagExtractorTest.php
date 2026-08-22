@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Formatting;
+namespace Fopost\Social\Tests\Unit\Formatting;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Formatting\HashtagExtractor;
+use Fopost\Social\Formatting\HashtagExtractor;
 
 class HashtagExtractorTest extends TestCase
 {
@@ -18,9 +18,9 @@ class HashtagExtractorTest extends TestCase
 
     public function testExtractBasicTags(): void
     {
-        $result = $this->extractor->extract(['php', 'owlstack']);
+        $result = $this->extractor->extract(['php', 'fopost']);
 
-        $this->assertSame('#php #owlstack', $result);
+        $this->assertSame('#php #fopost', $result);
     }
 
     public function testExtractStripsExistingHashSymbols(): void

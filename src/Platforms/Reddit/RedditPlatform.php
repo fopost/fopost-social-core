@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 // phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
 
-namespace Owlstack\Core\Platforms\Reddit;
+namespace Fopost\Social\Platforms\Reddit;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformResponse;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformResponse;
 
 /**
  * Reddit API platform implementation.
@@ -36,7 +36,7 @@ class RedditPlatform implements PlatformInterface
     private const AUTH_URL = 'https://www.reddit.com/api/v1/access_token';
     private const MAX_TITLE_LENGTH = 300;
     private const MAX_BODY_LENGTH = 40000;
-    private const USER_AGENT_PREFIX = 'Owlstack/1.0';
+    private const USER_AGENT_PREFIX = 'FoPost/1.0';
 
     public function __construct(
         private readonly PlatformCredentials $credentials,

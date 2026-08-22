@@ -3,12 +3,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Slack;
+namespace Fopost\Social\Tests\Unit\Platforms\Slack;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Platforms\Slack\SlackFormatter;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Platforms\Slack\SlackFormatter;
 
 class SlackFormatterTest extends TestCase
 {

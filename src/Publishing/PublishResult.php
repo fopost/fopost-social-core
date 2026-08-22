@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Publishing;
+namespace Fopost\Social\Publishing;
 
 use DateTimeImmutable;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Platforms\Contracts;
+namespace Fopost\Social\Platforms\Contracts;
 
 /**
  * Represents the response from a platform after a publish operation.

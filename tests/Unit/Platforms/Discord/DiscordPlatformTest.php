@@ -3,18 +3,18 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Discord;
+namespace Fopost\Social\Tests\Unit\Platforms\Discord;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Discord\DiscordFormatter;
-use Owlstack\Core\Platforms\Discord\DiscordPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Discord\DiscordFormatter;
+use Fopost\Social\Platforms\Discord\DiscordPlatform;
 
 class DiscordPlatformTest extends TestCase
 {
@@ -169,7 +169,7 @@ class DiscordPlatformTest extends TestCase
             ->with(
                 $this->anything(),
                 $this->callback(function (array $options) {
-                    return $options['json']['username'] === 'Owlstack Bot'
+                    return $options['json']['username'] === 'FoPost Bot'
                         && $options['json']['tts'] === true;
                 })
             )
@@ -181,7 +181,7 @@ class DiscordPlatformTest extends TestCase
 
         $post = new Post(title: 'Custom', body: 'Content');
         $platform->publish($post, [
-            'username' => 'Owlstack Bot',
+            'username' => 'FoPost Bot',
             'tts' => true,
         ]);
     }
@@ -259,7 +259,7 @@ class DiscordPlatformTest extends TestCase
             ->willReturn([
                 'status' => 200,
                 'headers' => [],
-                'body' => json_encode(['id' => '123', 'username' => 'OwlstackBot']),
+                'body' => json_encode(['id' => '123', 'username' => 'FopostBot']),
             ]);
 
         $this->assertTrue($platform->validateCredentials());

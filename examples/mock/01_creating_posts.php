@@ -6,23 +6,23 @@ declare(strict_types=1);
 /**
  * Example 01: Creating Posts
  *
- * The Post value object is the central piece of Owlstack Core.
+ * The Post value object is the central piece of FoPost Social Core.
  * Framework packages (Laravel, WordPress) build Post instances
  * from their own models and hand them to the Publisher.
  */
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\MediaCollection;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\MediaCollection;
 
 echo "=== Example 01: Creating Posts ===\n\n";
 
 // ── 1. Minimal post ─────────────────────────────────────────────────────
 $post = new Post(
     title: 'Hello World',
-    body: 'This is my very first post published with Owlstack Core!',
+    body: 'This is my very first post published with FoPost Social Core!',
 );
 
 echo "1) Minimal post\n";

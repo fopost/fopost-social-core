@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Support;
+namespace Fopost\Social\Tests\Unit\Support;
 
 use DateTimeImmutable;
 use DateTimeZone;
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Support\Clock;
+use Fopost\Social\Support\Clock;
 
 class ClockTest extends TestCase
 {

@@ -3,16 +3,16 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Instagram;
+namespace Fopost\Social\Tests\Unit\Platforms\Instagram;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Instagram\InstagramFormatter;
-use Owlstack\Core\Platforms\Instagram\InstagramPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Instagram\InstagramFormatter;
+use Fopost\Social\Platforms\Instagram\InstagramPlatform;
 
 class InstagramPlatformTest extends TestCase
 {

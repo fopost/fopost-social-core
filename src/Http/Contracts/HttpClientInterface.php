@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Http\Contracts;
+namespace Fopost\Social\Http\Contracts;
 
 /**
  * Thin HTTP client abstraction.

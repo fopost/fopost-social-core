@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Config;
+namespace Fopost\Social\Tests\Unit\Config;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Config\ConfigValidator;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Config\OwlstackConfig;
-use Owlstack\Core\Exceptions\OwlstackException;
+use Fopost\Social\Config\ConfigValidator;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Config\FopostConfig;
+use Fopost\Social\Exceptions\FopostException;
 
 class ConfigValidatorTest extends TestCase
 {
@@ -57,12 +57,12 @@ class ConfigValidatorTest extends TestCase
 
     public function testValidateConfigThrowsOnMissingCredentials(): void
     {
-        $config = new OwlstackConfig([
+        $config = new FopostConfig([
             'telegram' => [],
             'facebook' => ['app_id' => 'id'],
         ]);
 
-        $this->expectException(OwlstackException::class);
+        $this->expectException(FopostException::class);
         $this->expectExceptionMessage('Invalid configuration');
 
         $this->validator->validateConfig($config);
@@ -70,7 +70,7 @@ class ConfigValidatorTest extends TestCase
 
     public function testValidateConfigPassesWithValidCredentials(): void
     {
-        $config = new OwlstackConfig([
+        $config = new FopostConfig([
             'telegram' => ['api_token' => 'tok'],
             'twitter' => [
                 'consumer_key' => 'a',

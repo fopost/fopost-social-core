@@ -6,14 +6,14 @@ declare(strict_types=1);
 /**
  * Example 04: Platform Configuration & Validation
  *
- * Shows PlatformCredentials, OwlstackConfig, and ConfigValidator.
+ * Shows PlatformCredentials, FopostConfig, and ConfigValidator.
  */
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Config\ConfigValidator;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Config\OwlstackConfig;
+use Fopost\Social\Config\ConfigValidator;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Config\FopostConfig;
 
 echo "=== Example 04: Platform Configuration ===\n\n";
 
@@ -40,10 +40,10 @@ try {
 }
 echo "\n";
 
-// ── 2. OwlstackConfig — central config container ────────────────────────
-echo "2) OwlstackConfig\n";
+// ── 2. FopostConfig — central config container ────────────────────────
+echo "2) FopostConfig\n";
 
-$config = new OwlstackConfig(
+$config = new FopostConfig(
     platforms: [
         'telegram' => [
             'api_token' => '123456:ABC-DEF',
@@ -78,7 +78,7 @@ $creds = $config->credentials('twitter');
 echo "   twitter consumer_key    : " . $creds->get('consumer_key') . "\n\n";
 
 // You can also pass pre-built PlatformCredentials instances:
-$config2 = new OwlstackConfig(
+$config2 = new FopostConfig(
     platforms: [
         'telegram' => $telegramCreds,
     ],
@@ -113,12 +113,12 @@ echo "\n   Full config validation...\n";
 try {
     $validator->validateConfig($config);
     echo "   Config is valid!\n";
-} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\FopostException $e) {
     echo "   Invalid: {$e->getMessage()}\n";
 }
 
 // Bad config
-$badConfig = new OwlstackConfig([
+$badConfig = new FopostConfig([
     'twitter' => ['consumer_key' => 'ck'],
     'facebook' => [],
 ]);
@@ -126,7 +126,7 @@ $badConfig = new OwlstackConfig([
 echo "\n   Bad config validation...\n";
 try {
     $validator->validateConfig($badConfig);
-} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\FopostException $e) {
     echo "   Caught: {$e->getMessage()}\n";
 }
 

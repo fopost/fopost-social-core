@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Formatting\Contracts;
+namespace Fopost\Social\Formatting\Contracts;
 
-use Owlstack\Core\Content\Post;
+use Fopost\Social\Content\Post;
 
 /**
  * Contract for platform-specific content formatters.

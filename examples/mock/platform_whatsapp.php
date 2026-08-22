@@ -15,11 +15,11 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\WhatsApp\WhatsAppFormatter;
-use Owlstack\Core\Platforms\WhatsApp\WhatsAppPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\WhatsApp\WhatsAppFormatter;
+use Fopost\Social\Platforms\WhatsApp\WhatsAppPlatform;
 
 // -- Mock HTTP client for demonstration (replace with real HttpClient) --------
 
@@ -128,7 +128,7 @@ echo "Caption     :\n{$formatter->formatCaption($post)}\n\n";
 echo "=== Text Message ===\n\n";
 
 $textPost = new Post(
-    title: 'Hello from Owlstack',
+    title: 'Hello from FoPost',
     body: 'This is a text message with a link preview.',
     url: 'https://example.com',
 );
@@ -228,7 +228,7 @@ echo "=== Delete (Not Supported) ===\n\n";
 
 try {
     $platform->delete('wamid.test123');
-} catch (\Owlstack\Core\Exceptions\PlatformException $e) {
+} catch (\Fopost\Social\Exceptions\PlatformException $e) {
     echo "Expected error: {$e->getMessage()}\n\n";
 }
 

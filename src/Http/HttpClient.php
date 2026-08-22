@@ -6,10 +6,10 @@ declare(strict_types=1);
 // phpcs:disable WordPress.PHP.DiscouragedPHPFunctions -- base64_encode/urlencode required for multipart encoding.
 // phpcs:disable WordPress.PHP.NoSilencedErrors.Discouraged -- @unlink used for temp file cleanup.
 
-namespace Owlstack\Core\Http;
+namespace Fopost\Social\Http;
 
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Exceptions\OwlstackException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Exceptions\FopostException;
 
 /**
  * Default cURL-based HTTP client implementation.
@@ -53,7 +53,7 @@ class HttpClient implements HttpClientInterface
      * @param string $url     Request URL.
      * @param array  $options Request options.
      * @return array{status: int, headers: array, body: string}
-     * @throws OwlstackException On cURL errors.
+     * @throws FopostException On cURL errors.
      */
     private function request(string $method, string $url, array $options = []): array
     {
@@ -123,7 +123,7 @@ class HttpClient implements HttpClientInterface
             curl_close($ch);
 
             if ($body === false) {
-                throw new OwlstackException("HTTP request failed: {$error}");
+                throw new FopostException("HTTP request failed: {$error}");
             }
 
             return [
@@ -164,7 +164,7 @@ class HttpClient implements HttpClientInterface
 
             if (isset($part['filename'])) {
                 // File upload — write contents to a temp file for CURLFile
-                $tmpFile = tempnam(sys_get_temp_dir(), 'owlstack_');
+                $tmpFile = tempnam(sys_get_temp_dir(), 'fopost_');
                 file_put_contents($tmpFile, $contents);
                 $tempFiles[] = $tmpFile;
 

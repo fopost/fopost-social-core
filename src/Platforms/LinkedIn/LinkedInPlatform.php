@@ -6,17 +6,17 @@ declare(strict_types=1);
 // phpcs:disable WordPress.WP.AlternativeFunctions -- Framework-agnostic library; uses native PHP functions for portability.
 // phpcs:disable WordPress.PHP.DiscouragedPHPFunctions -- urlencode required for URN encoding in API calls.
 
-namespace Owlstack\Core\Platforms\LinkedIn;
+namespace Fopost\Social\Platforms\LinkedIn;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Exceptions\MediaValidationException;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformResponse;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Exceptions\MediaValidationException;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformResponse;
 
 /**
  * LinkedIn API platform implementation.
@@ -274,7 +274,7 @@ class LinkedInPlatform implements PlatformInterface
      *
      * @throws MediaValidationException If the file is invalid.
      */
-    private function validateMedia(\Owlstack\Core\Content\Media $media): void
+    private function validateMedia(\Fopost\Social\Content\Media $media): void
     {
         if (!in_array($media->mimeType, self::ALLOWED_IMAGE_TYPES, true)) {
             throw new MediaValidationException(

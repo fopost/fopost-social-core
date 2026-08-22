@@ -18,30 +18,30 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Config\ConfigValidator;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Config\OwlstackConfig;
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\MediaCollection;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Delivery\DeliveryStatus;
-use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
-use Owlstack\Core\Events\PostFailed;
-use Owlstack\Core\Events\PostPublished;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
-use Owlstack\Core\Platforms\Facebook\FacebookPlatform;
-use Owlstack\Core\Platforms\PlatformRegistry;
-use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
-use Owlstack\Core\Platforms\Telegram\TelegramPlatform;
-use Owlstack\Core\Platforms\Twitter\TwitterFormatter;
-use Owlstack\Core\Platforms\Twitter\TwitterPlatform;
-use Owlstack\Core\Publishing\Publisher;
+use Fopost\Social\Config\ConfigValidator;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Config\FopostConfig;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\MediaCollection;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Delivery\DeliveryStatus;
+use Fopost\Social\Events\Contracts\EventDispatcherInterface;
+use Fopost\Social\Events\PostFailed;
+use Fopost\Social\Events\PostPublished;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Facebook\FacebookFormatter;
+use Fopost\Social\Platforms\Facebook\FacebookPlatform;
+use Fopost\Social\Platforms\PlatformRegistry;
+use Fopost\Social\Platforms\Telegram\TelegramFormatter;
+use Fopost\Social\Platforms\Telegram\TelegramPlatform;
+use Fopost\Social\Platforms\Twitter\TwitterFormatter;
+use Fopost\Social\Platforms\Twitter\TwitterPlatform;
+use Fopost\Social\Publishing\Publisher;
 
 echo "╔══════════════════════════════════════════════════╗\n";
-echo "║   Owlstack Core — Full End-to-End Workflow       ║\n";
+echo "║   FoPost Social Core — Full End-to-End Workflow       ║\n";
 echo "╚══════════════════════════════════════════════════╝\n\n";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -49,11 +49,11 @@ echo "╚═══════════════════════�
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 echo "STEP 1: Configuration\n";
 
-$config = new OwlstackConfig(
+$config = new FopostConfig(
     platforms: [
         'telegram' => [
             'api_token' => '123456789:ABCdefGHIjklMNOpqrsTUVwxyz',
-            'channel_username' => '@owlstack_news',
+            'channel_username' => '@fopost_news',
         ],
         'twitter' => [
             'consumer_key' => 'ck_demo',
@@ -69,7 +69,7 @@ $config = new OwlstackConfig(
         ],
     ],
     options: [
-        'default_tags' => ['owlstack'],
+        'default_tags' => ['fopost'],
     ],
 );
 
@@ -84,7 +84,7 @@ $validator = new ConfigValidator();
 try {
     $validator->validateConfig($config);
     echo "   All credentials valid!\n\n";
-} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\FopostException $e) {
     echo "   INVALID: {$e->getMessage()}\n\n";
     exit(1);
 }
@@ -177,11 +177,11 @@ echo "   In-memory event dispatcher ready.\n\n";
 echo "STEP 5: Create Post\n";
 
 $post = new Post(
-    title: 'Owlstack Core v1.0 Released!',
-    body: 'We are proud to announce Owlstack Core v1.0 — a framework-agnostic PHP library that lets you publish content to multiple social media platforms with a single, unified API.',
-    url: 'https://owlstack.com/blog/v1-release',
-    excerpt: 'Owlstack Core v1.0 is here! Publish to Telegram, Twitter/X, and Facebook from one codebase.',
-    tags: ['owlstack', 'php', 'opensource', 'social-media'],
+    title: 'FoPost Social Core v1.0 Released!',
+    body: 'We are proud to announce FoPost Social Core v1.0 — a framework-agnostic PHP library that lets you publish content to multiple social media platforms with a single, unified API.',
+    url: 'https://fopost.com/blog/v1-release',
+    excerpt: 'FoPost Social Core v1.0 is here! Publish to Telegram, Twitter/X, and Facebook from one codebase.',
+    tags: ['fopost', 'php', 'opensource', 'social-media'],
     metadata: ['campaign' => 'v1-launch'],
 );
 

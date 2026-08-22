@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Content;
+namespace Fopost\Social\Content;
 
 /**
  * Handles generating and injecting canonical URLs into published content.

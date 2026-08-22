@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\WhatsApp;
+namespace Fopost\Social\Tests\Unit\Platforms\WhatsApp;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Platforms\WhatsApp\WhatsAppFormatter;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Platforms\WhatsApp\WhatsAppFormatter;
 
 class WhatsAppFormatterTest extends TestCase
 {

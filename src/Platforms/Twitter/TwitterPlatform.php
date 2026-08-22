@@ -6,18 +6,18 @@ declare(strict_types=1);
 // phpcs:disable WordPress.WP.AlternativeFunctions -- Framework-agnostic library; uses native PHP functions for portability.
 // phpcs:disable WordPress.PHP.DiscouragedPHPFunctions -- base64_encode required for OAuth HMAC-SHA1 signature and media upload.
 
-namespace Owlstack\Core\Platforms\Twitter;
+namespace Fopost\Social\Platforms\Twitter;
 
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Exceptions\MediaValidationException;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformResponse;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Exceptions\MediaValidationException;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformResponse;
 
 /**
  * X/Twitter API v2 platform implementation.

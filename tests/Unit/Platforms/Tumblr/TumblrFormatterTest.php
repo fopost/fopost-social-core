@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Tumblr;
+namespace Fopost\Social\Tests\Unit\Platforms\Tumblr;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Platforms\Tumblr\TumblrFormatter;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Platforms\Tumblr\TumblrFormatter;
 
 class TumblrFormatterTest extends TestCase
 {

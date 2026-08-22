@@ -13,16 +13,16 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
-use Owlstack\Core\Events\PostFailed;
-use Owlstack\Core\Events\PostPublished;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformRegistry;
-use Owlstack\Core\Platforms\PlatformResponse;
-use Owlstack\Core\Publishing\Publisher;
-use Owlstack\Core\Publishing\PublishResult;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Events\Contracts\EventDispatcherInterface;
+use Fopost\Social\Events\PostFailed;
+use Fopost\Social\Events\PostPublished;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformRegistry;
+use Fopost\Social\Platforms\PlatformResponse;
+use Fopost\Social\Publishing\Publisher;
+use Fopost\Social\Publishing\PublishResult;
 
 echo "=== Example 08: Events ===\n\n";
 
@@ -74,7 +74,7 @@ $crashPlatform = new class implements PlatformInterface {
     public function name(): string { return 'crash-stub'; }
     public function publish(Post $post, array $options = []): PlatformResponseInterface
     {
-        throw new \Owlstack\Core\Exceptions\PlatformException('Connection timed out', 'crash-stub', 504);
+        throw new \Fopost\Social\Exceptions\PlatformException('Connection timed out', 'crash-stub', 504);
     }
     public function delete(string $externalId): bool { return false; }
     public function validateCredentials(): bool { return false; }

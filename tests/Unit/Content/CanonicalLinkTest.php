@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Content;
+namespace Fopost\Social\Tests\Unit\Content;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\CanonicalLink;
+use Fopost\Social\Content\CanonicalLink;
 
 class CanonicalLinkTest extends TestCase
 {

@@ -25,13 +25,13 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/helpers.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\Twitter\TwitterFormatter;
-use Owlstack\Core\Platforms\Twitter\TwitterPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\Twitter\TwitterFormatter;
+use Fopost\Social\Platforms\Twitter\TwitterPlatform;
 
 // -- Load credentials ---------------------------------------------------------
 
@@ -71,10 +71,10 @@ if (! $valid) {
 echo "  Publishing test tweet...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'Testing the Owlstack Core library — publishing to Twitter/X via API v2. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'php'],
+    title: 'Hello from FoPost!',
+    body: 'Testing the FoPost Social Core library — publishing to Twitter/X via API v2. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'php'],
 );
 
 $result = $twitter->publish($post);

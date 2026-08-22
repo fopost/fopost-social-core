@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Events;
+namespace Fopost\Social\Events;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Publishing\PublishResult;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Publishing\PublishResult;
 
 /**
  * Event fired after content is successfully published to a platform.

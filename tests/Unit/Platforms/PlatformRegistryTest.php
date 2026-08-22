@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms;
+namespace Fopost\Social\Tests\Unit\Platforms;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Exceptions\OwlstackException;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\PlatformRegistry;
+use Fopost\Social\Exceptions\FopostException;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\PlatformRegistry;
 
 class PlatformRegistryTest extends TestCase
 {
@@ -25,7 +25,7 @@ class PlatformRegistryTest extends TestCase
     {
         $registry = new PlatformRegistry();
 
-        $this->expectException(OwlstackException::class);
+        $this->expectException(FopostException::class);
         $this->expectExceptionMessage("Platform 'unknown' is not registered");
 
         $registry->get('unknown');

@@ -25,13 +25,13 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/helpers.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
-use Owlstack\Core\Platforms\Facebook\FacebookPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\Facebook\FacebookFormatter;
+use Fopost\Social\Platforms\Facebook\FacebookPlatform;
 
 // -- Load credentials ---------------------------------------------------------
 
@@ -71,10 +71,10 @@ if (! $valid) {
 echo "  Publishing test post to Facebook Page...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test post published to Facebook via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'facebook', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test post published to Facebook via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'facebook', 'test'],
 );
 
 $result = $facebook->publish($post);

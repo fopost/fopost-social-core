@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Support;
+namespace Fopost\Social\Tests\Unit\Support;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Support\Str;
+use Fopost\Social\Support\Str;
 
 class StrTest extends TestCase
 {

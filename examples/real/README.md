@@ -5,7 +5,7 @@ These examples make **real API calls** to social media platforms. They will post
 ## Prerequisites
 
 1. **PHP 8.1+** with `ext-curl` and `ext-json`
-2. **Install dependencies:** `composer install` in the `owlstack-core` root
+2. **Install dependencies:** `composer install` in the `fopost-social-core` root
 3. **API credentials** for the platform(s) you want to test
 
 ## Quick Start
@@ -24,7 +24,7 @@ source examples/real/.env
 php examples/real/platform_slack.php
 ```
 
-> **Note:** Since Owlstack Core is zero-dependency, `.env` files are not auto-loaded. You must `source` the file or `export` variables manually before running examples.
+> **Note:** Since FoPost Social Core is zero-dependency, `.env` files are not auto-loaded. You must `source` the file or `export` variables manually before running examples.
 
 ## Credential Reference
 

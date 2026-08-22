@@ -24,11 +24,11 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/helpers.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\Discord\DiscordFormatter;
-use Owlstack\Core\Platforms\Discord\DiscordPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\Discord\DiscordFormatter;
+use Fopost\Social\Platforms\Discord\DiscordPlatform;
 
 // -- Load credentials ---------------------------------------------------------
 
@@ -76,10 +76,10 @@ if (! $valid) {
 echo "  Publishing test message to Discord...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test message sent to Discord via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'discord', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test message sent to Discord via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'discord', 'test'],
 );
 
 $result = $discord->publish($post);

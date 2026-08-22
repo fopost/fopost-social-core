@@ -3,15 +3,15 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Discord;
+namespace Fopost\Social\Tests\Unit\Platforms\Discord;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\MediaCollection;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Platforms\Discord\DiscordFormatter;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\MediaCollection;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Platforms\Discord\DiscordFormatter;
 
 class DiscordFormatterTest extends TestCase
 {

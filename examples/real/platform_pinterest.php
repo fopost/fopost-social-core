@@ -21,10 +21,10 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/helpers.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\Pinterest\PinterestPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\Pinterest\PinterestPlatform;
 
 // -- Load credentials ---------------------------------------------------------
 
@@ -59,10 +59,10 @@ if (! $valid) {
 echo "  Creating test pin on Pinterest...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'Testing the Owlstack Core library — creating a pin on Pinterest. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'pinterest', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'Testing the FoPost Social Core library — creating a pin on Pinterest. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'pinterest', 'test'],
 );
 
 $result = $pinterest->publish($post, [

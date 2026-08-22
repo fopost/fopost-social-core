@@ -25,10 +25,10 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/helpers.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\WhatsApp\WhatsAppPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\WhatsApp\WhatsAppPlatform;
 
 // -- Load credentials ---------------------------------------------------------
 
@@ -65,9 +65,9 @@ if (! $valid) {
 echo "  Sending test message via WhatsApp...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test message sent via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
+    title: 'Hello from FoPost!',
+    body: 'This is a real test message sent via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
 );
 
 $result = $whatsapp->publish($post, [

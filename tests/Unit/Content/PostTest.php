@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Content;
+namespace Fopost\Social\Tests\Unit\Content;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\MediaCollection;
-use Owlstack\Core\Content\Post;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\MediaCollection;
+use Fopost\Social\Content\Post;
 
 class PostTest extends TestCase
 {
@@ -63,9 +63,9 @@ class PostTest extends TestCase
 
     public function testGetMetaReturnsValueOrDefault(): void
     {
-        $post = new Post(title: 'T', body: 'B', metadata: ['author' => 'Ali']);
+        $post = new Post(title: 'T', body: 'B', metadata: ['author' => 'Jamie']);
 
-        $this->assertSame('Ali', $post->getMeta('author'));
+        $this->assertSame('Jamie', $post->getMeta('author'));
         $this->assertNull($post->getMeta('missing'));
         $this->assertSame('fallback', $post->getMeta('missing', 'fallback'));
     }

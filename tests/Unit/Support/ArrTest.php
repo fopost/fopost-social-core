@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Support;
+namespace Fopost\Social\Tests\Unit\Support;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Support\Arr;
+use Fopost\Social\Support\Arr;
 
 class ArrTest extends TestCase
 {

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 // phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
 
-namespace Owlstack\Core\Auth;
+namespace Fopost\Social\Auth;
 
-use Owlstack\Core\Auth\Contracts\OAuthProviderInterface;
-use Owlstack\Core\Auth\Contracts\TokenStoreInterface;
-use Owlstack\Core\Exceptions\AuthenticationException;
+use Fopost\Social\Auth\Contracts\OAuthProviderInterface;
+use Fopost\Social\Auth\Contracts\TokenStoreInterface;
+use Fopost\Social\Exceptions\AuthenticationException;
 
 /**
  * Manages the OAuth flow using provider and token store contracts.

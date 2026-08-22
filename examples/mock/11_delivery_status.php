@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Delivery\DeliveryStatus;
+use Fopost\Social\Delivery\DeliveryStatus;
 
 echo "=== Example 11: Delivery Status ===\n\n";
 

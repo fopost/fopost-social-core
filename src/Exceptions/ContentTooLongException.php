@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Exceptions;
+namespace Fopost\Social\Exceptions;
 
 /**
  * Thrown when content exceeds a platform's character limit.
  */
-class ContentTooLongException extends OwlstackException
+class ContentTooLongException extends FopostException
 {
     public function __construct(
         public readonly string $platformName,

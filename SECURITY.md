@@ -8,13 +8,13 @@
 
 ## Reporting a Vulnerability
 
-We take security seriously at Owlstack. If you discover a security vulnerability in this package, please report it responsibly.
+We take security seriously at FoPost. If you discover a security vulnerability in this package, please report it responsibly.
 
 ### How to Report
 
 **Please do NOT open a public GitHub issue for security vulnerabilities.**
 
-Instead, send an email to **ali@alihesari.com** with:
+Instead, report it privately through [https://fopost.com/contact](https://fopost.com/contact) with:
 
 - A description of the vulnerability
 - Steps to reproduce the issue
@@ -32,7 +32,7 @@ Instead, send an email to **ali@alihesari.com** with:
 
 This security policy covers:
 
-- The `owlstack/owlstack-core` PHP package
+- The `fopost/social-core` PHP package
 - OAuth token handling and storage contracts
 - HTTP client and API communication
 - Content validation and sanitization
@@ -41,12 +41,12 @@ This security policy covers:
 ### Out of Scope
 
 - Vulnerabilities in third-party dependencies (please report those upstream)
-- Vulnerabilities in framework-specific packages (owlstack-laravel, owlstack-wordpress) — those have their own security policies
+- Vulnerabilities in framework-specific packages (fopost-social-laravel, fopost-social-wp) — those have their own security policies
 - Issues that require physical access to the server
 
 ## Security Best Practices
 
-When using Owlstack Core:
+When using FoPost Social Core:
 
 - **Never** commit API tokens or OAuth credentials to version control.
 - **Always** use HTTPS endpoints for API communication.

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Content;
+namespace Fopost\Social\Tests\Unit\Content;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Media;
+use Fopost\Social\Content\Media;
 
 class MediaTest extends TestCase
 {

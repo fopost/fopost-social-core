@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Events;
+namespace Fopost\Social\Tests\Unit\Events;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Events\PostPublished;
-use Owlstack\Core\Publishing\PublishResult;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Events\PostPublished;
+use Fopost\Social\Publishing\PublishResult;
 
 class PostPublishedTest extends TestCase
 {
