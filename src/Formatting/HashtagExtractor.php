@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Formatting;
+namespace Fopost\Social\Formatting;
 
 /**
  * Converts tags into platform-formatted hashtag strings.

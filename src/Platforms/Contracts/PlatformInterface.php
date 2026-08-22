@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Platforms\Contracts;
+namespace Fopost\Social\Platforms\Contracts;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Publishing\PublishResult;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Publishing\PublishResult;
 
 /**
  * Contract that every social media platform must implement.

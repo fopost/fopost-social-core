@@ -18,27 +18,27 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Config\ConfigValidator;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Config\OwlstackConfig;
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\MediaCollection;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Delivery\DeliveryStatus;
-use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
-use Owlstack\Core\Events\PostFailed;
-use Owlstack\Core\Events\PostPublished;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
-use Owlstack\Core\Platforms\Facebook\FacebookPlatform;
-use Owlstack\Core\Platforms\PlatformRegistry;
-use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
-use Owlstack\Core\Platforms\Telegram\TelegramPlatform;
-use Owlstack\Core\Platforms\Twitter\TwitterFormatter;
-use Owlstack\Core\Platforms\Twitter\TwitterPlatform;
-use Owlstack\Core\Publishing\Publisher;
+use Fopost\Social\Config\ConfigValidator;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Config\OwlstackConfig;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\MediaCollection;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Delivery\DeliveryStatus;
+use Fopost\Social\Events\Contracts\EventDispatcherInterface;
+use Fopost\Social\Events\PostFailed;
+use Fopost\Social\Events\PostPublished;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Facebook\FacebookFormatter;
+use Fopost\Social\Platforms\Facebook\FacebookPlatform;
+use Fopost\Social\Platforms\PlatformRegistry;
+use Fopost\Social\Platforms\Telegram\TelegramFormatter;
+use Fopost\Social\Platforms\Telegram\TelegramPlatform;
+use Fopost\Social\Platforms\Twitter\TwitterFormatter;
+use Fopost\Social\Platforms\Twitter\TwitterPlatform;
+use Fopost\Social\Publishing\Publisher;
 
 echo "╔══════════════════════════════════════════════════╗\n";
 echo "║   Owlstack Core — Full End-to-End Workflow       ║\n";
@@ -84,7 +84,7 @@ $validator = new ConfigValidator();
 try {
     $validator->validateConfig($config);
     echo "   All credentials valid!\n\n";
-} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\OwlstackException $e) {
     echo "   INVALID: {$e->getMessage()}\n\n";
     exit(1);
 }

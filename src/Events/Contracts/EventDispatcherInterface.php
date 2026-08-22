@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Events\Contracts;
+namespace Fopost\Social\Events\Contracts;
 
 /**
  * Contract for event dispatching.

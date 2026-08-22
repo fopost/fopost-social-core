@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Platforms\Pinterest;
+namespace Fopost\Social\Platforms\Pinterest;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\Contracts\FormatterInterface;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\Contracts\FormatterInterface;
 
 /**
  * Formats content for Pinterest Pin descriptions.

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Platforms\LinkedIn;
+namespace Fopost\Social\Platforms\LinkedIn;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\Contracts\FormatterInterface;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\Contracts\FormatterInterface;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
 
 /**
  * Formats content for LinkedIn's API.

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Delivery;
+namespace Fopost\Social\Delivery;
 
 /**
  * Represents the lifecycle status of a content delivery.

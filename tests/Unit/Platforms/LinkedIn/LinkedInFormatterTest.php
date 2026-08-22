@@ -3,13 +3,13 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\LinkedIn;
+namespace Fopost\Social\Tests\Unit\Platforms\LinkedIn;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Platforms\LinkedIn\LinkedInFormatter;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Platforms\LinkedIn\LinkedInFormatter;
 
 class LinkedInFormatterTest extends TestCase
 {

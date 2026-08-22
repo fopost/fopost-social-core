@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms;
+namespace Fopost\Social\Tests\Unit\Platforms;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Platforms\PlatformResponse;
+use Fopost\Social\Platforms\PlatformResponse;
 
 class PlatformResponseTest extends TestCase
 {

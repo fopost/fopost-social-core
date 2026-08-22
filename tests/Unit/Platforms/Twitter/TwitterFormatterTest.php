@@ -3,13 +3,13 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Twitter;
+namespace Fopost\Social\Tests\Unit\Platforms\Twitter;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Platforms\Twitter\TwitterFormatter;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Platforms\Twitter\TwitterFormatter;
 
 class TwitterFormatterTest extends TestCase
 {

@@ -3,16 +3,16 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\WhatsApp;
+namespace Fopost\Social\Tests\Unit\Platforms\WhatsApp;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\WhatsApp\WhatsAppPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\WhatsApp\WhatsAppPlatform;
 
 class WhatsAppPlatformTest extends TestCase
 {

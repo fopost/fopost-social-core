@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Instagram;
+namespace Fopost\Social\Tests\Unit\Platforms\Instagram;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Platforms\Instagram\InstagramFormatter;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Platforms\Instagram\InstagramFormatter;
 
 class InstagramFormatterTest extends TestCase
 {

@@ -3,11 +3,11 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Pinterest;
+namespace Fopost\Social\Tests\Unit\Platforms\Pinterest;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Platforms\Pinterest\PinterestFormatter;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Platforms\Pinterest\PinterestFormatter;
 
 class PinterestFormatterTest extends TestCase
 {

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Publishing;
+namespace Fopost\Social\Tests\Unit\Publishing;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
-use Owlstack\Core\Events\PostFailed;
-use Owlstack\Core\Events\PostPublished;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformRegistry;
-use Owlstack\Core\Platforms\PlatformResponse;
-use Owlstack\Core\Publishing\Publisher;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Events\Contracts\EventDispatcherInterface;
+use Fopost\Social\Events\PostFailed;
+use Fopost\Social\Events\PostPublished;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformRegistry;
+use Fopost\Social\Platforms\PlatformResponse;
+use Fopost\Social\Publishing\Publisher;
 
 class PublisherTest extends TestCase
 {

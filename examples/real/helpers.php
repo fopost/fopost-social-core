@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
 
 /**
  * Require an environment variable or exit with a helpful message.

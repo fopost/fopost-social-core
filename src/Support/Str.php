@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Support;
+namespace Fopost\Social\Support;
 
 /**
  * String utility helpers.

@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Config\ConfigValidator;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Config\OwlstackConfig;
+use Fopost\Social\Config\ConfigValidator;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Config\OwlstackConfig;
 
 echo "=== Example 04: Platform Configuration ===\n\n";
 
@@ -113,7 +113,7 @@ echo "\n   Full config validation...\n";
 try {
     $validator->validateConfig($config);
     echo "   Config is valid!\n";
-} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\OwlstackException $e) {
     echo "   Invalid: {$e->getMessage()}\n";
 }
 
@@ -126,7 +126,7 @@ $badConfig = new OwlstackConfig([
 echo "\n   Bad config validation...\n";
 try {
     $validator->validateConfig($badConfig);
-} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\OwlstackException $e) {
     echo "   Caught: {$e->getMessage()}\n";
 }
 

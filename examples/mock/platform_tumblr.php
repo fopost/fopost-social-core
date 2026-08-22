@@ -23,11 +23,11 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Tumblr\TumblrFormatter;
-use Owlstack\Core\Platforms\Tumblr\TumblrPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Tumblr\TumblrFormatter;
+use Fopost\Social\Platforms\Tumblr\TumblrPlatform;
 
 // -- Mock HTTP client for demonstration (replace with real HttpClient) --------
 

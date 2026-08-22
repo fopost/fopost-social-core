@@ -5,16 +5,16 @@ declare(strict_types=1);
 // phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
 // phpcs:disable Universal.Operators.DisallowShortTernary.Found -- Short ternary used intentionally for concise null/empty fallbacks.
 
-namespace Owlstack\Core\Platforms\Tumblr;
+namespace Fopost\Social\Platforms\Tumblr;
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformResponse;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformResponse;
 
 /**
  * Tumblr API v2 platform implementation using Neue Post Format (NPF).

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Exceptions;
+namespace Fopost\Social\Exceptions;
 
 /**
  * Thrown when content exceeds a platform's character limit.

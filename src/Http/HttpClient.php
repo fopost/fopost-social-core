@@ -6,10 +6,10 @@ declare(strict_types=1);
 // phpcs:disable WordPress.PHP.DiscouragedPHPFunctions -- base64_encode/urlencode required for multipart encoding.
 // phpcs:disable WordPress.PHP.NoSilencedErrors.Discouraged -- @unlink used for temp file cleanup.
 
-namespace Owlstack\Core\Http;
+namespace Fopost\Social\Http;
 
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Exceptions\OwlstackException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Exceptions\OwlstackException;
 
 /**
  * Default cURL-based HTTP client implementation.

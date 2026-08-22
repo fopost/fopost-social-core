@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Formatting;
+namespace Fopost\Social\Tests\Unit\Formatting;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\CharacterTruncator;
 
 class CharacterTruncatorTest extends TestCase
 {

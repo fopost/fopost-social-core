@@ -12,12 +12,12 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Exceptions\AuthenticationException;
-use Owlstack\Core\Exceptions\ContentTooLongException;
-use Owlstack\Core\Exceptions\MediaValidationException;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Exceptions\OwlstackException;
+use Fopost\Social\Exceptions\AuthenticationException;
+use Fopost\Social\Exceptions\ContentTooLongException;
+use Fopost\Social\Exceptions\MediaValidationException;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Exceptions\OwlstackException;
 
 echo "=== Example 07: Error Handling ===\n\n";
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Content;
+namespace Fopost\Social\Content;
 
 /**
  * Represents a piece of content to be published to social platforms.

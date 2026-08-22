@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Config;
+namespace Fopost\Social\Tests\Unit\Config;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Config\ConfigValidator;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Config\OwlstackConfig;
-use Owlstack\Core\Exceptions\OwlstackException;
+use Fopost\Social\Config\ConfigValidator;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Config\OwlstackConfig;
+use Fopost\Social\Exceptions\OwlstackException;
 
 class ConfigValidatorTest extends TestCase
 {

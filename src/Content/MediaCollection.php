@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Content;
+namespace Fopost\Social\Content;
 
 use Countable;
 use IteratorAggregate;

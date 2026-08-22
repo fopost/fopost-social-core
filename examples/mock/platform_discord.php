@@ -23,13 +23,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Discord\DiscordFormatter;
-use Owlstack\Core\Platforms\Discord\DiscordPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Discord\DiscordFormatter;
+use Fopost\Social\Platforms\Discord\DiscordPlatform;
 
 echo "=== Discord Platform Example ===\n\n";
 

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Auth;
+namespace Fopost\Social\Tests\Unit\Auth;
 
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Auth\AccessToken;
-use Owlstack\Core\Auth\Contracts\OAuthProviderInterface;
-use Owlstack\Core\Auth\Contracts\TokenStoreInterface;
-use Owlstack\Core\Auth\OAuthHandler;
-use Owlstack\Core\Exceptions\AuthenticationException;
+use Fopost\Social\Auth\AccessToken;
+use Fopost\Social\Auth\Contracts\OAuthProviderInterface;
+use Fopost\Social\Auth\Contracts\TokenStoreInterface;
+use Fopost\Social\Auth\OAuthHandler;
+use Fopost\Social\Exceptions\AuthenticationException;
 
 class OAuthHandlerTest extends TestCase
 {

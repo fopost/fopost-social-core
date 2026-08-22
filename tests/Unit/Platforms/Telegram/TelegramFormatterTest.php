@@ -3,13 +3,13 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms\Telegram;
+namespace Fopost\Social\Tests\Unit\Platforms\Telegram;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Platforms\Telegram\TelegramFormatter;
 
 class TelegramFormatterTest extends TestCase
 {

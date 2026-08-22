@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Exceptions;
+namespace Fopost\Social\Exceptions;
 
 /**
  * Thrown when a media attachment fails validation (unsupported format, size too large, etc.).

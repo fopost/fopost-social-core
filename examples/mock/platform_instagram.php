@@ -24,11 +24,11 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Instagram\InstagramFormatter;
-use Owlstack\Core\Platforms\Instagram\InstagramPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Instagram\InstagramFormatter;
+use Fopost\Social\Platforms\Instagram\InstagramPlatform;
 
 echo "=== Instagram Platform Example ===\n\n";
 
@@ -191,7 +191,7 @@ echo "   Caption length: " . mb_strlen($caption) . " / {$formatter->maxLength()}
 echo "8. Delete attempt...\n";
 try {
     $platform->delete('media-id');
-} catch (\Owlstack\Core\Exceptions\PlatformException $e) {
+} catch (\Fopost\Social\Exceptions\PlatformException $e) {
     echo "   Expected: " . $e->getMessage() . "\n\n";
 }
 

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests\Unit\Platforms;
+namespace Fopost\Social\Tests\Unit\Platforms;
 
 use PHPUnit\Framework\TestCase;
-use Owlstack\Core\Exceptions\OwlstackException;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\PlatformRegistry;
+use Fopost\Social\Exceptions\OwlstackException;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\PlatformRegistry;
 
 class PlatformRegistryTest extends TestCase
 {

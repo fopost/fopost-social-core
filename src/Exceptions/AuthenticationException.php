@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Exceptions;
+namespace Fopost\Social\Exceptions;
 
 /**
  * Thrown when authentication fails (token expired, invalid credentials, etc.).

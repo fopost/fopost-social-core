@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Support\Arr;
-use Owlstack\Core\Support\Clock;
-use Owlstack\Core\Support\Str;
+use Fopost\Social\Support\Arr;
+use Fopost\Social\Support\Clock;
+use Fopost\Social\Support\Str;
 
 echo "=== Example 09: Support Utilities ===\n\n";
 

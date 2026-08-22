@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Auth\AccessToken;
-use Owlstack\Core\Auth\Contracts\OAuthProviderInterface;
-use Owlstack\Core\Auth\Contracts\TokenStoreInterface;
-use Owlstack\Core\Auth\OAuthHandler;
+use Fopost\Social\Auth\AccessToken;
+use Fopost\Social\Auth\Contracts\OAuthProviderInterface;
+use Fopost\Social\Auth\Contracts\TokenStoreInterface;
+use Fopost\Social\Auth\OAuthHandler;
 
 echo "=== Example 10: Authentication & OAuth ===\n\n";
 
@@ -147,7 +147,7 @@ echo "   getToken(): {$fetched->token}\n";
 echo "\n   Getting token for unknown account...\n";
 try {
     $handler->getToken('non-existent');
-} catch (\Owlstack\Core\Exceptions\AuthenticationException $e) {
+} catch (\Fopost\Social\Exceptions\AuthenticationException $e) {
     echo "   Caught: {$e->getMessage()}\n";
 }
 

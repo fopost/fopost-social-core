@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Tests;
+namespace Fopost\Social\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

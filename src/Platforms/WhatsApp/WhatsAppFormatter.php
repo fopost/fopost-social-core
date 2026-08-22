@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Platforms\WhatsApp;
+namespace Fopost\Social\Platforms\WhatsApp;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\Contracts\FormatterInterface;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\Contracts\FormatterInterface;
 
 /**
  * Formats content for WhatsApp messages.

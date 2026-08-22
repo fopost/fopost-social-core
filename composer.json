@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Owlstack\\Core\\": "src/"
+            "Fopost\\Social\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Owlstack\\Core\\Tests\\": "tests/"
+            "Fopost\\Social\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",

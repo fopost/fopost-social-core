@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Formatting;
+namespace Fopost\Social\Formatting;
 
 /**
  * Smart text truncation that respects word boundaries.

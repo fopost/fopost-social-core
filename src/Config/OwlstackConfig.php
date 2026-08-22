@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Config;
+namespace Fopost\Social\Config;
 
 /**
  * Central configuration object for Owlstack.

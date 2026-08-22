@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformRegistry;
-use Owlstack\Core\Platforms\PlatformResponse;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformRegistry;
+use Fopost\Social\Platforms\PlatformResponse;
 
 echo "=== Example 05: Platform Registry ===\n\n";
 
@@ -89,7 +89,7 @@ echo "   externalId: {$response->externalId()}\n\n";
 echo "5) Accessing a non-existent platform\n";
 try {
     $registry->get('linkedin');
-} catch (\Owlstack\Core\Exceptions\OwlstackException $e) {
+} catch (\Fopost\Social\Exceptions\OwlstackException $e) {
     echo "   Caught: {$e->getMessage()}\n";
 }
 

@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Content\Media;
-use Owlstack\Core\Content\MediaCollection;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Content\Media;
+use Fopost\Social\Content\MediaCollection;
 
 echo "=== Example 01: Creating Posts ===\n\n";
 

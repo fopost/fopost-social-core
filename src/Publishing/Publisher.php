@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Publishing;
+namespace Fopost\Social\Publishing;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Events\Contracts\EventDispatcherInterface;
-use Owlstack\Core\Events\PostPublished;
-use Owlstack\Core\Events\PostFailed;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\PlatformRegistry;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Events\Contracts\EventDispatcherInterface;
+use Fopost\Social\Events\PostPublished;
+use Fopost\Social\Events\PostFailed;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\PlatformRegistry;
 
 /**
  * The main publishing orchestrator.

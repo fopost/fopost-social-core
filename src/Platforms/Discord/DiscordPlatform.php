@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 // phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
 
-namespace Owlstack\Core\Platforms\Discord;
+namespace Fopost\Social\Platforms\Discord;
 
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Exceptions\PlatformException;
-use Owlstack\Core\Exceptions\RateLimitException;
-use Owlstack\Core\Http\Contracts\HttpClientInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformInterface;
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
-use Owlstack\Core\Platforms\PlatformResponse;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Exceptions\PlatformException;
+use Fopost\Social\Exceptions\RateLimitException;
+use Fopost\Social\Http\Contracts\HttpClientInterface;
+use Fopost\Social\Platforms\Contracts\PlatformInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\PlatformResponse;
 
 /**
  * Discord REST API / Webhook platform implementation.

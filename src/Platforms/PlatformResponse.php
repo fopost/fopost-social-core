@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Platforms;
+namespace Fopost\Social\Platforms;
 
-use Owlstack\Core\Platforms\Contracts\PlatformResponseInterface;
+use Fopost\Social\Platforms\Contracts\PlatformResponseInterface;
 
 /**
  * Default implementation of PlatformResponseInterface.

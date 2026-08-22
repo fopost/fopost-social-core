@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owlstack\Core\Content;
+namespace Fopost\Social\Content;
 
 /**
  * Represents a media attachment (image, video, audio, document).

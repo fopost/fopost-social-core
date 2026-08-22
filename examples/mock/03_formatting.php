@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use Owlstack\Core\Content\CanonicalLink;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Formatting\CharacterTruncator;
-use Owlstack\Core\Formatting\HashtagExtractor;
-use Owlstack\Core\Platforms\Facebook\FacebookFormatter;
-use Owlstack\Core\Platforms\Telegram\TelegramFormatter;
-use Owlstack\Core\Platforms\Twitter\TwitterFormatter;
+use Fopost\Social\Content\CanonicalLink;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Formatting\CharacterTruncator;
+use Fopost\Social\Formatting\HashtagExtractor;
+use Fopost\Social\Platforms\Facebook\FacebookFormatter;
+use Fopost\Social\Platforms\Telegram\TelegramFormatter;
+use Fopost\Social\Platforms\Twitter\TwitterFormatter;
 
 echo "=== Example 03: Formatting ===\n\n";
 

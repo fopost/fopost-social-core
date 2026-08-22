@@ -27,11 +27,11 @@ declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/helpers.php';
 
-use Owlstack\Core\Config\PlatformCredentials;
-use Owlstack\Core\Content\Post;
-use Owlstack\Core\Http\HttpClient;
-use Owlstack\Core\Platforms\Reddit\RedditFormatter;
-use Owlstack\Core\Platforms\Reddit\RedditPlatform;
+use Fopost\Social\Config\PlatformCredentials;
+use Fopost\Social\Content\Post;
+use Fopost\Social\Http\HttpClient;
+use Fopost\Social\Platforms\Reddit\RedditFormatter;
+use Fopost\Social\Platforms\Reddit\RedditPlatform;
 
 // -- Load credentials ---------------------------------------------------------
 

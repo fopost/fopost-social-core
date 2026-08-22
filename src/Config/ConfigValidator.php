@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 // phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Framework-agnostic library; exceptions are not WordPress output.
 
-namespace Owlstack\Core\Config;
+namespace Fopost\Social\Config;
 
-use Owlstack\Core\Exceptions\OwlstackException;
+use Fopost\Social\Exceptions\OwlstackException;
 
 /**
  * Validates that platform configurations have all required credentials.
