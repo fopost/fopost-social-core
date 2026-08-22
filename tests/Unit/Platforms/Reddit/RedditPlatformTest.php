@@ -69,7 +69,7 @@ class RedditPlatformTest extends TestCase
                         && $options['form_params']['title'] === 'My Reddit Post'
                         && isset($options['form_params']['text'])
                         && str_contains($options['headers']['Authorization'], 'Bearer test-access-token')
-                        && str_contains($options['headers']['User-Agent'], 'Owlstack');
+                        && str_contains($options['headers']['User-Agent'], 'FoPost');
                 })
             )
             ->willReturn([

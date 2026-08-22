@@ -59,10 +59,10 @@ if (! $valid) {
 echo "  Creating test pin on Pinterest...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'Testing the Owlstack Core library — creating a pin on Pinterest. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'pinterest', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'Testing the FoPost Social Core library — creating a pin on Pinterest. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'pinterest', 'test'],
 );
 
 $result = $pinterest->publish($post, [

@@ -109,10 +109,10 @@ $botCredentials = new PlatformCredentials('slack', [
 $slack = new SlackPlatform($botCredentials, $mockHttp);
 
 $post = new Post(
-    title: 'New Release: Owlstack v2.0',
+    title: 'New Release: FoPost v2.0',
     body: 'We just shipped a major update with Slack integration and Block Kit support!',
-    url: 'https://owlstack.com/releases/v2',
-    tags: ['release', 'owlstack', 'slack'],
+    url: 'https://fopost.com/releases/v2',
+    tags: ['release', 'fopost', 'slack'],
 );
 
 $result = $slack->publish($post);
@@ -142,7 +142,7 @@ $replyPost = new Post(
 
 $result = $slack->publish($replyPost, [
     'thread_ts' => '1700000000.000001',
-    'username' => 'Owlstack Release Bot',
+    'username' => 'FoPost Release Bot',
     'icon_emoji' => ':rocket:',
     'unfurl_links' => false,
 ]);

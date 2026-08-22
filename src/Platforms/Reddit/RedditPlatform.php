@@ -36,7 +36,7 @@ class RedditPlatform implements PlatformInterface
     private const AUTH_URL = 'https://www.reddit.com/api/v1/access_token';
     private const MAX_TITLE_LENGTH = 300;
     private const MAX_BODY_LENGTH = 40000;
-    private const USER_AGENT_PREFIX = 'Owlstack/1.0';
+    private const USER_AGENT_PREFIX = 'FoPost/1.0';
 
     public function __construct(
         private readonly PlatformCredentials $credentials,

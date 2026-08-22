@@ -93,9 +93,9 @@ echo "   Credentials valid: " . ($isValid ? 'Yes' : 'No') . "\n\n";
 // ── 2. Publish a self-post (text) ──────────────────────────────────────
 echo "2. Publishing a self-post...\n";
 $post = new Post(
-    title: 'Just discovered Owlstack for social media automation',
+    title: 'Just discovered FoPost for social media automation',
     body: "I've been looking for a way to publish content across multiple platforms "
-        . "and found Owlstack. It supports Telegram, Twitter, Facebook, and now Reddit!\n\n"
+        . "and found FoPost. It supports Telegram, Twitter, Facebook, and now Reddit!\n\n"
         . "Has anyone else tried something similar?",
     tags: ['php', 'automation', 'socialmedia'],
 );
@@ -108,9 +108,9 @@ echo "   URL: " . $result->externalUrl() . "\n\n";
 // ── 3. Publish a link post ─────────────────────────────────────────────
 echo "3. Publishing a link post...\n";
 $linkPost = new Post(
-    title: 'Owlstack: Open-source social media publishing engine',
+    title: 'FoPost: Open-source social media publishing engine',
     body: '',
-    url: 'https://owlstack.com',
+    url: 'https://fopost.com',
 );
 
 $linkResult = $platform->publish($linkPost, ['subreddit' => 'opensource']);

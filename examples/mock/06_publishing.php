@@ -127,10 +127,10 @@ echo "Registered: " . implode(', ', $registry->names()) . "\n\n";
 
 // ── Create a Post ───────────────────────────────────────────────────────
 $post = new Post(
-    title: 'Owlstack Core 1.0 is out!',
-    body: 'We are thrilled to announce Owlstack Core v1.0 — a framework-agnostic PHP library for publishing to social media platforms.',
-    url: 'https://owlstack.com/blog/v1-release',
-    tags: ['owlstack', 'php', 'opensource'],
+    title: 'FoPost Social Core 1.0 is out!',
+    body: 'We are thrilled to announce FoPost Social Core v1.0 — a framework-agnostic PHP library for publishing to social media platforms.',
+    url: 'https://fopost.com/blog/v1-release',
+    tags: ['fopost', 'php', 'opensource'],
 );
 
 // ── Publish to each platform individually ───────────────────────────────

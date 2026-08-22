@@ -63,10 +63,10 @@ if (! $valid) {
 echo "  Publishing test message...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test message sent via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'telegram', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test message sent via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'telegram', 'test'],
 );
 
 $result = $telegram->publish($post);

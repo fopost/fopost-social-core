@@ -1,6 +1,6 @@
-# Owlstack Core — Examples
+# FoPost Social Core — Examples
 
-This directory contains two sets of examples demonstrating how to use the Owlstack Core library.
+This directory contains two sets of examples demonstrating how to use the FoPost Social Core library.
 
 ## Directory Structure
 

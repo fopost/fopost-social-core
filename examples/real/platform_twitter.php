@@ -71,10 +71,10 @@ if (! $valid) {
 echo "  Publishing test tweet...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'Testing the Owlstack Core library — publishing to Twitter/X via API v2. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'php'],
+    title: 'Hello from FoPost!',
+    body: 'Testing the FoPost Social Core library — publishing to Twitter/X via API v2. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'php'],
 );
 
 $result = $twitter->publish($post);

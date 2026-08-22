@@ -60,10 +60,10 @@ if (! $valid) {
 echo "  Publishing test post to Tumblr...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test post published to Tumblr via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'tumblr', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test post published to Tumblr via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'tumblr', 'test'],
 );
 
 $result = $tumblr->publish($post, [

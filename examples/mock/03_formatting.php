@@ -41,7 +41,7 @@ echo "   Constructor suffix: " . $customTruncator->truncate($longText, 50) . "\n
 $extractor = new HashtagExtractor();
 
 echo "2) HashtagExtractor\n";
-echo "   Basic    : " . $extractor->extract(['php', 'laravel', 'owlstack']) . "\n";
+echo "   Basic    : " . $extractor->extract(['php', 'laravel', 'fopost']) . "\n";
 echo "   Prefixed : " . $extractor->extract(['#php', '#laravel']) . "\n";
 echo "   Specials : " . $extractor->extract(['hello world', 'c++', 'node.js']) . "\n";
 echo "   Max 2    : " . $extractor->extract(['a', 'b', 'c', 'd'], 2) . "\n";

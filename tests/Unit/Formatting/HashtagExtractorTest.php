@@ -18,9 +18,9 @@ class HashtagExtractorTest extends TestCase
 
     public function testExtractBasicTags(): void
     {
-        $result = $this->extractor->extract(['php', 'owlstack']);
+        $result = $this->extractor->extract(['php', 'fopost']);
 
-        $this->assertSame('#php #owlstack', $result);
+        $this->assertSame('#php #fopost', $result);
     }
 
     public function testExtractStripsExistingHashSymbols(): void

@@ -71,10 +71,10 @@ if (! $valid) {
 echo "  Publishing test post to Facebook Page...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test post published to Facebook via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'facebook', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test post published to Facebook via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'facebook', 'test'],
 );
 
 $result = $facebook->publish($post);

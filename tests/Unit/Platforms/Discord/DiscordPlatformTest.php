@@ -169,7 +169,7 @@ class DiscordPlatformTest extends TestCase
             ->with(
                 $this->anything(),
                 $this->callback(function (array $options) {
-                    return $options['json']['username'] === 'Owlstack Bot'
+                    return $options['json']['username'] === 'FoPost Bot'
                         && $options['json']['tts'] === true;
                 })
             )
@@ -181,7 +181,7 @@ class DiscordPlatformTest extends TestCase
 
         $post = new Post(title: 'Custom', body: 'Content');
         $platform->publish($post, [
-            'username' => 'Owlstack Bot',
+            'username' => 'FoPost Bot',
             'tts' => true,
         ]);
     }

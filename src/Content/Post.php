@@ -7,7 +7,7 @@ namespace Fopost\Social\Content;
 /**
  * Represents a piece of content to be published to social platforms.
  *
- * This is the central value object in Owlstack. Framework packages
+ * This is the central value object in FoPost. Framework packages
  * construct Post instances from their own content models (Eloquent,
  * WP_Post, etc.) and pass them to the Publisher.
  */

@@ -65,9 +65,9 @@ if (! $valid) {
 echo "  Sending test message via WhatsApp...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test message sent via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
+    title: 'Hello from FoPost!',
+    body: 'This is a real test message sent via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
 );
 
 $result = $whatsapp->publish($post, [

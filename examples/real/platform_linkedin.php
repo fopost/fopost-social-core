@@ -78,10 +78,10 @@ if (! $valid) {
 echo "  Publishing test post to LinkedIn...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test post published to LinkedIn via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'linkedin', 'php'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test post published to LinkedIn via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'linkedin', 'php'],
 );
 
 $result = $linkedin->publish($post);

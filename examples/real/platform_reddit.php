@@ -74,10 +74,10 @@ if (! $valid) {
 echo "  Submitting test self-post to r/{$subreddit}...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test post submitted via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'reddit', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test post submitted via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'reddit', 'test'],
 );
 
 $result = $reddit->publish($post, [

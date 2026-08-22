@@ -81,11 +81,11 @@ $botCredentials = new PlatformCredentials('discord', [
 $botPlatform = new DiscordPlatform($botCredentials, $http, $formatter);
 
 $post = new Post(
-    title: 'New Release: Owlstack v2.0',
-    body: 'We just released Owlstack v2.0 with Discord integration! '
+    title: 'New Release: FoPost v2.0',
+    body: 'We just released FoPost v2.0 with Discord integration! '
         . 'Now you can publish content directly to your Discord channels.',
-    url: 'https://owlstack.com/releases/v2',
-    tags: ['release', 'owlstack', 'discord'],
+    url: 'https://fopost.com/releases/v2',
+    tags: ['release', 'fopost', 'discord'],
 );
 
 $result = $botPlatform->publish($post);
@@ -111,13 +111,13 @@ $webhookPlatform = new DiscordPlatform($webhookCredentials, $http, $formatter);
 
 $webhookPost = new Post(
     title: 'Automated Alert',
-    body: 'New blog post published: "Getting Started with Owlstack"',
-    url: 'https://owlstack.com/blog/getting-started',
+    body: 'New blog post published: "Getting Started with FoPost"',
+    url: 'https://fopost.com/blog/getting-started',
 );
 
 $webhookResult = $webhookPlatform->publish($webhookPost, [
-    'username' => 'Owlstack Bot',
-    'avatar_url' => 'https://owlstack.com/logo.png',
+    'username' => 'FoPost Bot',
+    'avatar_url' => 'https://fopost.com/logo.png',
 ]);
 echo "   Success: " . ($webhookResult->isSuccess() ? 'Yes' : 'No') . "\n";
 echo "   Message ID: " . $webhookResult->externalId() . "\n\n";

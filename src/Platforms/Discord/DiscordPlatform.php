@@ -253,7 +253,7 @@ class DiscordPlatform implements PlatformInterface
         return [
             'Authorization' => 'Bot ' . $token,
             'Content-Type' => 'application/json',
-            'User-Agent' => 'Owlstack (https://owlstack.com, 1.0)',
+            'User-Agent' => 'FoPost (https://fopost.com, 1.0)',
         ];
     }
 

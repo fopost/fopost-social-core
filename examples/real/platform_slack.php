@@ -74,10 +74,10 @@ if (! $valid) {
 echo "  Sending test message to Slack...\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'This is a real test message sent to Slack via the Owlstack Core library. 🦉',
-    url: 'https://owlstack.dev',
-    tags: ['owlstack', 'slack', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'This is a real test message sent to Slack via the FoPost Social Core library. 🦉',
+    url: 'https://fopost.com',
+    tags: ['fopost', 'slack', 'test'],
 );
 
 $result = $slack->publish($post);

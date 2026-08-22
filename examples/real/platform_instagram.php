@@ -66,9 +66,9 @@ echo "  Publishing test image to Instagram...\n";
 echo "  Image URL: {$imageUrl}\n";
 
 $post = new Post(
-    title: 'Hello from Owlstack!',
-    body: 'Testing the Owlstack Core library — publishing to Instagram. 🦉',
-    tags: ['owlstack', 'instagram', 'test'],
+    title: 'Hello from FoPost!',
+    body: 'Testing the FoPost Social Core library — publishing to Instagram. 🦉',
+    tags: ['fopost', 'instagram', 'test'],
 );
 
 $result = $instagram->publish($post, [

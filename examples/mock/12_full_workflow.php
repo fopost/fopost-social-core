@@ -41,7 +41,7 @@ use Fopost\Social\Platforms\Twitter\TwitterPlatform;
 use Fopost\Social\Publishing\Publisher;
 
 echo "╔══════════════════════════════════════════════════╗\n";
-echo "║   Owlstack Core — Full End-to-End Workflow       ║\n";
+echo "║   FoPost Social Core — Full End-to-End Workflow       ║\n";
 echo "╚══════════════════════════════════════════════════╝\n\n";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -69,7 +69,7 @@ $config = new FopostConfig(
         ],
     ],
     options: [
-        'default_tags' => ['owlstack'],
+        'default_tags' => ['fopost'],
     ],
 );
 
@@ -177,11 +177,11 @@ echo "   In-memory event dispatcher ready.\n\n";
 echo "STEP 5: Create Post\n";
 
 $post = new Post(
-    title: 'Owlstack Core v1.0 Released!',
-    body: 'We are proud to announce Owlstack Core v1.0 — a framework-agnostic PHP library that lets you publish content to multiple social media platforms with a single, unified API.',
-    url: 'https://owlstack.com/blog/v1-release',
-    excerpt: 'Owlstack Core v1.0 is here! Publish to Telegram, Twitter/X, and Facebook from one codebase.',
-    tags: ['owlstack', 'php', 'opensource', 'social-media'],
+    title: 'FoPost Social Core v1.0 Released!',
+    body: 'We are proud to announce FoPost Social Core v1.0 — a framework-agnostic PHP library that lets you publish content to multiple social media platforms with a single, unified API.',
+    url: 'https://fopost.com/blog/v1-release',
+    excerpt: 'FoPost Social Core v1.0 is here! Publish to Telegram, Twitter/X, and Facebook from one codebase.',
+    tags: ['fopost', 'php', 'opensource', 'social-media'],
     metadata: ['campaign' => 'v1-launch'],
 );
 

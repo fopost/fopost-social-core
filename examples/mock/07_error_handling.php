@@ -6,7 +6,7 @@ declare(strict_types=1);
 /**
  * Example 07: Error Handling
  *
- * Walks through every exception in the Owlstack hierarchy
+ * Walks through every exception in the FoPost hierarchy
  * and shows how to catch them at different levels.
  */
 
@@ -24,7 +24,7 @@ echo "=== Example 07: Error Handling ===\n\n";
 // ── 1. Base FopostException ───────────────────────────────────────────
 echo "1) FopostException (base)\n";
 try {
-    throw new FopostException('Something went wrong in Owlstack');
+    throw new FopostException('Something went wrong in FoPost');
 } catch (FopostException $e) {
     echo "   Message: {$e->getMessage()}\n\n";
 }
@@ -108,7 +108,7 @@ try {
 }
 
 // ── 7. Catching at the base level ───────────────────────────────────────
-echo "7) Polymorphic catch — all Owlstack exceptions\n";
+echo "7) Polymorphic catch — all FoPost exceptions\n";
 $exceptions = [
     new FopostException('base error'),
     new PlatformException('api error', 'telegram', 500),

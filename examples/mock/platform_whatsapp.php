@@ -128,7 +128,7 @@ echo "Caption     :\n{$formatter->formatCaption($post)}\n\n";
 echo "=== Text Message ===\n\n";
 
 $textPost = new Post(
-    title: 'Hello from Owlstack',
+    title: 'Hello from FoPost',
     body: 'This is a text message with a link preview.',
     url: 'https://example.com',
 );

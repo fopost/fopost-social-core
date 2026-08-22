@@ -44,12 +44,12 @@ class TelegramFormatterTest extends TestCase
 
     public function testFormatWithHashtags(): void
     {
-        $post = new Post(title: 'Title', body: 'Body', tags: ['php', 'owlstack']);
+        $post = new Post(title: 'Title', body: 'Body', tags: ['php', 'fopost']);
 
         $result = $this->formatter->format($post);
 
         $this->assertStringContainsString('#php', $result);
-        $this->assertStringContainsString('#owlstack', $result);
+        $this->assertStringContainsString('#fopost', $result);
     }
 
     public function testFormatCaptionMode(): void

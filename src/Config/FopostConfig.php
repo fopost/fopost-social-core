@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Fopost\Social\Config;
 
 /**
- * Central configuration object for Owlstack.
+ * Central configuration object for FoPost.
  *
  * Holds all settings: registered platform credentials, default options,
  * and feature flags. Framework packages populate this from their own
