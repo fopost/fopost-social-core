@@ -1,10 +1,10 @@
 {
-    "name": "owlstack/owlstack-core",
-    "description": "Framework-agnostic PHP core for Owlstack — content publishing and synchronization engine for social media platforms.",
+    "name": "fopost/social-core",
+    "description": "Framework-agnostic PHP core for FoPost: content publishing and synchronization engine for social media platforms.",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "owlstack",
+        "fopost",
         "social-media",
         "publishing",
         "telegram",
@@ -15,9 +15,8 @@
     ],
     "authors": [
         {
-            "name": "Ali Hesari",
-            "email": "ali@alihesari.com",
-            "homepage": "https://alihesari.com",
+            "name": "FoPost",
+            "homepage": "https://fopost.com",
             "role": "Developer"
         }
     ],
