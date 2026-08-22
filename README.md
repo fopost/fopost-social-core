@@ -1,11 +1,6 @@
-<p align="center">
-  <a href="https://fopost.com">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/fopost/fopost-docs/refs/heads/main/static/img/logo-light-transparent.png">
-      <img src="https://raw.githubusercontent.com/fopost/fopost-docs/refs/heads/main/static/img/logo-dark-transparent.png" alt="FoPost" height="200px">
-    </picture>
-  </a>
-</p>
+<h1 align="center">
+  <a href="https://fopost.com">FoPost Social Core</a>
+</h1>
 
 <p align="center">
   <strong>Framework-agnostic PHP core for social media publishing</strong>
