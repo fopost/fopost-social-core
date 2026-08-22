@@ -8,15 +8,15 @@
 
 ## Project Overview
 
-**OwlStack Core** is a framework-agnostic PHP library for publishing content across social media platforms.
+**FoPost Social Core** is a framework-agnostic PHP library for publishing content across social media platforms.
 
-> **Brand name:** "OwlStack" (capital S). The PHP namespace uses `Owlstack\Core\` (lowercase s) — this is intentional and cannot be changed.
+> **Brand name:** "FoPost" (capital F, capital P). The PHP namespace uses `Fopost\Social\` (capital F only): this is intentional and cannot be changed.
 
 | Property | Value |
 |----------|-------|
 | **Type** | Composer package (library, not application) |
-| **Namespace** | `Owlstack\Core\` maps to `src/` |
-| **Test Namespace** | `Owlstack\Core\Tests\` maps to `tests/` |
+| **Namespace** | `Fopost\Social\` maps to `src/` |
+| **Test Namespace** | `Fopost\Social\Tests\` maps to `tests/` |
 | **PHP Version** | 8.1+ (strict types required) |
 | **Dependencies** | Zero framework deps — only `ext-curl` and `ext-json` |
 | **License** | MIT |
@@ -31,10 +31,10 @@ Discord, Facebook, Instagram, LinkedIn, Pinterest, Reddit, Slack, Telegram, Tumb
 ## Architecture Rules
 
 1. **No framework dependencies.** Never import Laravel, Symfony, WordPress, or any framework classes. This package depends only on `ext-curl` and `ext-json`.
-2. **Contracts-first.** Infrastructure concerns (HTTP, events, storage) are defined as interfaces in `Contracts/` subdirectories. Framework packages (owlstack-laravel, owlstack-wordpress) provide implementations.
+2. **Contracts-first.** Infrastructure concerns (HTTP, events, storage) are defined as interfaces in `Contracts/` subdirectories. Framework packages (fopost-social-laravel, fopost-social-wp) provide implementations.
 3. **Immutable value objects.** `Post`, `Media`, `AccessToken`, `PublishResult`, and similar objects use `readonly` properties. No setters.
 4. **One class per file.** Every class, interface, enum, and trait lives in its own file.
-5. **Exception hierarchy.** All exceptions extend `Owlstack\Core\Exceptions\FopostException`.
+5. **Exception hierarchy.** All exceptions extend `Fopost\Social\Exceptions\FopostException`.
 
 ---
 
@@ -158,11 +158,11 @@ The `EventDispatcherInterface` contract (`src/Events/Contracts/`) allows framewo
 When adding a new social media platform, create these 4 files:
 
 ### 1. Formatter (`src/Platforms/{Name}/{Name}Formatter.php`)
-- Implements `Owlstack\Core\Formatting\Contracts\FormatterInterface`
+- Implements `Fopost\Social\Formatting\Contracts\FormatterInterface`
 - Methods: `format(Post $post, array $options = []): string`, `platform(): string`, `maxLength(): int`
 
 ### 2. Platform (`src/Platforms/{Name}/{Name}Platform.php`)
-- Implements `Owlstack\Core\Platforms\Contracts\PlatformInterface`
+- Implements `Fopost\Social\Platforms\Contracts\PlatformInterface`
 - Constructor takes: `PlatformCredentials`, `HttpClientInterface`, `{Name}Formatter`
 - Methods: `name()`, `publish()`, `delete()`, `validateCredentials()`, `constraints()`
 
@@ -366,7 +366,7 @@ git push origin fix/telegram-send-photo
 
 ## MANDATORY: Project Roadmap Reference
 
-The private project roadmap is available at `.roadmap/` (symlinked to `owlstack-roadmap` repository).
+The private project roadmap is available at `.roadmap/` (symlinked to the private roadmap repository).
 
 1. **READ** the roadmap before starting any task — understand priorities, planned features, and architecture decisions.
 2. **Consult** these files:

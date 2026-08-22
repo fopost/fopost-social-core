@@ -17,7 +17,7 @@
 
 | Item | Value |
 |------|-------|
-| Namespace | `Owlstack\Core\` maps to `src/` |
+| Namespace | `Fopost\Social\` maps to `src/` |
 | Tests | `./vendor/bin/phpunit` — all must pass before commit |
 | PHP | 8.1+ with `declare(strict_types=1)` |
 | Style | PSR-12, fully typed, no `mixed` unless necessary |
