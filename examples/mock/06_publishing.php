@@ -89,7 +89,7 @@ $truncator        = new CharacterTruncator();
 $telegram = new TelegramPlatform(
     credentials: new PlatformCredentials('telegram', [
         'api_token' => 'fake-token',
-        'channel_username' => '@owlstack_demo',
+        'channel_username' => '@fopost_demo',
     ]),
     httpClient: $http,
     formatter: new TelegramFormatter($hashtagExtractor, $truncator),

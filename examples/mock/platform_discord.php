@@ -40,7 +40,7 @@ $http = new class implements HttpClientInterface {
         return [
             'status' => 200,
             'headers' => [],
-            'body' => json_encode(['id' => '123456789', 'username' => 'OwlstackBot']),
+            'body' => json_encode(['id' => '123456789', 'username' => 'FopostBot']),
         ];
     }
     public function post(string $url, array $options = []): array

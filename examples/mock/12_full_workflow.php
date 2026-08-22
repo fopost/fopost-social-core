@@ -53,7 +53,7 @@ $config = new FopostConfig(
     platforms: [
         'telegram' => [
             'api_token' => '123456789:ABCdefGHIjklMNOpqrsTUVwxyz',
-            'channel_username' => '@owlstack_news',
+            'channel_username' => '@fopost_news',
         ],
         'twitter' => [
             'consumer_key' => 'ck_demo',

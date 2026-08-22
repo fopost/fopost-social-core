@@ -259,7 +259,7 @@ class DiscordPlatformTest extends TestCase
             ->willReturn([
                 'status' => 200,
                 'headers' => [],
-                'body' => json_encode(['id' => '123', 'username' => 'OwlstackBot']),
+                'body' => json_encode(['id' => '123', 'username' => 'FopostBot']),
             ]);
 
         $this->assertTrue($platform->validateCredentials());

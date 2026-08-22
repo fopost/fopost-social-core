@@ -164,7 +164,7 @@ class HttpClient implements HttpClientInterface
 
             if (isset($part['filename'])) {
                 // File upload — write contents to a temp file for CURLFile
-                $tmpFile = tempnam(sys_get_temp_dir(), 'owlstack_');
+                $tmpFile = tempnam(sys_get_temp_dir(), 'fopost_');
                 file_put_contents($tmpFile, $contents);
                 $tempFiles[] = $tmpFile;
 
